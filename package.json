@@ -1,0 +1,13 @@
+{
+  "name": "antropos",
+  "version": "1.0.0",
+  "description": "ANTROPOS \u2014 orientative scientific profile (PhenoAge, voice, handwriting, clock, TIPI, reaction), local and offline.",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "node tests/app.test.mjs && node tests/antroposx.test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}

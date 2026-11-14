@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "slug": "antropos",
+  "name": "ANTROPOS — profil științific al persoanei",
+  "version": "1.0.0",
+  "updated": "2026-11-14",
+  "description": "ANTROPOS — profil științific orientativ: vârstă biologică PhenoAge, voce, scris, ceas, TIPI, reacție. Local, offline, fără urmărire; nu este diagnostic.",
+  "egress": [],
+  "permissions": [
+    "getUserMedia",
+    "localStorage"
+  ],
+  "storageKeys": [
+    "antropos_v1"
+  ],
+  "sizeBytes": 184376,
+  "sha256": "90e7776a31e9ae248c8b68e8270dc43d8f28df4b9adc02bd5444766dc955b32f",
+  "csp": {
+    "present": true,
+    "directives": {
+      "default-src": "'none'",
+      "style-src": "'unsafe-inline'",
+      "script-src": "sha256×2",
+      "img-src": "data:",
+      "media-src": "blob: data:",
+      "connect-src": "'none'",
+      "base-uri": "'none'",
+      "form-action": "'none'"
+    },
+    "scriptInline": "hash",
+    "connect": "'none'"
+  },
+  "features": {
+    "export": true,
+    "import": true,
+    "i18n": [],
+    "pwa": {
+      "manifest": false,
+      "serviceWorker": false
+    },
+    "modules": [
+      "core",
+      "store",
+      "dialog",
+      "ux",
+      "label"
+    ]
+  },
+  "kit": {
+    "version": "1.5.0",
+    "modules": [
+      "core",
+      "store",
+      "dialog",
+      "ux",
+      "label"
+    ]
+  },
+  "selfSerializing": false
+}

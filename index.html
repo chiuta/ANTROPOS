@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html lang="ro" data-fff-hash="90e7776a31e9ae248c8b68e8270dc43d8f28df4b9adc02bd5444766dc955b32f">
+<head>
+<meta charset="utf-8">
+<!--fff:kit:start v=1 modules=core,store,dialog,ux,label-->
+<meta name="fff-app" content="antropos">
+<meta name="fff-modules" content="core,store,dialog,ux,label">
+<style id="fff-style">/* fff-kit · stil comun (prefix fff-). Nu modifică stilul aplicației gazdă. */
+[data-fff-label]{cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+[data-fff-label]:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:3px}
+#app-version[data-fff-label]{box-sizing:border-box;min-height:24px;min-width:24px}
+#app-version[data-fff-label][data-fff-inl]{display:inline-flex;align-items:center;vertical-align:middle}
+#app-version[data-fff-label][data-fff-fs],#app-version[data-fff-label] [data-fff-fs]{font-size:12px!important}
+.fff-dlg{--_bg:var(--fff-bg,#fff);--_fg:var(--fff-fg,#1b1b1f);--_mut:var(--fff-muted,#4a4d57);--_line:var(--fff-line,#c4c7d0);--_btn:var(--fff-btn,#eef0f4);--_pri:var(--fff-accent,#0b57d0);--_prif:var(--fff-accent-fg,#fff);--_bad:var(--fff-bad,#b3261e);--_ok:var(--fff-ok,#146c2e);--_note:#fff1c9;--_notef:#3d2e00;
+  box-sizing:border-box;width:min(42rem,calc(100vw - 2rem));max-width:calc(100vw - 2rem);max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);margin:auto;padding:0;overflow:auto;
+  border:1px solid var(--_line);border-radius:12px;background:var(--_bg);color:var(--_fg);font:14px/1.5 var(--fff-font,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);text-align:left;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.fff-dlg.fff-dark{--_bg:var(--fff-bg,#1e1f24);--_fg:var(--fff-fg,#ececf1);--_mut:var(--fff-muted,#b7bbc7);--_line:var(--fff-line,#4a4d57);--_btn:var(--fff-btn,#2c2e36);--_pri:var(--fff-accent,#a8c7fa);--_prif:var(--fff-accent-fg,#062e6f);--_bad:var(--fff-bad,#f2b8b5);--_ok:var(--fff-ok,#8fd9a0);--_note:#3b3118;--_notef:#f6e3a6;color-scheme:dark}
+@media (prefers-color-scheme:dark){.fff-dlg:not(.fff-light){--_bg:var(--fff-bg,#1e1f24);--_fg:var(--fff-fg,#ececf1);--_mut:var(--fff-muted,#b7bbc7);--_line:var(--fff-line,#4a4d57);--_btn:var(--fff-btn,#2c2e36);--_pri:var(--fff-accent,#a8c7fa);--_prif:var(--fff-accent-fg,#062e6f);--_bad:var(--fff-bad,#f2b8b5);--_ok:var(--fff-ok,#8fd9a0);--_note:#3b3118;--_notef:#f6e3a6;color-scheme:dark}}
+.fff-dlg::backdrop{background:rgba(0,0,0,.55)}
+.fff-dlg-sm{width:min(26rem,calc(100vw - 2rem))}
+.fff-dlg *,.fff-dlg *::before,.fff-dlg *::after{box-sizing:border-box}
+.fff-dlg .fff-in{padding:16px 20px 20px}
+.fff-dlg .fff-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 8px}
+.fff-dlg h2{margin:0;font-family:inherit;font-size:1.25rem;font-weight:700;line-height:1.3;color:var(--_fg);letter-spacing:0;text-transform:none}
+.fff-dlg h3{margin:0 0 6px;font-family:inherit;font-size:1rem;font-weight:700;line-height:1.35;color:var(--_fg);letter-spacing:0;text-transform:none}
+.fff-dlg p{margin:0 0 8px;color:var(--_fg);font-size:inherit}
+.fff-dlg .fff-mut{color:var(--_mut)}
+.fff-dlg p.fff-mut{color:var(--_mut)}
+.fff-dlg .fff-sm{font-size:.85rem}
+.fff-dlg .fff-lead{font-size:1.05rem}
+.fff-dlg .fff-sec{border-top:1px solid var(--_line);padding-top:12px;margin-top:12px}
+.fff-dlg .fff-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;overflow-wrap:anywhere}
+.fff-dlg .fff-break{word-break:break-all}
+.fff-dlg code{background:none;border:0;padding:0;color:inherit}
+.fff-dlg .fff-list{margin:0 0 8px;padding-left:1.2rem;list-style:disc}
+.fff-dlg .fff-list li{margin:2px 0;color:var(--_fg)}
+.fff-dlg .fff-cols{columns:2 14rem}
+.fff-dlg .fff-tbl{width:100%;table-layout:fixed;border-collapse:collapse;margin:0 0 8px}
+.fff-dlg .fff-tbl th,.fff-dlg .fff-tbl td{padding:3px 6px;border-bottom:1px solid var(--_line);text-align:left;vertical-align:top;color:var(--_fg)}
+.fff-dlg .fff-tbl th.fff-num,.fff-dlg .fff-tbl td.fff-num{text-align:right;width:6.5rem;white-space:nowrap}
+.fff-dlg .fff-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.fff-dlg .fff-row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.fff-dlg .fff-end{justify-content:flex-end}
+.fff-dlg .fff-btn{appearance:none;min-height:36px;min-width:36px;padding:6px 14px;border:1px solid var(--_line);border-radius:8px;background:var(--_btn);color:var(--_fg);font:inherit;font-weight:600;cursor:pointer;text-transform:none;letter-spacing:0;box-shadow:none}
+.fff-dlg .fff-btn:hover{border-color:var(--_fg)}
+.fff-dlg .fff-btn:focus-visible,.fff-dlg .fff-input:focus-visible,.fff-dlg summary:focus-visible,.fff-dlg .fff-pre:focus-visible{outline:2px solid var(--_fg);outline-offset:2px}
+.fff-dlg .fff-primary{background:var(--_pri);color:var(--_prif);border-color:transparent}
+.fff-dlg .fff-danger{background:var(--_bad);color:var(--_bg)}
+.fff-dlg .fff-danger-o{color:var(--_bad);border-color:var(--_bad)}
+.fff-dlg .fff-x{font-size:1.4rem;line-height:1;padding:2px 10px}
+.fff-dlg .fff-box{border:1px solid var(--_line);border-radius:8px;padding:10px;margin:0 0 8px}
+.fff-dlg [hidden]{display:none}
+.fff-dlg .fff-field{display:flex;flex-direction:column;gap:2px;margin:0 0 8px}
+.fff-dlg .fff-field label{font-weight:600}
+.fff-dlg .fff-input{width:100%;min-height:36px;padding:6px 10px;border:1px solid var(--_line);border-radius:6px;background:var(--_bg);color:var(--_fg);font:inherit}
+.fff-dlg .fff-note{background:var(--_note);color:var(--_notef);padding:8px 10px;border-radius:8px}
+.fff-dlg .fff-res{min-height:1.5em}
+.fff-dlg .fff-ok{color:var(--_ok);font-weight:600}
+.fff-dlg .fff-bad{color:var(--_bad);font-weight:600}
+.fff-dlg .fff-det{margin:0 0 8px}
+.fff-dlg .fff-det summary{cursor:pointer;font-weight:600;min-height:24px}
+.fff-dlg .fff-pre{margin:6px 0 0;padding:8px 10px;overflow:auto;white-space:pre-wrap;word-break:break-all;border:1px solid var(--_line);border-radius:6px;background:var(--_btn);color:var(--_fg)}
+.fff-dlg .fff-foot{border-top:1px solid var(--_line);margin-top:12px;padding-top:10px}
+.fff-dlg .fff-msg{font-size:1rem;margin-bottom:14px;white-space:pre-line;overflow-wrap:anywhere}
+.fff-chip{appearance:none;background:none;border:1px dotted currentColor;border-radius:6px;color:inherit;font:inherit;font-size:.85em;cursor:pointer;min-height:24px;min-width:24px;padding:0 8px}
+.fff-chip{font-size:max(12px,.85em)}
+.fff-chip:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+@media (pointer:coarse){.fff-dlg .fff-btn,.fff-dlg .fff-input{min-height:44px}.fff-dlg .fff-btn{min-width:44px}.fff-dlg .fff-det summary{min-height:44px}}
+@media (prefers-reduced-motion:no-preference){.fff-dlg[open]{animation:fff-in .12s ease-out}@keyframes fff-in{from{transform:translateY(6px)}to{transform:none}}}
+@media (prefers-reduced-motion:reduce){.fff-dlg,.fff-dlg *{animation:none!important;transition:none!important}}
+.fff-dlg .fff-dt{margin:0 0 8px}
+.fff-dlg .fff-ta{resize:vertical;min-height:4.5em}
+.fff-dlg textarea.fff-input{font:inherit}
+.fff-toasts{--_tbg:var(--fff-toast-bg,#2b2d33);--_tfg:var(--fff-toast-fg,#f4f4f7);--_tac:var(--fff-toast-accent,#a8c7fa);
+  position:fixed;inset:auto 0 0 0;margin:0;padding:0 16px 16px;border:0;background:transparent;overflow:visible;z-index:2147483000;pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:8px;font:14px/1.45 var(--fff-font,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);color:var(--_tfg);box-sizing:border-box}
+.fff-toasts *{box-sizing:border-box}
+.fff-toast-reg{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%}
+.fff-toast-reg:empty{display:none}
+.fff-toast{pointer-events:auto;display:flex;align-items:center;gap:10px;max-width:min(34rem,100%);padding:10px 12px 10px 14px;border-radius:10px;background:var(--_tbg);color:var(--_tfg);border:1px solid rgba(255,255,255,.18);border-left:6px solid #a8c7fa;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.fff-toast-success{border-left-color:#81c995}.fff-toast-warning{border-left-color:#fdd663}.fff-toast-error{border-left-color:#f28b82}
+.fff-toast-msg{flex:1 1 auto;min-width:0;overflow-wrap:anywhere;white-space:pre-line}
+.fff-toast .fff-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.fff-toast .fff-btn{appearance:none;min-height:32px;min-width:32px;padding:2px 10px;border:1px solid rgba(255,255,255,.35);border-radius:8px;background:transparent;color:var(--_tac);font:inherit;font-weight:600;cursor:pointer}
+.fff-toast .fff-toast-x{font-size:1.3rem;line-height:1;color:var(--_tfg);padding:0 8px}
+.fff-toast .fff-btn:focus-visible{outline:2px solid var(--_tfg);outline-offset:2px}
+@media (pointer:coarse){.fff-toast .fff-btn{min-height:44px;min-width:44px}}
+@media (prefers-reduced-motion:no-preference){.fff-toast{animation:fff-tin .16s ease-out}@keyframes fff-tin{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}}
+@media (prefers-reduced-motion:reduce){.fff-toast{animation:none!important}}
+/* fff-kit · ux — confort la atingere. Specificitate 0 (:where) unde se poate: stilul propriu al aplicației are prioritate. */
+:where(:root:not([data-fff-ux="off"]) a, :root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) input, :root:not([data-fff-ux="off"]) select, :root:not([data-fff-ux="off"]) textarea, :root:not([data-fff-ux="off"]) summary, :root:not([data-fff-ux="off"]) label, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) [role=menuitem], :root:not([data-fff-ux="off"]) [role=switch], :root:not([data-fff-ux="off"]) [role=checkbox]){touch-action:manipulation}
+:where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) summary){-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+:where(html:not([data-fff-ux="off"])){scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+:where(:root:not([data-fff-ux="off"]) body){overflow-wrap:break-word}
+:where(:root:not([data-fff-ux="off"]) button:not(:disabled), :root:not([data-fff-ux="off"]) [role=button]){cursor:pointer}
+:where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) summary, :root:not([data-fff-ux="off"]) [role=tab]):active:not(:disabled){filter:brightness(.92)}
+@media (prefers-reduced-motion:reduce){:where(html:not([data-fff-ux="off"])){scroll-behavior:auto}}
+@media (pointer:coarse){
+  /* ținte de atingere de cel puțin 44×44 px (WCAG 2.5.5 / Apple HIG); min-* nu strică înălțimile proprii mai mari */
+  :where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) [role=menuitem], :root:not([data-fff-ux="off"]) summary, :root:not([data-fff-ux="off"]) select, :root:not([data-fff-ux="off"]) textarea, :root:not([data-fff-ux="off"]) input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=hidden]):not([type=color]):not([type=file])){min-height:44px}
+  :where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) [role=menuitem]){min-width:44px}
+  :where(:root:not([data-fff-ux="off"]) input[type=checkbox], :root:not([data-fff-ux="off"]) input[type=radio]){min-width:22px;min-height:22px}
+  :where(:root:not([data-fff-ux="off"]) label:has(input[type=checkbox]), :root:not([data-fff-ux="off"]) label:has(input[type=radio])){min-height:44px;display:inline-flex;align-items:center;gap:.5em}
+  :root:not([data-fff-ux="off"]) [data-fff-hit]{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+  /* iOS mărește pagina la focus dacă textul câmpului e sub 16 px */
+  :root:not([data-fff-ux="off"]) input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]):not([type=file]):not([type=hidden]):not([data-fff-nouxfont]),:root:not([data-fff-ux="off"]) select:not([data-fff-nouxfont]),:root:not([data-fff-ux="off"]) textarea:not([data-fff-nouxfont]){font-size:max(16px,1em)}
+}</style>
+<script id="fff-kit">/* fff-kit 1.5.0 */
+/* ---- fff-kit/core ---- */
+/* fff-kit · core · v1.2.0 — fără rețea, fără dependențe. Definește window.FFF. */
+(function () {
+  'use strict';
+  /* anti-clickjacking: GitHub Pages nu trimite X-Frame-Options; dacă pagina e încadrată de o origine străină (sau într-un iframe sandbox),
+     conținutul aplicației e ascuns și apare doar un mesaj minimal tradus cu un link către pagină într-o fereastră nouă. */
+  function frameGuard() {
+    var M = {
+      ro: ['Această pagină nu poate fi încadrată în alt site.', 'Deschide-o într-o fereastră nouă'],
+      en: ['This page cannot be embedded in another site.', 'Open it in a new window'],
+      fr: ['Cette page ne peut pas être intégrée dans un autre site.', 'Ouvrez-la dans une nouvelle fenêtre'],
+      it: ['Questa pagina non può essere incorporata in un altro sito.', 'Aprila in una nuova finestra'],
+      es: ['Esta página no se puede incrustar en otro sitio.', 'Ábrela en una ventana nueva'],
+      pt: ['Esta página não pode ser incorporada noutro site.', 'Abra-a numa nova janela'],
+      hu: ['Ez az oldal nem ágyazható be másik webhelyre.', 'Nyisd meg új ablakban'],
+      de: ['Diese Seite kann nicht in eine andere Website eingebettet werden.', 'In einem neuen Fenster öffnen']
+    };
+    var d = document, de = d.documentElement;
+    var l = (de.getAttribute('lang') || '').slice(0, 2).toLowerCase();
+    if (!M[l]) l = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+    var m = M[l] || M.en, box = null;
+    function hideKids(b) {
+      for (var i = 0; i < b.children.length; i++) if (b.children[i] !== box) b.children[i].style.setProperty('display', 'none', 'important');
+    }
+    function build() {
+      var b = d.body;
+      if (!b || box) return;
+      box = d.createElement('div');
+      box.setAttribute('data-fff-frameguard', '');
+      box.setAttribute('role', 'alert');
+      box.style.cssText = 'display:block;box-sizing:border-box;margin:0;padding:24px 16px;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#1b1b1f;background:#fff;text-align:center';
+      var p = d.createElement('p'); p.textContent = m[0]; p.style.cssText = 'margin:0 0 12px';
+      var a = d.createElement('a');
+      a.href = window.self.location.href; a.target = '_blank'; a.rel = 'noopener'; a.textContent = m[1];
+      a.style.cssText = 'color:#0b57d0;text-decoration:underline;font-weight:600';
+      box.appendChild(p); box.appendChild(a);
+      hideKids(b);
+      b.appendChild(box);
+      b.style.setProperty('display', 'block', 'important');
+      de.style.display = '';
+      if (window.MutationObserver) new MutationObserver(function () { hideKids(b); if (box.parentNode !== b) b.appendChild(box); }).observe(b, {childList: true});
+    }
+    if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', build); else build();
+  }
+  try {
+    if (window.top !== window.self) {
+      var __cross = false;
+      try { void window.top.location.href; } catch (e) { __cross = true; }
+      if (__cross) {
+        document.documentElement.style.display = 'none';   // ascuns până când mesajul e gata (nimic din aplicație nu rămâne vizibil)
+        try { window.top.location = window.self.location.href; } catch (e2) {}
+        try { frameGuard(); } catch (e4) {}
+      }
+    }
+  } catch (e3) {}
+  var KIT_VERSION = '1.5.0';
+  var F = (window.FFF = window.FFF || {});
+  if (F.core && F.core.version) return; // idempotent la dublă încărcare
+  var SUP = ['ro', 'en', 'fr', 'it', 'es', 'pt', 'hu', 'de'];
+  var doc = document;
+
+  /* ---------- clipboard sigur: refuzul de permisiune nu mai produce o excepție neprinsă ----------
+   * navigator.clipboard.writeText respinge cu NotAllowedError când pagina nu are focus sau permisiunea e refuzată.
+   * Încercăm întâi API-ul, apoi execCommand('copy'); dacă nici acesta nu merge, respingerea rămâne (apelantul o poate prinde),
+   * dar dacă nimeni n-o prinde, o marcăm ca tratată, ca pagina să rămână stabilă. */
+  try {
+    var cb = navigator.clipboard;
+    if (cb && typeof cb.writeText === 'function' && !cb.__fffSafe) {
+      var rawWrite = cb.writeText.bind(cb);
+      var legacyCopy = function (t) {
+        var ta = doc.createElement('textarea');
+        ta.value = String(t); ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0';
+        (doc.body || doc.documentElement).appendChild(ta); ta.select();
+        var ok = false; try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+        ta.remove(); return ok;
+      };
+      cb.writeText = function (t) {
+        var p; try { p = rawWrite(t); } catch (e) { p = Promise.reject(e); }
+        return p.catch(function (err) { if (legacyCopy(t)) return; throw err; });
+      };
+      try { Object.defineProperty(cb, '__fffSafe', {value: true}); } catch (e) { cb.__fffSafe = true; }
+    }
+  } catch (e5) {}
+  window.addEventListener('unhandledrejection', function (ev) {
+    var r = ev && ev.reason;
+    if (r && (r.name === 'NotAllowedError' || r.name === 'SecurityError') && /clipboard|permission/i.test(String(r.message || ''))) ev.preventDefault();
+  });
+
+  /* ---------- meta / app ---------- */
+  function meta(name) {
+    var m = doc.querySelector('meta[name="' + name + '"]');
+    return m ? (m.getAttribute('content') || '') : '';
+  }
+  function guessSlug() {
+    var p = (location.pathname || '').split('/').filter(Boolean);
+    var s = p.length ? p[p.length - 1] : '';
+    if (/\.html?$/i.test(s)) s = p.length > 1 ? p[p.length - 2] : '';
+    s = s.toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '');
+    return s || 'app';
+  }
+  var SLUG = (meta('fff-app') || '').trim() || guessSlug();
+  var DISABLED = (meta('fff-disable') || '').trim() || '';
+  function computeApp() {
+    return {slug: SLUG, name: doc.title || SLUG, version: meta('application-version'), updated: meta('last-updated')};
+  }
+  var appCache = null;
+  Object.defineProperty(F, 'app', {
+    enumerable: true, configurable: true,
+    get: function () {
+      if (doc.readyState === 'loading') return computeApp();
+      return appCache || (appCache = computeApp());
+    }
+  });
+
+  /* ---------- bus ---------- */
+  var L = {};
+  var bus = {
+    on: function (ev, fn) { (L[ev] = L[ev] || []).push(fn); return function () { bus.off(ev, fn); }; },
+    off: function (ev, fn) { if (L[ev]) L[ev] = L[ev].filter(function (f) { return f !== fn; }); },
+    once: function (ev, fn) { var off = bus.on(ev, function (d) { off(); fn(d); }); return off; },
+    emit: function (ev, data) {
+      (L[ev] || []).slice().forEach(function (f) { try { f(data); } catch (e) { if (window.console) console.error('[fff] bus', ev, e); } });
+    }
+  };
+  F.bus = bus;
+
+  /* ---------- i18n ---------- */
+  var I18N = (F._i18n = F._i18n || {});
+  var i18nLoaded = false;
+  function mergeLang(mod, obj) {
+    var d = (I18N[mod] = I18N[mod] || {});
+    for (var l in obj) if (Object.prototype.hasOwnProperty.call(obj, l)) {
+      d[l] = Object.assign(d[l] || {}, obj[l]);
+    }
+  }
+  function loadI18nJson() {
+    var el = doc.getElementById('fff-i18n');
+    if (!el) return;
+    i18nLoaded = true;
+    try {
+      var j = JSON.parse(el.textContent || '{}');
+      for (var m in j) if (Object.prototype.hasOwnProperty.call(j, m)) mergeLang(m, j[m]);
+    } catch (e) { if (window.console) console.error('[fff] i18n', e); }
+  }
+  F.registerI18n = function (mod, obj) { mergeLang(mod, obj || {}); };
+  function lsGetRaw(k) { try { return LS ? origGet.call(LS, k) : null; } catch (e) { return null; } }
+
+  var LS = null;
+  try { LS = window.localStorage; } catch (e) { LS = null; }
+  var P = window.Storage ? window.Storage.prototype : null;
+  var origGet = P && P.getItem, origSet = P && P.setItem, origRem = P && P.removeItem, origClr = P && P.clear;
+
+  F.lang = function () {
+    var l = (doc.documentElement.getAttribute('lang') || '').slice(0, 2).toLowerCase();
+    if (SUP.indexOf(l) >= 0) return l;
+    var ks = ['lang', 'language', 'locale'];
+    for (var i = 0; i < ks.length; i++) {
+      var v = lsGetRaw(ks[i]);
+      if (v) { v = String(v).replace(/^"|"$/g, '').slice(0, 2).toLowerCase(); if (SUP.indexOf(v) >= 0) return v; }
+    }
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+    return SUP.indexOf(n) >= 0 ? n : 'en';
+  };
+  var langObs = null, langFns = [];
+  F.onLang = function (fn) {
+    langFns.push(fn);
+    if (!langObs && window.MutationObserver) {
+      var last = F.lang();
+      langObs = new MutationObserver(function () {
+        var now = F.lang();
+        if (now === last) return;
+        last = now;
+        langFns.slice().forEach(function (f) { try { f(now); } catch (e) { if (window.console) console.error(e); } });
+        bus.emit('lang', now);
+      });
+      langObs.observe(doc.documentElement, {attributes: true, attributeFilter: ['lang']});
+    }
+    return function () { langFns = langFns.filter(function (f) { return f !== fn; }); };
+  };
+  F.t = function (mod, key, vars) {
+    if (!i18nLoaded) loadI18nJson();
+    var d = I18N[mod] || {};
+    var s = (d[F.lang()] || {})[key];
+    if (s == null) s = (d.en || {})[key];
+    if (s == null) s = (d.ro || {})[key];
+    if (s == null) s = key;
+    if (vars) for (var k in vars) if (Object.prototype.hasOwnProperty.call(vars, k)) s = String(s).split('{' + k + '}').join(String(vars[k]));
+    return s;
+  };
+
+  /* ---------- observator de stocare ---------- */
+  var INDEX_KEY = 'fff.' + SLUG + '.__keys';
+  var PFX = 'fff.' + SLUG + '.';
+  var idx = null; // Set de chei ale aplicației (fără prefix fff.)
+  function loadIdx() {
+    if (idx) return idx;
+    idx = new Set();
+    try {
+      var raw = origGet && LS ? origGet.call(LS, INDEX_KEY) : null;
+      if (raw) JSON.parse(raw).forEach(function (k) { if (typeof k === 'string') idx.add(k); });
+    } catch (e) { /* index corupt: se reface */ }
+    return idx;
+  }
+  function saveIdx() {
+    try { if (LS && origSet) origSet.call(LS, INDEX_KEY, JSON.stringify(Array.from(idx).sort())); } catch (e) { /* plin: ignorat */ }
+  }
+  /* momentul ultimei scrieri pe cheie (folosit de FFF.sync): {cheie: ms}, în fff.<slug>.__mt (exclus din chei/export, ca __keys), scris cu amânare */
+  var MT_KEY = 'fff.' + SLUG + '.__mt', mt = null, mtTimer = 0;
+  function loadMt() {
+    if (mt) return mt;
+    mt = Object.create(null);
+    try {
+      var raw = origGet && LS ? origGet.call(LS, MT_KEY) : null;
+      if (raw) { var o = JSON.parse(raw); Object.keys(o).forEach(function (k) { if (typeof o[k] === 'number') mt[k] = o[k]; }); }
+    } catch (e) { /* corupt: se reface */ }
+    return mt;
+  }
+  function touch(k) {
+    k = String(k);
+    if (k.indexOf('fff.') === 0) return;
+    loadMt()[k] = Date.now();
+    if (mtTimer) return;
+    mtTimer = setTimeout(function () {
+      mtTimer = 0;
+      try { if (LS && origSet) origSet.call(LS, MT_KEY, JSON.stringify(mt)); } catch (e) { /* plin: ignorat */ }
+    }, 400);
+  }
+  F.mtime = function (k) { return loadMt()[String(k)] || 0; };
+  F.mtimeClear = function () { mt = Object.create(null); clearTimeout(mtTimer); mtTimer = 0; try { if (LS && origRem) origRem.call(LS, MT_KEY); } catch (e) { /* ignorat */ } };
+  function track(k) {
+    k = String(k);
+    if (k.indexOf('fff.') === 0) return;
+    var s = loadIdx();
+    if (!s.has(k)) { s.add(k); saveIdx(); }
+  }
+  function untrack(k) {
+    k = String(k);
+    var s = loadIdx();
+    if (s.delete(k)) saveIdx();
+  }
+  var observing = false;
+  if (!DISABLED && LS && P && origGet && origSet && origRem && origClr) {
+    try {
+      P.getItem = function getItem(k) {
+        var v = origGet.apply(this, arguments);
+        if (v !== null && this === LS) { try { track(k); } catch (e) { /* nu strica aplicația */ } }
+        return v;
+      };
+      P.setItem = function setItem(k, v) {
+        var r = origSet.apply(this, arguments);
+        if (this === LS) { try { track(k); touch(k); } catch (e) { /* idem */ } }
+        return r;
+      };
+      P.removeItem = function removeItem(k) {
+        var r = origRem.apply(this, arguments);
+        if (this === LS) { try { untrack(k); } catch (e) { /* idem */ } }
+        return r;
+      };
+      P.clear = function clear() {
+        var r = origClr.apply(this, arguments);
+        if (this === LS) { idx = new Set(); }
+        return r;
+      };
+      observing = true;
+    } catch (e) { observing = false; }
+  }
+
+  /* ---------- FFF.store ---------- */
+  var mem = Object.create(null), frozen = false;   // fără prototip: chei ca __proto__/constructor/toString sunt chei obișnuite
+  function lsOk() { return !!(LS && origGet); }
+  var store = {
+    get: function (k, d) {
+      if (lsOk()) {
+        try { var v = origGet.call(LS, PFX + k); if (v == null) return d; return JSON.parse(v); } catch (e) { /* cade în memorie */ }
+      }
+      return Object.prototype.hasOwnProperty.call(mem, k) ? mem[k] : d;
+    },
+    set: function (k, v) {
+      if (frozen) return false;
+      if (lsOk()) {
+        try { origSet.call(LS, PFX + k, JSON.stringify(v)); delete mem[k]; return true; } catch (e) { /* memorie */ }
+      }
+      mem[k] = v; return false;
+    },
+    remove: function (k) {
+      if (frozen) return;
+      if (lsOk()) { try { origRem.call(LS, PFX + k); } catch (e) { /* ignorat */ } }
+      delete mem[k];
+    },
+    keys: function () {
+      var out = [];
+      try {
+        if (LS) for (var i = 0; i < LS.length; i++) {
+          var n = LS.key(i);
+          if (n && n.indexOf(PFX) === 0 && n !== INDEX_KEY && n !== MT_KEY) out.push(n.slice(PFX.length));
+        }
+      } catch (e) { /* ignorat */ }
+      Object.keys(mem).forEach(function (k) { if (out.indexOf(k) < 0) out.push(k); });
+      return out.sort();
+    },
+    /** Cheile (nume complete din localStorage) care aparțin aplicației: indexate + ale kitului (fff.<slug>.*). */
+    indexKeys: function () {
+      var out = new Set();
+      var present = Object.create(null);
+      try { if (LS) for (var i = 0; i < LS.length; i++) present[LS.key(i)] = 1; } catch (e) { /* ignorat */ }
+      loadIdx().forEach(function (k) { if (present[k]) out.add(k); });
+      Object.keys(present).forEach(function (n) { if (n.indexOf(PFX) === 0 && n !== INDEX_KEY && n !== MT_KEY) out.add(n); });
+      return Array.from(out).sort();
+    },
+    /** Citire/scriere brută pentru modulele kitului (ocolește observatorul). */
+    raw: {
+      get: function (k) { return lsOk() ? origGet.call(LS, k) : null; },
+      set: function (k, v) { if (frozen) return; if (!lsOk()) throw new Error('no-storage'); origSet.call(LS, k, v); },
+      remove: function (k) { if (!frozen && lsOk()) origRem.call(LS, k); }
+    },
+    prefix: PFX,
+    indexKey: INDEX_KEY,
+    mtKey: MT_KEY,
+    /** Blochează orice scriere în stocare până la reîncărcare (restaurare/ștergere): handlerele pagehide/beforeunload ale aplicației
+     *  nu mai pot suprascrie datele tocmai scrise. Înlocuiește Storage.prototype.setItem/removeItem/clear cu no-op, oprește put/add/delete/clear
+     *  din IndexedDB și blochează scrierile FFF.store. NU poate opri atribuirea directă localStorage.cheie = valoare. Ireversibil (până la reload). */
+    freeze: function () {
+      if (frozen) return;
+      frozen = true;
+      var noop = function () {};
+      if (P) ['setItem', 'removeItem', 'clear'].forEach(function (n) {
+        try { Object.defineProperty(P, n, {value: noop, writable: true, configurable: true}); } catch (e) { try { P[n] = noop; } catch (e2) { /* ignorat */ } }
+      });
+      try {
+        var OS = window.IDBObjectStore && window.IDBObjectStore.prototype;
+        if (OS) {
+          var fake = function () {
+            return {readyState: 'pending', result: undefined, error: null, onsuccess: null, onerror: null,
+              addEventListener: noop, removeEventListener: noop, dispatchEvent: function () { return false; }};
+          };
+          ['put', 'add', 'delete', 'clear'].forEach(function (n) { try { Object.defineProperty(OS, n, {value: fake, writable: true, configurable: true}); } catch (e) { /* ignorat */ } });
+        }
+      } catch (e3) { /* ignorat */ }
+    },
+    frozen: function () { return frozen; },
+    forget: function (k) { if (observing) untrack(k); },
+    remember: function (k) { if (observing) track(k); },
+    available: function () { return lsOk(); },
+    observing: function () { return observing; }
+  };
+  F.store = store;
+
+  /* ---------- sha256 ---------- */
+  var K256 = null, H256 = null;
+  function frac(x) { return Math.floor((x - Math.floor(x)) * 4294967296) >>> 0; }
+  function initConsts() {
+    K256 = []; H256 = [];
+    for (var n = 2, c = 0; c < 64; n++) {
+      var p = true;
+      for (var d = 2; d * d <= n; d++) if (n % d === 0) { p = false; break; }
+      if (p) { if (c < 8) H256.push(frac(Math.sqrt(n))); K256.push(frac(Math.cbrt(n))); c++; }
+    }
+  }
+  function sha256js(bytes) {
+    if (!K256) initConsts();
+    var l = bytes.length, bl = l * 8;
+    var padded = new Uint8Array(((l + 9 + 63) >> 6) << 6);
+    padded.set(bytes); padded[l] = 0x80;
+    var dv = new DataView(padded.buffer);
+    dv.setUint32(padded.length - 8, Math.floor(bl / 4294967296)); dv.setUint32(padded.length - 4, bl >>> 0);
+    var h = H256.slice(), w = new Uint32Array(64);
+    function rr(x, n) { return (x >>> n) | (x << (32 - n)); }
+    for (var o = 0; o < padded.length; o += 64) {
+      for (var i = 0; i < 16; i++) w[i] = dv.getUint32(o + i * 4);
+      for (i = 16; i < 64; i++) {
+        var s0 = rr(w[i - 15], 7) ^ rr(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+        var s1 = rr(w[i - 2], 17) ^ rr(w[i - 2], 19) ^ (w[i - 2] >>> 10);
+        w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
+      }
+      var a = h[0], b = h[1], c = h[2], d2 = h[3], e = h[4], f = h[5], g = h[6], hh = h[7];
+      for (i = 0; i < 64; i++) {
+        var S1 = rr(e, 6) ^ rr(e, 11) ^ rr(e, 25), ch = (e & f) ^ (~e & g);
+        var t1 = (hh + S1 + ch + K256[i] + w[i]) | 0;
+        var S0 = rr(a, 2) ^ rr(a, 13) ^ rr(a, 22), mj = (a & b) ^ (a & c) ^ (b & c);
+        var t2 = (S0 + mj) | 0;
+        hh = g; g = f; f = e; e = (d2 + t1) | 0; d2 = c; c = b; b = a; a = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a) | 0; h[1] = (h[1] + b) | 0; h[2] = (h[2] + c) | 0; h[3] = (h[3] + d2) | 0;
+      h[4] = (h[4] + e) | 0; h[5] = (h[5] + f) | 0; h[6] = (h[6] + g) | 0; h[7] = (h[7] + hh) | 0;
+    }
+    return h.map(function (v) { return ('00000000' + (v >>> 0).toString(16)).slice(-8); }).join('');
+  }
+  function toBytes(x) {
+    if (typeof x === 'string') return Promise.resolve(new TextEncoder().encode(x));
+    if (x instanceof Uint8Array) return Promise.resolve(x);
+    if (x instanceof ArrayBuffer) return Promise.resolve(new Uint8Array(x));
+    if (ArrayBuffer.isView(x)) return Promise.resolve(new Uint8Array(x.buffer, x.byteOffset, x.byteLength));
+    if (x && typeof x.arrayBuffer === 'function') return x.arrayBuffer().then(function (b) { return new Uint8Array(b); });
+    return Promise.reject(new TypeError('sha256: tip neacceptat'));
+  }
+  F.sha256 = function (x) {
+    return toBytes(x).then(function (b) {
+      var sub = window.crypto && window.crypto.subtle;
+      if (sub) {
+        return sub.digest('SHA-256', b).then(function (h) {
+          return Array.prototype.map.call(new Uint8Array(h), function (v) { return ('0' + v.toString(16)).slice(-2); }).join('');
+        });
+      }
+      return sha256js(b);
+    });
+  };
+
+  /* ---------- download / pickFile ---------- */
+  F.download = function (name, data, mime) {
+    var blob = data instanceof Blob ? data : new Blob([data], {type: mime || 'application/octet-stream'});
+    var url = URL.createObjectURL(blob);
+    var a = doc.createElement('a');
+    a.href = url; a.download = name; a.hidden = true;
+    (doc.body || doc.documentElement).appendChild(a);
+    a.click();
+    setTimeout(function () { a.remove(); URL.revokeObjectURL(url); }, 4000);
+    return blob.size;
+  };
+  /** Rezolvă cu File sau null dacă utilizatorul anulează. */
+  F.pickFile = function (accept) {
+    return new Promise(function (res) {
+      var i = doc.createElement('input');
+      i.type = 'file'; i.hidden = true;
+      if (accept) i.accept = accept;
+      var done = false;
+      function fin(v) { if (done) return; done = true; i.remove(); res(v); }
+      i.addEventListener('change', function () { fin(i.files && i.files[0] ? i.files[0] : null); });
+      i.addEventListener('cancel', function () { fin(null); });
+      (doc.body || doc.documentElement).appendChild(i);
+      i.click();
+    });
+  };
+
+  /* ---------- instalare PWA (doar reținem evenimentul, nu îl blocăm) ---------- */
+  var core = F.core = {
+    version: KIT_VERSION,
+    slug: SLUG,
+    disabled: DISABLED || false,
+    installEvent: null,
+    modules: function () { return (meta('fff-modules') || '').split(',').filter(Boolean); }
+  };
+  window.addEventListener('beforeinstallprompt', function (e) { core.installEvent = e; bus.emit('installable', e); });
+  window.addEventListener('appinstalled', function () { core.installEvent = null; bus.emit('installed'); });
+
+  F.version = KIT_VERSION;
+  F.ready = function (fn) {
+    if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', function () { fn(); }, {once: true});
+    else fn();
+  };
+  F.fmtBytes = function (n) {
+    if (n < 1024) return n + ' B';
+    if (n < 1048576) return (n / 1024).toFixed(1) + ' KB';
+    return (n / 1048576).toFixed(2) + ' MB';
+  };
+})();
+/* ---- fff-kit/store ---- */
+/* fff-kit · store — stocare cu prefix de slug: <slug>.<cheie> (JSON sigur, cote/erori prinse, migrare idempotentă a cheilor vechi).
+   Extinde FFF.store din core: get/set/remove/keys lucrează acum pe `<slug>.`; datele kitului din `fff.<slug>.*` (srs, tts) rămân citibile (rezervă la citire). */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || !F.store || !F.core || F.store.migrate) return;
+  var S = F.store, SLUG = F.core.slug, PFX = SLUG + '.', LEG = S.prefix;   // LEG = 'fff.<slug>.' (spațiul kitului, din core)
+  var old = {get: S.get, set: S.set, remove: S.remove, keys: S.keys, indexKeys: S.indexKeys};
+  var mem = Object.create(null);
+
+  function lsOk() { return S.available(); }
+  function fail(op, key, e) {
+    var q = !!(e && (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED' || e.code === 22 || e.code === 1014));
+    S.lastError = {op: op, key: key, quota: q, message: String(e && e.message || e)};
+    try { F.bus.emit('store:error', S.lastError); } catch (x) { /* ignorat */ }
+    return S.lastError;
+  }
+  function okKey(k) { return k != null && String(k) !== ''; }
+  function parse(raw, d) {
+    if (raw == null) return d;
+    try { return JSON.parse(raw); } catch (e) { return raw; }   // valoare migrată fără JSON (ex. „dark”): se întoarce ca șir
+  }
+
+  S.appPrefix = PFX;
+  S.lastError = null;
+
+  /** get(cheie, implicit): citește `<slug>.<cheie>`, apoi (rezervă) `fff.<slug>.<cheie>`, apoi memoria (dacă stocarea a fost indisponibilă la scriere). */
+  S.get = function (k, d) {
+    if (!okKey(k)) return d;
+    k = String(k);
+    if (lsOk()) {
+      try {
+        var v = S.raw.get(PFX + k);
+        if (v == null) v = S.raw.get(LEG + k);
+        if (v != null) return parse(v, d);
+      } catch (e) { fail('get', k, e); }
+    }
+    return Object.prototype.hasOwnProperty.call(mem, k) ? mem[k] : d;
+  };
+  /** set(cheie, valoare) → true dacă a ajuns în localStorage; false dacă e înghețat, JSON invalid (circular, BigInt…), cotă depășită sau stocare indisponibilă (valoarea rămâne în memorie). `undefined` = remove. */
+  S.set = function (k, v) {
+    if (!okKey(k)) return false;
+    k = String(k);
+    if (S.frozen()) return false;
+    if (v === undefined) { S.remove(k); return true; }
+    var str;
+    try { str = JSON.stringify(v); } catch (e) { fail('set', k, e); return false; }
+    if (str === undefined) { fail('set', k, new Error('valoare neserializabilă')); return false; }
+    if (lsOk()) {
+      try { S.raw.set(PFX + k, str); delete mem[k]; return true; } catch (e) { fail('set', k, e); }
+    }
+    mem[k] = v;
+    return false;
+  };
+  S.remove = function (k) {
+    if (!okKey(k) || S.frozen()) return;
+    k = String(k);
+    if (lsOk()) { try { S.raw.remove(PFX + k); S.raw.remove(LEG + k); } catch (e) { fail('remove', k, e); } }
+    delete mem[k];
+  };
+  S.has = function (k) {
+    if (!okKey(k)) return false;
+    try { if (lsOk() && (S.raw.get(PFX + k) != null || S.raw.get(LEG + k) != null)) return true; } catch (e) { /* ignorat */ }
+    return Object.prototype.hasOwnProperty.call(mem, String(k));
+  };
+  S.keys = function () {
+    var out = Object.create(null);
+    try {
+      var ls = window.localStorage;
+      for (var i = 0; i < ls.length; i++) {
+        var n = ls.key(i);
+        if (n && n.indexOf(PFX) === 0 && n !== S.indexKey && n !== S.mtKey) out[n.slice(PFX.length)] = 1;
+      }
+    } catch (e) { /* ignorat */ }
+    old.keys.call(S).forEach(function (k) { if (k !== '__keys' && k !== '__mt') out[k] = 1; });
+    Object.keys(mem).forEach(function (k) { out[k] = 1; });
+    return Object.keys(out).sort();
+  };
+  /** Cheile cu nume complet ale aplicației: indexate, `<slug>.*` și `fff.<slug>.*`. */
+  S.indexKeys = function () {
+    var out = Object.create(null);
+    old.indexKeys.call(S).forEach(function (k) { out[k] = 1; });
+    try {
+      var ls = window.localStorage;
+      for (var i = 0; i < ls.length; i++) { var n = ls.key(i); if (n && n.indexOf(PFX) === 0 && n !== S.mtKey) out[n] = 1; }
+    } catch (e) { /* ignorat */ }
+    return Object.keys(out).sort();
+  };
+  /** Este `nume` (complet, din localStorage) o cheie a spațiului aplicației? */
+  S.owns = function (name) { name = String(name); return name.indexOf(PFX) === 0 || name.indexOf(LEG) === 0; };
+
+  /**
+   * migrate({'cheieVeche': 'cheieNouă', 'prefix_*': 'nou.*'}, {wrap, dryRun, dropOld}) → {moved, same, conflicts, missing, errors, frozen}.
+   *  - cheia veche = numele brut din localStorage; cheia nouă = relativă la prefix (FFF.store.get('cheieNouă')); dacă începe deja cu `<slug>.` e luată ca atare.
+   *  - copiază valoarea EXACTĂ (șirul brut), verifică citirea înapoi, abia apoi șterge cheia veche. Nu suprascrie niciodată o valoare nouă existentă:
+   *    dacă ambele există și sunt identice → doar șterge cheia veche; dacă diferă → conflict (rămân ambele; `dropOld:true` șterge totuși cheia veche).
+   *  - idempotentă: a doua rulare nu mai găsește nimic de mutat. Un șablon cu `*` (la sfârșit, în ambele chei) mută toate cheile cu acel prefix.
+   *  - wrap: 'keep' (implicit; valoarea brută e copiată, iar get() întoarce JSON-ul parsat sau șirul brut) | 'string' (valoarea veche este împachetată ca șir JSON: get() întoarce exact șirul vechi).
+   *  - nu face nimic cât timp stocarea e înghețată (restaurare în curs). Emite `store:migrated` pe FFF.bus dacă a mutat ceva. */
+  S.migrate = function (map, opt) {
+    opt = opt || {};
+    var rep = {moved: [], same: [], conflicts: [], missing: [], errors: [], frozen: false};
+    if (S.frozen()) { rep.frozen = true; return rep; }
+    if (!lsOk() || !map || typeof map !== 'object') { if (map && typeof map === 'object') rep.errors.push({key: '*', message: 'stocare indisponibilă'}); return rep; }
+    var ls = window.localStorage, names = [];
+    try { for (var i = 0; i < ls.length; i++) names.push(ls.key(i)); } catch (e) { /* ignorat */ }
+    var pairs = [];
+    Object.keys(map).forEach(function (from) {
+      var to = String(map[from]);
+      if (from.charAt(from.length - 1) === '*') {
+        var fp = from.slice(0, -1), tp = to.charAt(to.length - 1) === '*' ? to.slice(0, -1) : to;
+        names.forEach(function (n) { if (n.indexOf(fp) === 0 && n.indexOf('fff.') !== 0) pairs.push([n, tp + n.slice(fp.length)]); });
+      } else pairs.push([from, to]);
+    });
+    pairs.forEach(function (p) {
+      var from = p[0], full = p[1].indexOf(PFX) === 0 ? p[1] : PFX + p[1];
+      if (!from || from === full || from.indexOf('fff.') === 0 || full === PFX) return;
+      try {
+        var oldV = S.raw.get(from);
+        if (oldV == null) { rep.missing.push(from); return; }
+        var cur = S.raw.get(full), val = opt.wrap === 'string' ? JSON.stringify(oldV) : oldV;
+        if (cur != null) {
+          if (cur === val || cur === oldV) { if (!opt.dryRun) { S.raw.remove(from); S.forget(from); } rep.same.push(from); }
+          else if (opt.dropOld) { if (!opt.dryRun) { S.raw.remove(from); S.forget(from); } rep.conflicts.push({key: from, to: full, dropped: true}); }
+          else rep.conflicts.push({key: from, to: full});
+          return;
+        }
+        if (opt.dryRun) { rep.moved.push(from); return; }
+        S.raw.set(full, val);
+        if (S.raw.get(full) !== val) throw new Error('verificarea citirii înapoi a eșuat');
+        S.raw.remove(from); S.forget(from);
+        rep.moved.push(from);
+      } catch (e) { rep.errors.push({key: from, message: fail('migrate', from, e).message, quota: S.lastError.quota}); }
+    });
+    if (rep.moved.length && !opt.dryRun) { try { F.bus.emit('store:migrated', rep); } catch (e) { /* ignorat */ } }
+    return rep;
+  };
+})();
+/* ---- fff-kit/dialog ---- */
+/* fff-kit · dialog — un singur sistem de dialoguri: confirm/alert/prompt (promisiuni), toast/notify (aria-live), <dialog> modal accesibil. */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || F.dialog) return;
+  var doc = document;
+  function T(k, v) { return F.t('dialog', k, v); }
+
+  var uid = 0;
+  var stack = [];   // dialogurile deschise (ultimul = cel de sus)
+
+  /* ---------- DOM mic ---------- */
+  function el(tag, cls, text) {
+    var e = doc.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function btn(label, cls) {
+    var b = el('button', 'fff-btn' + (cls ? ' ' + cls : ''), label);
+    b.type = 'button';
+    return b;
+  }
+
+  /* ---------- tema gazdei (la fel ca în label) ---------- */
+  function hostDark() {
+    function rgba(e) {
+      var m = /rgba?\(([^)]+)\)/.exec(getComputedStyle(e).backgroundColor || '');
+      if (!m) return null;
+      var p = m[1].split(/[ ,\/]+/).map(parseFloat);
+      if (p.length > 3 && p[3] === 0) return null;
+      return p;
+    }
+    var p = (doc.body && rgba(doc.body)) || rgba(doc.documentElement);
+    if (!p) return null;
+    function lin(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    return (0.2126 * lin(p[0]) + 0.7152 * lin(p[1]) + 0.0722 * lin(p[2])) < 0.18;
+  }
+
+  /* ---------- focus ---------- */
+  var FOCUSABLE = 'button:not([disabled]),input:not([disabled]):not([type=hidden]),textarea:not([disabled]),select:not([disabled]),a[href],summary,[tabindex]:not([tabindex="-1"])';
+  function focusables(root) {
+    return Array.prototype.filter.call(root.querySelectorAll(FOCUSABLE), function (n) {
+      return !n.hidden && !n.closest('[hidden]') && (n.offsetWidth || n.offsetHeight || n.getClientRects().length);
+    });
+  }
+
+  /**
+   * Nucleul: construiește și afișează un dialog.
+   * spec: {kind, title (șir|false), message, body(ctx) → {nodes, focus, value, validate}, buttons: [{label, value|fn, primary, danger}], cancel (valoarea la Esc/închidere),
+   *        focus: indexul butonului focalizat implicit (dacă body nu dă un câmp), small}
+   */
+  function open(spec) {
+    return new Promise(function (resolve) {
+      var id = ++uid, prev = doc.activeElement, settled = false;
+      var d = el('dialog', 'fff-dlg fff-dialog' + (spec.wide ? '' : ' fff-dlg-sm'));
+      d.setAttribute('role', 'dialog');
+      d.setAttribute('aria-modal', 'true');
+      d.setAttribute('data-fff-dialog', spec.kind || 'custom');
+      var inner = el('div', 'fff-in');
+      var titleId = 'fff-dt-' + id, msgId = 'fff-dm-' + id;
+      var hasTitle = spec.title !== false && spec.title !== '' && spec.title != null;
+      if (hasTitle) { var h = el('h2', 'fff-dt', String(spec.title)); h.id = titleId; inner.appendChild(h); }
+      var msg = null;
+      if (spec.message != null && spec.message !== '') {
+        msg = el('p', 'fff-msg', String(spec.message)); msg.id = msgId; inner.appendChild(msg);
+      }
+      if (hasTitle) {
+        d.setAttribute('aria-labelledby', titleId);
+        if (msg) d.setAttribute('aria-describedby', msgId);
+      } else if (msg) d.setAttribute('aria-labelledby', msgId);
+      else d.setAttribute('aria-label', T('title_alert'));
+      var ctx = {id: id, msgId: msg ? msgId : titleId, finish: null};
+      var body = spec.body ? spec.body(ctx) : null;
+      if (body && body.nodes) body.nodes.forEach(function (n) { inner.appendChild(n); });
+      var row = el('div', 'fff-row fff-end');
+      var btns = [];
+      function finish(v) {
+        if (settled) return;
+        settled = true;
+        stack = stack.filter(function (x) { return x !== d; });
+        try { if (d.open) d.close(); } catch (e) { /* ignorat */ }
+        d.remove();
+        try { doc.removeEventListener('focusin', trap, true); } catch (e) { /* ignorat */ }
+        if (prev && prev !== doc.body && prev.focus && doc.contains(prev)) { try { prev.focus(); } catch (e) { /* ignorat */ } }
+        resolve(v);
+      }
+      ctx.finish = finish;
+      (spec.buttons || []).forEach(function (b) {
+        var e = btn(b.label, (b.primary ? 'fff-primary' : '') + (b.danger ? ' fff-danger' : ''));
+        e.addEventListener('click', function () {
+          if (b.check) { var r = b.check(); if (r === false) return; }
+          finish(typeof b.value === 'function' ? b.value() : b.value);
+        });
+        row.appendChild(e); btns.push(e);
+      });
+      inner.appendChild(row);
+      d.appendChild(inner);
+      ctx.buttons = btns;
+      /* Esc (nativ: evenimentul cancel; rezervă fără showModal: keydown) + capcana de focus (Tab/Shift+Tab ciclează în dialog) */
+      d.addEventListener('cancel', function (e) { e.preventDefault(); finish(spec.cancel); });
+      d.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); finish(spec.cancel); return; }
+        if (e.key !== 'Tab') return;
+        var f = focusables(d);
+        if (!f.length) { e.preventDefault(); d.focus(); return; }
+        var first = f[0], last = f[f.length - 1], a = doc.activeElement;
+        if (e.shiftKey && (a === first || !d.contains(a))) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && (a === last || !d.contains(a))) { e.preventDefault(); first.focus(); }
+      });
+      function trap(e) {
+        if (stack[stack.length - 1] !== d || d.contains(e.target)) return;
+        var f = focusables(d); if (f.length) f[0].focus();
+      }
+      d.setAttribute('tabindex', '-1');
+      var dark = hostDark();
+      if (dark === true) d.classList.add('fff-dark'); else if (dark === false) d.classList.add('fff-light');
+      (doc.body || doc.documentElement).appendChild(d);
+      stack.push(d);
+      if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
+      doc.addEventListener('focusin', trap, true);
+      raiseToasts();
+      var target = (body && body.focus) || (btns[spec.focus == null ? btns.length - 1 : spec.focus]) || d;
+      try { target.focus(); if (body && body.select && target.select) target.select(); } catch (e) { /* ignorat */ }
+      d._fffClose = function () { finish(spec.cancel); };
+    });
+  }
+
+  function opts(o) { return o && typeof o === 'object' ? o : {}; }
+  function title(o, key) { return o.title === false ? false : (o.title != null ? o.title : T(key)); }
+
+  /* ---------- confirm / alert / prompt / show / choice ---------- */
+  /** confirm(mesaj, {title, yes, no, danger, focus:'yes'|'no'}) → Promise<boolean>. Esc / Anulează → false. Focusul implicit: „Anulează” (acțiunea sigură). */
+  function confirm(message, o) {
+    o = opts(o);
+    return open({
+      kind: 'confirm', title: title(o, 'title_confirm'), message: message, cancel: false,
+      buttons: [{label: o.no || T('cancel'), value: false}, {label: o.yes || T('yes'), value: true, primary: true, danger: !!o.danger}],
+      focus: o.focus === 'yes' ? 1 : 0
+    });
+  }
+  /** alert(mesaj, {title, ok}) → Promise<void>. */
+  function alertDlg(message, o) {
+    o = opts(o);
+    return open({kind: 'alert', title: title(o, 'title_alert'), message: message, cancel: undefined, buttons: [{label: o.ok || T('ok'), value: undefined, primary: true}], focus: 0});
+  }
+  /** prompt(mesaj, valoareImplicită, {title, yes, no, type, multiline, placeholder, maxlength, inputmode, autocomplete, required, validate(v) → șir de eroare|falsy}) → Promise<string|null>. */
+  function prompt(message, def, o) {
+    if (def && typeof def === 'object') { o = def; def = o.value; }
+    o = opts(o);
+    var input, err, ok;
+    return open({
+      kind: 'prompt', title: title(o, 'title_prompt'), message: message, cancel: null,
+      body: function (ctx) {
+        input = o.multiline ? el('textarea', 'fff-input') : el('input', 'fff-input');
+        if (!o.multiline) input.type = o.type || 'text'; else input.rows = o.rows || 4;
+        input.value = def == null ? '' : String(def);
+        input.setAttribute('aria-labelledby', ctx.msgId);
+        if (o.placeholder) input.placeholder = o.placeholder;
+        if (o.maxlength) input.maxLength = o.maxlength;
+        if (o.inputmode) input.setAttribute('inputmode', o.inputmode);
+        input.autocomplete = o.autocomplete || 'off';
+        if (o.required) input.required = true;
+        err = el('p', 'fff-res fff-sm fff-bad');
+        err.id = 'fff-de-' + ctx.id; err.setAttribute('role', 'alert');
+        input.setAttribute('aria-describedby', err.id);
+        input.addEventListener('input', function () { err.textContent = ''; input.removeAttribute('aria-invalid'); });
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' && !e.shiftKey && !o.multiline) { e.preventDefault(); if (ok.check() !== false) ctx.finish(input.value); }
+          else if (e.key === 'Enter' && o.multiline && (e.ctrlKey || e.metaKey)) { e.preventDefault(); if (ok.check() !== false) ctx.finish(input.value); }
+        });
+        var wrap = el('div', 'fff-field'); wrap.appendChild(input); wrap.appendChild(err);
+        return {nodes: [wrap], focus: input, select: true};
+      },
+      buttons: [{label: o.no || T('cancel'), value: null}, ok = {
+        label: o.yes || T('ok'), primary: true, value: function () { return input.value; },
+        check: function () {
+          var bad = null;
+          if (o.required && !String(input.value).trim()) bad = T('err_required');
+          else if (typeof o.validate === 'function') { try { bad = o.validate(input.value) || null; } catch (e) { bad = String(e && e.message || e); } }
+          if (bad) { err.textContent = String(bad); input.setAttribute('aria-invalid', 'true'); input.focus(); return false; }
+          return true;
+        }
+      }]
+    });
+  }
+  /** show(mesaj, text, {title, ok}) → Promise<void>: text în citire, selectat (pentru copiere). */
+  function showText(message, text, o) {
+    o = opts(o);
+    return open({
+      kind: 'show', title: title(o, 'title_show'), message: message, cancel: undefined,
+      body: function (ctx) {
+        var ta = el('textarea', 'fff-input fff-ta');
+        ta.readOnly = true; ta.rows = o.rows || 3; ta.value = String(text == null ? '' : text);
+        ta.setAttribute('aria-labelledby', ctx.msgId);
+        return {nodes: [ta], focus: ta, select: true};
+      },
+      buttons: [{label: o.ok || T('ok'), value: undefined, primary: true}]
+    });
+  }
+  /** choice(mesaj, [{label, value, primary, danger}], {title}) → Promise<valoare|null>. Primul buton primește focusul. */
+  function choice(message, buttons, o) {
+    o = opts(o);
+    return open({
+      kind: 'choice', title: title(o, 'title_confirm'), message: message, cancel: null,
+      buttons: (buttons || []).map(function (b) { return {label: b.label, value: b.value, primary: !!b.primary, danger: !!b.danger}; }), focus: 0
+    });
+  }
+
+  /* ---------- toast / notify (regiuni aria-live) ---------- */
+  var regions = null, regTimer = 0, toasts = [], pend = [];
+  function ensureRegions(cb) {
+    if (regions) return cb();
+    F.ready(function () {
+      if (regions) return cb();
+      var wrap = el('div', 'fff-toasts');
+      wrap.setAttribute('data-fff-toasts', '');
+      var pol = el('div', 'fff-toast-reg'); pol.setAttribute('role', 'status'); pol.setAttribute('aria-live', 'polite'); pol.setAttribute('aria-relevant', 'additions');
+      var ass = el('div', 'fff-toast-reg'); ass.setAttribute('role', 'alert'); ass.setAttribute('aria-live', 'assertive'); ass.setAttribute('aria-relevant', 'additions');
+      wrap.appendChild(pol); wrap.appendChild(ass);
+      if (typeof wrap.showPopover === 'function') wrap.setAttribute('popover', 'manual');   // strat superior: vizibil și deasupra unui <dialog> modal
+      (doc.body || doc.documentElement).appendChild(wrap);
+      if (typeof wrap.showPopover === 'function') { try { wrap.showPopover(); } catch (e) { /* ignorat */ } }
+      regions = {wrap: wrap, polite: pol, assertive: ass};
+      setTimeout(cb, 80);   // regiunea trebuie să existe în arborele de accesibilitate înainte de a primi text
+    });
+  }
+  function raiseToasts() {
+    if (!regions || !toasts.length || typeof regions.wrap.showPopover !== 'function') return;
+    try { regions.wrap.hidePopover(); regions.wrap.showPopover(); } catch (e) { /* ignorat */ }
+  }
+  function dropRegionsLater() {
+    clearTimeout(regTimer);
+    regTimer = setTimeout(function () {
+      if (toasts.length || !regions) return;
+      regions.wrap.remove(); regions = null;   // nu rămâne în outerHTML-ul aplicațiilor care își serializează pagina
+    }, 1500);
+  }
+  var TYPES = {info: 1, success: 1, warning: 1, error: 1};
+  /**
+   * toast(mesaj, {type:'info'|'success'|'warning'|'error', timeout (ms; 0 = rămâne până îl închizi), action:{label, onClick}}) → {close(), el}.
+   * error/warning: regiune assertive (role=alert); restul: polite (role=status). Timpul se oprește la hover/focus.
+   */
+  function toast(message, o) {
+    o = opts(o);
+    var type = TYPES[o.type] ? o.type : 'info';
+    var timeout = o.timeout != null ? o.timeout : (type === 'error' ? 8000 : 4500);
+    var handle = {el: null, close: function () { handle._closed = true; if (handle._close) handle._close(); }};
+    pend.push(handle);
+    ensureRegions(function () {
+      pend = pend.filter(function (x) { return x !== handle; });
+      if (handle._closed) { dropRegionsLater(); return; }
+      var t = el('div', 'fff-toast fff-toast-' + type);
+      t.setAttribute('data-type', type);
+      var sr = el('span', 'fff-sr', T('sr_' + type) + ': ');
+      var tx = el('span', 'fff-toast-msg', String(message));
+      t.appendChild(sr); t.appendChild(tx);
+      if (o.action && o.action.label) {
+        var ab = btn(String(o.action.label), 'fff-toast-act');
+        ab.addEventListener('click', function () { try { if (o.action.onClick) o.action.onClick(); } finally { close(); } });
+        t.appendChild(ab);
+      }
+      var xb = btn('×', 'fff-toast-x');
+      xb.setAttribute('aria-label', T('dismiss'));
+      xb.addEventListener('click', function () { close(); });
+      t.appendChild(xb);
+      var reg = (type === 'error' || type === 'warning') ? regions.assertive : regions.polite;
+      while (toasts.length >= 4) toasts[0].close();
+      reg.appendChild(t);
+      var rec = {close: close}, timer = 0, paused = false, left = timeout;
+      toasts.push(rec); handle.el = t;
+      function arm() { clearTimeout(timer); if (timeout > 0 && !paused) { var s = Date.now(); timer = setTimeout(close, left); rec._s = s; } }
+      function pause() { if (paused) return; paused = true; clearTimeout(timer); if (rec._s) left = Math.max(1000, left - (Date.now() - rec._s)); }
+      function resume() { paused = false; arm(); }
+      t.addEventListener('mouseenter', pause); t.addEventListener('mouseleave', resume);
+      t.addEventListener('focusin', pause); t.addEventListener('focusout', resume);
+      function close() {
+        clearTimeout(timer);
+        if (!t.parentNode) return;
+        t.remove();
+        toasts = toasts.filter(function (x) { return x !== rec; });
+        if (!toasts.length) dropRegionsLater();
+      }
+      handle._close = close;
+      arm();
+      raiseToasts();
+    });
+    return handle;
+  }
+  function closeAll() {
+    stack.slice().forEach(function (d) { if (d._fffClose) d._fffClose(); });
+    toasts.slice().forEach(function (t) { t.close(); });
+    pend.slice().forEach(function (h) { h.close(); });
+  }
+
+  F.dialog = {
+    confirm: confirm, alert: alertDlg, prompt: prompt, show: showText, choice: choice,
+    toast: toast, notify: toast, closeAll: closeAll,
+    isOpen: function () { return stack.length > 0; },
+    open: open
+  };
+
+  /* ---------- alias-uri (compatibilitate cu implementările proprii din aplicații: ffAsk/ffShow/ffPrompt) ---------- */
+  function noTitle(o) { o = opts(o); return Object.assign({title: false}, o); }
+  if (!window.ffAsk) window.ffAsk = function (msg, o) { return confirm(String(msg), noTitle(o)); };
+  if (!window.ffShow) window.ffShow = function (msg, text, o) { return showText(String(msg), text, noTitle(o)); };
+  if (!window.ffPrompt) window.ffPrompt = function (msg, def, o) { return prompt(String(msg), def, noTitle(o)); };
+})();
+/* ---- fff-kit/ux ---- */
+/* fff-kit · FFF.ux — confort și satisfacție la utilizare, același în toate aplicațiile:
+ * (1) CSS (ux.css): ținte de atingere ≥44 px pe ecrane tactile, câmpuri cu text ≥16 px (fără zoom-ul intempestiv din iOS), fără întârzierea de 300 ms
+ *     la atingere (touch-action), apăsare vizibilă, derulare lină (respectă „mișcare redusă”), cuvinte lungi rupte în loc să iasă din ecran;
+ * (2) confirmare discretă la copiere în clipboard și la salvarea unui fișier (toast), doar dacă aplicația nu și-a afișat deja propria confirmare;
+ * (3) tasta „/” duce focusul în câmpul de căutare, Esc îl părăsește; (4) legăturile/etichetele mici ne-inline primesc zonă de atingere de 44 px.
+ * Opriri: <meta name="fff-ux" content="off">, ?noux=1; pe element: data-fff-hit="off" nu se aplică; data-fff-nouxfont păstrează textul propriu al câmpului. */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || F.ux) return;
+  var doc = document, de = doc.documentElement;
+  function T(k) { return F.t('ux', k); }
+  var OFF = false;
+  function readOff() {
+    var m = doc.querySelector('meta[name="fff-ux"]');
+    OFF = (m && /^(off|0|false)$/i.test((m.getAttribute('content') || '').trim())) || /[?&]noux=(1|true)\b/.test(location.search);
+    if (OFF) de.setAttribute('data-fff-ux', 'off');
+  }
+  function toast(msg) {
+    try { if (F.dialog && F.dialog.toast) F.dialog.toast(msg, {type: 'success', timeout: 2200}); } catch (e) { /* ignorat */ }
+  }
+
+  /* confirmare doar dacă aplicația nu a afișat deja ceva similar (urmărim modificările din momentul acțiunii până la ~450 ms după încheierea ei) */
+  function watch(re) {
+    var w = {own: false, mo: null, stop: function () { if (w.mo) w.mo.disconnect(); }};
+    try {
+      w.mo = new MutationObserver(function (ms) {
+        for (var i = 0; i < ms.length && !w.own; i++) {
+          var m = ms[i], t = '';
+          if (m.target.closest && m.target.closest('[data-fff-toasts]')) continue;
+          if (m.type === 'characterData') t = m.target.nodeValue || '';
+          else if (m.type === 'attributes') t = (m.target.textContent || '') + ' ' + (m.target.getAttribute('aria-label') || '') + ' ' + (m.target.getAttribute('title') || '');
+          else for (var j = 0; j < m.addedNodes.length; j++) t += ' ' + (m.addedNodes[j].textContent || '');
+          if (re.test(t)) w.own = true;
+        }
+      });
+      w.mo.observe(doc.body, {subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['class', 'hidden', 'aria-label', 'title']});
+    } catch (e) { /* ignorat */ }
+    return w;
+  }
+  function finish(w, msg) { setTimeout(function () { w.stop(); if (!w.own) toast(msg); }, 450); }
+  function confirmUnlessOwn(re, msg) { if (!OFF) finish(watch(re), msg); }
+  var RE_COPY = /copi|cop[ií]ad|kopier|másol|copied|copy/i, RE_SAVE = /salvat|exportat|descărc|descarg|télécharg|scaric|download|saved|export|gespeichert|letölt|mentve|baixad|guardad/i;
+
+  function patchClipboard() {
+    try {
+      var cb = navigator.clipboard;
+      if (!cb || !cb.writeText || cb.writeText.__fffux) return;
+      var orig = cb.writeText.bind(cb);
+      var w = function (t) {
+        var w = OFF ? null : watch(RE_COPY), p = orig(t);
+        if (w) { if (p && p.then) p.then(function () { finish(w, T('copied')); }, function () { w.stop(); }); else w.stop(); }
+        return p;
+      };
+      w.__fffux = true;
+      cb.writeText = w;
+    } catch (e) { /* ignorat */ }
+    doc.addEventListener('copy', function () { /* copiere manuală: nimic */ }, {passive: true});
+  }
+  function patchDownload() {
+    try {
+      var proto = HTMLAnchorElement.prototype, orig = proto.click;
+      if (orig.__fffux) return;
+      var c = function () {
+        try { if (!OFF && this.hasAttribute && this.hasAttribute('download')) { var n = this.getAttribute('download') || ''; confirmUnlessOwn(RE_SAVE, T('saved') + (n ? ': ' + n : '')); } } catch (e) { /* ignorat */ }
+        return orig.apply(this, arguments);
+      };
+      c.__fffux = true;
+      proto.click = c;
+    } catch (e) { /* ignorat */ }
+    doc.addEventListener('click', function (e) {                                  // clic real pe un <a download>
+      var a = e.target && e.target.closest && e.target.closest('a[download]');
+      if (a && !OFF) { var n = a.getAttribute('download') || ''; confirmUnlessOwn(RE_SAVE, T('saved') + (n ? ': ' + n : '')); }
+    }, true);
+  }
+
+  /* „/” → căutare */
+  function searchField() {
+    var q = doc.querySelectorAll('input[type=search],[role=searchbox],input[placeholder*="ăut" i],input[placeholder*="earch" i],input[placeholder*="echerch" i],input[placeholder*="uscar" i],input[aria-label*="ăut" i],input[aria-label*="earch" i],input[id*="search" i],input[id*="cauta" i],input[id*="caut" i],input[name*="search" i]');
+    for (var i = 0; i < q.length; i++) {
+      var e = q[i], r = e.getBoundingClientRect(), cs = getComputedStyle(e);
+      if (r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && !e.disabled && !e.readOnly) return e;
+    }
+    return null;
+  }
+  function onKey(e) {
+    if (OFF || e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target, tag = t && t.tagName, typing = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable);
+    if (e.key === '/' && !typing) {
+      var f = searchField();
+      if (f) { e.preventDefault(); f.focus(); try { f.select(); } catch (x) { /* ignorat */ } }
+    } else if (e.key === 'Escape' && typing && t.type === 'search') { t.blur(); }
+  }
+
+  /* zonă de atingere pentru legături/etichete mici, ne-inline (butoane stilizate ca <a>), doar pe ecrane tactile */
+  function hitPass() {
+    if (OFF || !window.matchMedia || !matchMedia('(pointer:coarse)').matches) return;
+    var as = doc.querySelectorAll('a[href]:not([data-fff-hit]), [role=link]:not([data-fff-hit])'), n = 0;
+    for (var i = 0; i < as.length && n < 300; i++, n++) {
+      var a = as[i], cs = getComputedStyle(a);
+      if (cs.display === 'inline') continue;
+      var r = a.getBoundingClientRect();
+      if (r.width < 1 || r.height < 1 || r.height >= 44) continue;
+      if (cs.position === 'absolute' || cs.position === 'fixed') continue;
+      a.setAttribute('data-fff-hit', '1');
+    }
+  }
+  var hitT = 0;
+  function scheduleHit() { clearTimeout(hitT); hitT = setTimeout(hitPass, 500); }
+
+  function init() {
+    readOff();
+    if (OFF) return;
+    patchClipboard(); patchDownload();
+    doc.addEventListener('keydown', onKey);
+    scheduleHit();
+    try { new MutationObserver(scheduleHit).observe(doc.body, {childList: true, subtree: true}); } catch (e) { /* ignorat */ }
+  }
+  F.ux = {off: function () { OFF = true; de.setAttribute('data-fff-ux', 'off'); }, hitPass: hitPass, searchField: searchField, version: 1};
+  if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', init); else init();
+})();
+/* ---- fff-kit/label ---- */
+/* fff-kit · label — dialogul „Transparență”: rețea, stocare, permisiuni, fișier + hash, copie de siguranță. */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || F.label) return;
+  var doc = document;
+  var DISABLED = F.core && F.core.disabled;
+  function T(k, v) { return F.t('label', k, v); }
+
+  var PERM = {
+    getUserMedia: 'cam', geolocation: 'geo', RTCPeerConnection: 'rtc', 'navigator.share': 'share', Notification: 'notif',
+    speechSynthesis: 'tts', SpeechRecognition: 'stt', clipboard: 'clip', serviceWorker: 'sw', indexedDB: 'idb',
+    localStorage: 'ls', 'Web Crypto': 'crypto', WebGL: 'webgl', WebGPU: 'webgpu', Worker: 'worker', BroadcastChannel: 'bc'
+  };
+  var SHELL = "LC_ALL=C sed -E 's/data-fff-hash=\"[0-9a-f]*\"/data-fff-hash=\"\"/g; s/\"sha256\":\"[0-9a-f]*\"/\"sha256\":\"\"/g' index.html | sha256sum";
+
+  /* ---------- info ---------- */
+  var infoCache;
+  function info() {
+    if (infoCache) return infoCache;
+    var el = doc.getElementById('fff-info'), o = null;
+    if (el) { try { o = JSON.parse(el.textContent || '{}'); } catch (e) { o = null; } }
+    infoCache = o || {};
+    infoCache._present = !!o;
+    return infoCache;
+  }
+
+  /* ---------- DOM mic ---------- */
+  function h(tag, attrs) {
+    var e = doc.createElement(tag);
+    if (attrs) for (var k in attrs) if (Object.prototype.hasOwnProperty.call(attrs, k) && attrs[k] != null) {
+      if (k === 'text') e.textContent = attrs[k]; else if (k === 'class') e.className = attrs[k]; else e.setAttribute(k, attrs[k]);
+    }
+    for (var i = 2; i < arguments.length; i++) {
+      var c = arguments[i];
+      if (c == null || c === false) continue;
+      e.appendChild(typeof c === 'string' ? doc.createTextNode(c) : c);
+    }
+    return e;
+  }
+  function btn(text, cls, fn) {
+    var b = h('button', {type: 'button', class: 'fff-btn' + (cls ? ' ' + cls : ''), text: text});
+    if (fn) b.addEventListener('click', fn);
+    return b;
+  }
+  var uid = 0;
+  function field(label, type, ac) {
+    var id = 'fff-f' + (++uid);
+    var i = h('input', {id: id, type: type, class: 'fff-input', autocomplete: ac || 'off'});
+    return {wrap: h('div', {class: 'fff-field'}, h('label', {for: id, text: label}), i), input: i};
+  }
+
+  /* ---------- tema gazdei ---------- */
+  function hostDark() {
+    function rgba(el) {
+      var m = /rgba?\(([^)]+)\)/.exec(getComputedStyle(el).backgroundColor || '');
+      if (!m) return null;
+      var p = m[1].split(/[ ,\/]+/).map(parseFloat);
+      if (p.length > 3 && p[3] === 0) return null;
+      return p;
+    }
+    var p = (doc.body && rgba(doc.body)) || rgba(doc.documentElement);
+    if (!p) return null;
+    function lin(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    return (0.2126 * lin(p[0]) + 0.7152 * lin(p[1]) + 0.0722 * lin(p[2])) < 0.18;
+  }
+
+  /* ---------- hash canonic ---------- */
+  function canonBytes(buf) {
+    var u = new Uint8Array(buf), s = '';
+    for (var i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000));
+    s = s.replace(/data-fff-hash="[0-9a-f]*"/g, 'data-fff-hash=' + '"' + '"').replace(/"sha256":"[0-9a-f]*"/g, '"sha256":' + '"' + '"');
+    var out = new Uint8Array(s.length);
+    for (var j = 0; j < s.length; j++) out[j] = s.charCodeAt(j);
+    return out;
+  }
+  function declaredHash() {
+    var a = doc.documentElement.getAttribute('data-fff-hash');
+    return /^[0-9a-f]{64}$/.test(a || '') ? a : (/^[0-9a-f]{64}$/.test(info().sha256 || '') ? info().sha256 : '');
+  }
+
+  /* ---------- dialog ---------- */
+  var dlg = null, timer = 0, lastFocus = null;
+
+  function section(id, title) {
+    var hid = 'fff-h-' + id;
+    var sec = h('section', {class: 'fff-sec', 'aria-labelledby': hid}, h('h3', {id: hid, text: title}));
+    return sec;
+  }
+
+  function storageRows(tbody, sum) {
+    var keys = F.store.indexKeys(), rows = [], total = 0;
+    var enc = new TextEncoder();
+    keys.forEach(function (k) {
+      var v = F.store.raw.get(k) || '';
+      var n = enc.encode(k).length + enc.encode(v).length;
+      total += n; rows.push([k, n]);
+    });
+    rows.sort(function (a, b) { return b[1] - a[1]; });
+    var sig = rows.length + ':' + total;
+    if (tbody._sig === sig) return;
+    tbody._sig = sig;
+    tbody.textContent = '';
+    rows.slice(0, 25).forEach(function (r) {
+      tbody.appendChild(h('tr', null, h('td', {class: 'fff-mono', text: r[0]}), h('td', {class: 'fff-num', text: F.fmtBytes(r[1])})));
+    });
+    if (rows.length > 25) tbody.appendChild(h('tr', null, h('td', {colspan: '2', text: T('store_more', {n: rows.length - 25})})));
+    sum.textContent = rows.length ? T('store_sum', {n: rows.length, size: F.fmtBytes(total)}) : T('store_none');
+    tbody.parentNode.hidden = !rows.length;
+  }
+
+  function build() {
+    var I = info(), a = F.app;
+    var name = I.name || a.name, ver = I.version || a.version, upd = I.updated || a.updated;
+    var d = h('dialog', {class: 'fff-dlg', 'aria-labelledby': 'fff-lbl-title', lang: F.lang()});
+    var dark = hostDark();
+    if (dark === true) d.classList.add('fff-dark'); else if (dark === false) d.classList.add('fff-light');
+    var inner = h('div', {class: 'fff-in'});
+    var closeB = btn('×', 'fff-x', function () { api.close(); });
+    closeB.setAttribute('aria-label', T('close'));
+    inner.appendChild(h('div', {class: 'fff-hd'}, h('h2', {id: 'fff-lbl-title', text: T('title')}), closeB));
+    inner.appendChild(h('p', {class: 'fff-lead'}, h('strong', {text: name}), ' ', h('span', {class: 'fff-mut', text: 'v ' + (ver || '?') + (upd ? ' · ' + upd : '')})));
+    if (I.description) inner.appendChild(h('p', {class: 'fff-mut', text: I.description}));
+    if (DISABLED) inner.appendChild(h('p', {class: 'fff-note', role: 'note', text: T('disabled', {reason: DISABLED})}));
+    if (I.selfModifying) inner.appendChild(h('p', {class: 'fff-note', role: 'note', text: T('self_mod')}));
+
+    /* Rețea */
+    var net = section('net', T('net_h'));
+    if (!I._present) net.appendChild(h('p', {class: 'fff-mut', text: T('net_unknown')}));
+    else {
+      var eg = I.egress || [];
+      if (!eg.length) net.appendChild(h('p', null, h('strong', {text: T('net_none')})));
+      else {
+        net.appendChild(h('p', {text: T('net_list')}));
+        var ul = h('ul', {class: 'fff-list'});
+        eg.forEach(function (e) {
+          var host = typeof e === 'string' ? e : e.host, via = typeof e === 'string' ? '' : (e.via || []).join(', ');
+          ul.appendChild(h('li', null, h('span', {class: 'fff-mono', text: host}), via ? h('span', {class: 'fff-mut', text: ' — ' + via}) : null));
+        });
+        net.appendChild(ul);
+      }
+      if (I.egressNote) net.appendChild(h('p', {class: 'fff-mut', text: I.egressNote}));
+      net.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('net_note')}));
+    }
+    inner.appendChild(net);
+
+    /* Stocare */
+    var st = section('store', T('store_h'));
+    var sum = h('p', {role: 'status'});
+    var tb = h('tbody');
+    var tbl = h('table', {class: 'fff-tbl'}, h('caption', {class: 'fff-sr', text: T('store_h')}),
+      h('thead', null, h('tr', null, h('th', {scope: 'col', text: T('store_key')}), h('th', {scope: 'col', class: 'fff-num', text: T('store_size')}))), tb);
+    st.appendChild(sum); st.appendChild(tbl);
+    if ((I.permissions || []).indexOf('indexedDB') >= 0) st.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('store_idb')}));
+    st.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('store_note')}));
+    inner.appendChild(st);
+    storageRows(tb, sum);
+    d._tick = function () { storageRows(tb, sum); };
+
+    /* Permisiuni */
+    var pm = section('perm', T('perm_h'));
+    if (!I._present) pm.appendChild(h('p', {class: 'fff-mut', text: T('net_unknown')}));
+    else {
+      var ps = I.permissions || [];
+      if (!ps.length) pm.appendChild(h('p', {text: T('perm_none')}));
+      else {
+        var pl = h('ul', {class: 'fff-list fff-cols'});
+        ps.forEach(function (p) { pl.appendChild(h('li', {text: PERM[p] ? T('perm_' + PERM[p]) : p})); });
+        pm.appendChild(pl);
+      }
+      pm.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('perm_note')}));
+    }
+    inner.appendChild(pm);
+
+    /* Fișier */
+    var fl = section('file', T('file_h'));
+    var dh = declaredHash();
+    if (I.sizeBytes) fl.appendChild(h('p', {text: T('file_size', {size: F.fmtBytes(I.sizeBytes)})}));
+    if (dh) {
+      fl.appendChild(h('p', {class: 'fff-sm'}, T('file_hash') + ' ', h('code', {class: 'fff-mono fff-break', text: dh})));
+      var res = h('p', {role: 'status', class: 'fff-res'});
+      var vb = btn(T('verify_btn'), '', function () {
+        res.className = 'fff-res'; res.textContent = '';
+        F.pickFile('.html,.htm,text/html').then(function (f) {
+          if (!f) return null;
+          return f.arrayBuffer().then(function (buf) { return F.sha256(canonBytes(buf)); }).then(function (got) {
+            if (got === dh) { res.className = 'fff-res fff-ok'; res.textContent = '✔ ' + T('verify_ok'); }
+            else { res.className = 'fff-res fff-bad'; res.textContent = '✖ ' + T('verify_bad', {got: got}); }
+          });
+        }).catch(function () { res.className = 'fff-res fff-bad'; res.textContent = T('verify_err'); });
+      });
+      fl.appendChild(h('p', null, vb));
+      fl.appendChild(res);
+      fl.appendChild(h('details', {class: 'fff-det'}, h('summary', {text: T('file_how_h')}),
+        h('p', {class: 'fff-sm', text: T('file_how')}), h('pre', {class: 'fff-pre fff-mono', tabindex: '0', 'aria-label': T('verify_cmd'), text: SHELL})));
+    } else fl.appendChild(h('p', {class: 'fff-mut', text: T('file_nohash')}));
+    inner.appendChild(fl);
+
+    /* Copie de siguranță */
+    if (F.bundle && !DISABLED) inner.appendChild(backup());
+
+    /* Kit + instalare */
+    var foot = h('div', {class: 'fff-foot'});
+    var mods = (I.kit && I.kit.modules) || F.core.modules();
+    foot.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('kit_line', {v: F.version, mods: mods.join(', ') || 'core'})}));
+    if (F.core.installEvent) {
+      var ib = btn(T('install'), 'fff-primary', function () {
+        var ev = F.core.installEvent;
+        if (!ev) return;
+        ev.prompt(); F.core.installEvent = null; ib.hidden = true;
+      });
+      foot.appendChild(ib);
+    }
+    inner.appendChild(foot);
+
+    d.appendChild(inner);
+    d.addEventListener('click', function (e) { if (e.target === d) api.close(); });
+    d.addEventListener('keydown', function (e) { if (e.key !== 'Escape') e.stopPropagation(); });
+    d.addEventListener('keyup', function (e) { e.stopPropagation(); });
+    d.addEventListener('keypress', function (e) { e.stopPropagation(); });
+    d.addEventListener('close', function () { if (dlg === d) cleanup(); });
+    return d;
+  }
+
+  /** Număr cu separator de mii după limbă (aceeași formă ca în textele traduse). */
+  function fmtNum(n) {
+    var sep = {en: ',', it: '.', de: '.'}[F.lang()] || ' ';
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+  }
+
+  function backup() {
+    var bk = section('bk', T('bk_h'));
+    var status = h('p', {role: 'status', class: 'fff-res'});
+    function say(msg, kind) { status.className = 'fff-res' + (kind ? ' fff-' + kind : ''); status.textContent = msg; }
+    function fail(e) { say((e && e.message) || String(e), 'bad'); }
+    bk.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('bk_hint', {iter: fmtNum(F.bundle.iterations)})}));
+
+    /* export criptat */
+    var encRow = h('div', {class: 'fff-box', hidden: ''});
+    var pw1 = field(T('bk_pw', {n: F.bundle.minPassword}), 'password', 'new-password'), pw2 = field(T('bk_pw2'), 'password', 'new-password');
+    var goEnc = btn(T('bk_go'), 'fff-primary', function () {
+      if (pw1.input.value !== pw2.input.value) return say(T('pw_mismatch'), 'bad');
+      F.bundle.export({encrypt: true, password: pw1.input.value}).then(function (r) {
+        pwStrength.textContent = '';
+        say(T('ok_export_enc', {file: r.filename, n: r.keys}), 'ok'); pw1.input.value = pw2.input.value = ''; encRow.hidden = true; encBtn.setAttribute('aria-expanded', 'false');
+      }).catch(fail);
+    });
+    var pwStrength = h('p', {role: 'status', class: 'fff-mut fff-sm fff-res'});
+    pw1.input.addEventListener('input', function () { pwStrength.textContent = pw1.input.value ? F.t('bundle', ['pw_weak', 'pw_fair', 'pw_strong'][F.bundle.passwordStrength(pw1.input.value)]) : ''; });
+    encRow.appendChild(pw1.wrap); encRow.appendChild(pwStrength); encRow.appendChild(pw2.wrap); encRow.appendChild(h('div', {class: 'fff-row'}, goEnc));
+
+    /* import */
+    var impRow = h('div', {class: 'fff-box', hidden: ''});
+    var impPw = field(T('bk_pw_file'), 'password', 'current-password');
+    var pending = null;
+    var impGo = btn(T('bk_import_go'), 'fff-primary', function () { doImport(pending, impPw.input.value); });
+    impRow.appendChild(impPw.wrap); impRow.appendChild(h('div', {class: 'fff-row'}, impGo));
+    function doImport(file, pw) {
+      F.bundle.import(file, {password: pw, reload: true}).then(function (r) {
+        if (r.cancelled) return say(T('cancelled'));
+        impRow.hidden = true; impPw.input.value = '';
+        say(T('ok_import', {n: r.keys}), 'ok');
+      }).catch(function (e) {
+        if (e && e.code === 'bad_password') { impRow.hidden = false; impPw.input.focus(); }
+        fail(e);
+      });
+    }
+
+    var expB = btn(T('bk_export'), '', function () {
+      F.bundle.export().then(function (r) { if (r.cancelled) return say(T('cancelled')); say(T('ok_export', {file: r.filename, n: r.keys}), 'ok'); }).catch(fail);
+    });
+    var encBtn = btn(T('bk_export_enc'), '', function () {
+      var open = encRow.hidden;
+      encRow.hidden = !open; encBtn.setAttribute('aria-expanded', String(open));
+      if (open) pw1.input.focus();
+    });
+    encBtn.setAttribute('aria-expanded', 'false');
+    var impBtn = btn(T('bk_import'), '', function () {
+      F.pickFile('.json,application/json').then(function (f) {
+        if (!f) return;
+        pending = f; impRow.hidden = true;
+        return F.bundle.inspect(f).then(function (m) {
+          if (m.encrypted) { impRow.hidden = false; impPw.input.focus(); say(T('enter_pw', {file: f.name})); }
+          else doImport(f);
+        });
+      }).catch(fail);
+    });
+    var wipeB = btn(T('bk_wipe'), 'fff-danger-o', function () {
+      F.bundle.wipe({reload: true}).then(function (r) {
+        if (r.cancelled) return say(T('cancelled'));
+        say(r.keys ? T('ok_wipe', {n: r.keys}) : T('nothing_to_wipe'), 'ok');
+      }).catch(fail);
+    });
+    var syncB = null;
+    if (F.sync && F.sync.supported()) {
+      syncB = btn(T('bk_sync'), '', function () {
+        F.sync.dialog({reload: true}).then(function (r) {
+          say(F.t('sync', 'result', {adopted: r.adopted, same: r.same, conflicts: r.conflicts}), 'ok');
+        }).catch(fail);
+      });
+    }
+    bk.appendChild(h('div', {class: 'fff-row'}, expB, encBtn, impBtn, wipeB));
+    var histB = null;
+    if (F.history && F.history.supported()) {
+      histB = btn(T('bk_history'), '', function () { F.history.dialog({reload: true}).catch(fail); });
+    }
+    if (syncB || histB) bk.appendChild(h('div', {class: 'fff-row'}, syncB, histB));
+    bk.appendChild(encRow); bk.appendChild(impRow); bk.appendChild(status);
+    return bk;
+  }
+
+  function cleanup() {
+    clearInterval(timer); timer = 0;
+    if (dlg) { dlg.remove(); dlg = null; }
+    if (lastFocus && lastFocus.isConnected && lastFocus.focus) { try { lastFocus.focus(); } catch (e) { /* ignorat */ } }
+    lastFocus = null;
+  }
+
+  var api = F.label = {
+    state: 'init',
+    open: function () {
+      if (dlg) return dlg;
+      infoCache = null;
+      lastFocus = doc.activeElement;
+      dlg = build();
+      (doc.body || doc.documentElement).appendChild(dlg);
+      if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+      timer = setInterval(function () { if (dlg && dlg._tick) dlg._tick(); }, 1500);
+      F.bus.emit('label:open');
+      return dlg;
+    },
+    close: function () {
+      if (!dlg) return;
+      var d = dlg;
+      try { d.close(); } catch (e) { /* ignorat */ }
+      if (dlg === d) cleanup();
+    },
+    isOpen: function () { return !!dlg; },
+    canon: canonBytes,
+    shellCommand: SHELL
+  };
+
+  /* ---------- transformarea #app-version în buton ---------- */
+  var fallback = null;
+  function rgba(str) {
+    var m = /rgba?\(([^)]+)\)/.exec(str || '');
+    if (!m) return null;
+    var p = m[1].split(/[ ,\/]+/).map(parseFloat);
+    return [p[0], p[1], p[2], p.length > 3 ? p[3] : 1];
+  }
+  function lum(c) {
+    function f(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]);
+  }
+  function ratio(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  /** Fundalul efectiv (amestecă straturile semitransparente peste primul fundal opac; implicit alb). */
+  function effBg(el) {
+    var layers = [], n = el;
+    while (n && n.nodeType === 1) {
+      var c = rgba(getComputedStyle(n).backgroundColor);
+      if (c && c[3] > 0) { layers.push(c); if (c[3] >= 1) break; }
+      n = n.parentElement;
+    }
+    var base = layers.length && layers[layers.length - 1][3] >= 1 ? layers.pop() : [255, 255, 255, 1];
+    while (layers.length) {
+      var t = layers.pop();
+      base = [t[0] * t[3] + base[0] * (1 - t[3]), t[1] * t[3] + base[1] * (1 - t[3]), t[2] * t[3] + base[2] * (1 - t[3]), 1];
+    }
+    return base;
+  }
+  /** Butonul de rezervă din footer moștenește culoarea gazdei; dacă nu atinge 4,5:1, alege negru/alb. */
+  function fitContrast(el) {
+    try {
+      var fg = rgba(getComputedStyle(el).color), bg = effBg(el);
+      if (!fg || ratio(fg, bg) >= 4.6) return;
+      el.style.color = ratio([0, 0, 0], bg) >= ratio([255, 255, 255], bg) ? '#000' : '#fff';
+    } catch (e) { /* ignorat */ }
+  }
+  function visibleFooter() {
+    var fs = doc.querySelectorAll('footer');
+    for (var i = 0; i < fs.length; i++) if (fs[i].getClientRects().length && getComputedStyle(fs[i]).visibility !== 'hidden') return fs[i];
+    return null;
+  }
+  /* Dimensiuni minime (WCAG 2.2 · 2.5.8 țintă ≥ 24 px; text ≥ 12 px) fără a atinge layoutul aplicației:
+     inline → inline-flex doar dacă elementul e într-adevăr inline; fontul se ridică la 12 px doar acolo unde e mai mic. */
+  function fit(el) {
+    try {
+      var all = [el].concat([].slice.call(el.querySelectorAll('*'))), i, n;
+      for (i = 0; i < all.length; i++) { all[i].removeAttribute('data-fff-fs'); }
+      el.removeAttribute('data-fff-inl');
+      if (getComputedStyle(el).display === 'inline') el.setAttribute('data-fff-inl', '1');
+      for (i = 0; i < all.length; i++) {
+        n = all[i];
+        var has = false, c;
+        for (c = n.firstChild; c; c = c.nextSibling) if (c.nodeType === 3 && c.nodeValue.trim()) { has = true; break; }
+        if (has && parseFloat(getComputedStyle(n).fontSize) < 12) n.setAttribute('data-fff-fs', '1');
+      }
+    } catch (e) {}
+  }
+  var fitT = 0, fitEl = null;
+  function fitSoon() { if (fitT) return; fitT = setTimeout(function () { fitT = 0; var e = doc.querySelector('#app-version[data-fff-label]'); if (e) fit(e); }, 150); }
+  function decorate() {
+    var el = doc.getElementById('app-version');
+    if (el) {
+      if (fallback) { fallback.remove(); fallback = null; }
+      if (el.getAttribute('data-fff-label')) { if (fitEl !== el) { fitEl = el; fit(el); } api.state = 'button'; return; }
+      if (el.closest('a,button,[role="button"],[role="link"],summary,label,input,select,textarea')) { api.state = 'nested'; return; }
+      el.setAttribute('data-fff-label', '1');
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('aria-haspopup', 'dialog');
+      el.setAttribute('title', T('open_hint'));
+      fitEl = el; fit(el);
+      api.state = 'button';
+      return;
+    }
+    if (!fallback && doc.readyState === 'complete') {
+      var ft = visibleFooter();
+      if (ft) {
+        fallback = h('button', {type: 'button', class: 'fff-chip', 'data-fff-chip': '1', 'aria-haspopup': 'dialog', title: T('open_hint'), text: T('title')});
+        fallback.addEventListener('click', function () { api.open(); });
+        ft.appendChild(fallback);
+        fitContrast(fallback);
+        api.state = 'footer';
+      } else api.state = 'none';
+    }
+  }
+  function onClick(e) {
+    var t = e.target && e.target.closest && e.target.closest('#app-version[data-fff-label]');
+    if (t) { e.preventDefault(); api.open(); }
+  }
+  function onKey(e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var t = e.target && e.target.closest && e.target.closest('#app-version[data-fff-label]');
+    if (t) { e.preventDefault(); api.open(); }
+  }
+  function init() {
+    // resturi dintr-o copie salvată de aplicație (outerHTML): le curățăm înainte de a le recrea
+    [].slice.call(doc.querySelectorAll('dialog.fff-dlg, [data-fff-chip]')).forEach(function (n) { n.remove(); });
+    if (DISABLED) { api.state = 'disabled'; return; }
+    decorate();
+    doc.addEventListener('click', onClick);
+    doc.addEventListener('keydown', onKey);
+    if (window.MutationObserver) {
+      var pend = false;
+      new MutationObserver(function () {
+        if (pend) return;
+        pend = true;
+        setTimeout(function () { pend = false; decorate(); }, 200);
+      }).observe(doc.body || doc.documentElement, {childList: true, subtree: true});
+    }
+    window.addEventListener('load', function () { setTimeout(decorate, 800); setTimeout(fitSoon, 900); });
+    window.addEventListener('resize', fitSoon);
+    F.onLang(function () {
+      var el = doc.querySelector('#app-version[data-fff-label]');
+      if (el) el.setAttribute('title', T('open_hint'));
+      if (dlg) { api.close(); api.open(); }
+    });
+  }
+  F.ready(init);
+})();
+</script>
+<script type="application/json" id="fff-i18n">{"dialog":{"ro":{"yes":"Da","cancel":"Anulează","ok":"OK","close":"Închide","dismiss":"Închide notificarea","title_confirm":"Confirmare","title_alert":"Atenție","title_prompt":"Introdu o valoare","title_show":"Text","err_required":"Completează acest câmp.","sr_info":"Informație","sr_success":"Reușit","sr_warning":"Avertisment","sr_error":"Eroare"},"en":{"yes":"Yes","cancel":"Cancel","ok":"OK","close":"Close","dismiss":"Dismiss notification","title_confirm":"Confirm","title_alert":"Notice","title_prompt":"Enter a value","title_show":"Text","err_required":"Please fill in this field.","sr_info":"Information","sr_success":"Success","sr_warning":"Warning","sr_error":"Error"},"fr":{"yes":"Oui","cancel":"Annuler","ok":"OK","close":"Fermer","dismiss":"Fermer la notification","title_confirm":"Confirmation","title_alert":"Attention","title_prompt":"Saisissez une valeur","title_show":"Texte","err_required":"Veuillez remplir ce champ.","sr_info":"Information","sr_success":"Réussite","sr_warning":"Avertissement","sr_error":"Erreur"},"it":{"yes":"Sì","cancel":"Annulla","ok":"OK","close":"Chiudi","dismiss":"Chiudi la notifica","title_confirm":"Conferma","title_alert":"Attenzione","title_prompt":"Inserisci un valore","title_show":"Testo","err_required":"Compila questo campo.","sr_info":"Informazione","sr_success":"Operazione riuscita","sr_warning":"Avviso","sr_error":"Errore"},"es":{"yes":"Sí","cancel":"Cancelar","ok":"OK","close":"Cerrar","dismiss":"Cerrar la notificación","title_confirm":"Confirmación","title_alert":"Atención","title_prompt":"Introduce un valor","title_show":"Texto","err_required":"Rellena este campo.","sr_info":"Información","sr_success":"Correcto","sr_warning":"Aviso","sr_error":"Error"},"pt":{"yes":"Sim","cancel":"Cancelar","ok":"OK","close":"Fechar","dismiss":"Fechar a notificação","title_confirm":"Confirmação","title_alert":"Atenção","title_prompt":"Introduza um valor","title_show":"Texto","err_required":"Preencha este campo.","sr_info":"Informação","sr_success":"Sucesso","sr_warning":"Aviso","sr_error":"Erro"},"hu":{"yes":"Igen","cancel":"Mégse","ok":"OK","close":"Bezárás","dismiss":"Értesítés bezárása","title_confirm":"Megerősítés","title_alert":"Figyelem","title_prompt":"Adj meg egy értéket","title_show":"Szöveg","err_required":"Töltsd ki ezt a mezőt.","sr_info":"Információ","sr_success":"Sikeres","sr_warning":"Figyelmeztetés","sr_error":"Hiba"},"de":{"yes":"Ja","cancel":"Abbrechen","ok":"OK","close":"Schließen","dismiss":"Benachrichtigung schließen","title_confirm":"Bestätigung","title_alert":"Hinweis","title_prompt":"Wert eingeben","title_show":"Text","err_required":"Bitte dieses Feld ausfüllen.","sr_info":"Information","sr_success":"Erfolg","sr_warning":"Warnung","sr_error":"Fehler"}},"ux":{"ro":{"copied":"Copiat","saved":"Salvat"},"en":{"copied":"Copied","saved":"Saved"},"fr":{"copied":"Copié","saved":"Enregistré"},"it":{"copied":"Copiato","saved":"Salvato"},"es":{"copied":"Copiado","saved":"Guardado"},"pt":{"copied":"Copiado","saved":"Guardado"},"de":{"copied":"Kopiert","saved":"Gespeichert"},"hu":{"copied":"Másolva","saved":"Mentve"}},"label":{"ro":{"title":"Transparență","open_hint":"Deschide eticheta de transparență","close":"Închide","disabled":"Funcțiile kitului sunt dezactivate pentru această aplicație: {reason}","self_mod":"Atenție: aplicația își poate salva propria copie (împreună cu datele tale). Suma SHA-256 declarată se aplică doar fișierului distribuit inițial.","net_h":"Rețea","net_none":"0 cereri externe declarate","net_list":"Gazde externe declarate sau permise de politica de securitate (CSP):","net_note":"Declarat la construirea fișierului, prin analiza codului; poți verifica și în fila Rețea a instrumentelor browserului.","net_unknown":"Informații indisponibile: fișierul nu conține descriptorul de transparență.","store_h":"Stocare locală","store_none":"Nicio cheie în localStorage.","store_sum":"{n} chei · {size}","store_key":"Cheie","store_size":"Mărime","store_more":"…și încă {n} chei","store_idb":"Aplicația folosește și IndexedDB, care nu este inclus în copia de siguranță.","store_note":"Datele rămân în acest browser; nimic nu este trimis.","perm_h":"Permisiuni și API-uri folosite","perm_none":"Nu au fost detectate API-uri sensibile.","perm_note":"Detectate static în codul sursă; pentru cele sensibile, browserul îți cere acordul.","perm_cam":"Cameră / microfon","perm_geo":"Locație","perm_rtc":"Conexiuni directe între browsere (WebRTC)","perm_share":"Partajare (Web Share)","perm_notif":"Notificări","perm_tts":"Sinteză vocală","perm_stt":"Recunoaștere vocală","perm_clip":"Clipboard","perm_sw":"Service worker (instalare / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Criptografie (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Fișier","file_size":"Dimensiune: {size}","file_hash":"SHA-256 declarat:","file_nohash":"Suma de control nu este declarată în acest fișier.","file_how_h":"Cum verifici","file_how":"Alege fișierul descărcat: se calculează SHA-256 după golirea câmpurilor de hash (data-fff-hash și „sha256”) și se compară cu valoarea declarată. Același calcul în terminal:","verify_btn":"Verifică un fișier descărcat…","verify_ok":"Se potrivește: fișierul este identic cu cel declarat.","verify_bad":"Nu se potrivește. Calculat: {got}","verify_err":"Fișierul nu a putut fi citit.","verify_cmd":"Comandă de verificare","bk_h":"Copie de siguranță","bk_hint":"Fișier .fff.json cu datele din localStorage ale aplicației. Varianta criptată folosește AES-GCM 256 cu cheie derivată prin PBKDF2-SHA256 ({iter} de iterații); parola nu poate fi recuperată.","bk_export":"Exportă","bk_export_enc":"Exportă criptat…","bk_import":"Importă…","bk_wipe":"Șterge datele aplicației","bk_pw":"Parolă (min. {n} caractere)","bk_pw2":"Repetă parola","bk_go":"Exportă criptat","bk_pw_file":"Parola fișierului","bk_import_go":"Importă","pw_mismatch":"Parolele nu coincid.","ok_export":"Exportat: {file} ({n} chei).","ok_export_enc":"Exportat criptat: {file} ({n} chei).","ok_import":"Importate {n} chei. Se reîncarcă pagina…","ok_wipe":"Șterse {n} chei. Se reîncarcă pagina…","nothing_to_wipe":"Nu există date de șters.","enter_pw":"Fișierul {file} este criptat: introdu parola.","cancelled":"Anulat.","kit_line":"fff-kit v{v} · module: {mods}","install":"Instalează aplicația","bk_sync":"Sincronizează între dispozitive","bk_history":"Istoric (mașina timpului)"},"en":{"title":"Transparency","open_hint":"Open the transparency label","close":"Close","disabled":"Kit features are disabled for this app: {reason}","self_mod":"Note: this app can save its own copy (together with your data). The declared SHA-256 applies only to the originally distributed file.","net_h":"Network","net_none":"0 external requests declared","net_list":"External hosts declared or allowed by the security policy (CSP):","net_note":"Declared at build time by analysing the code; you can also check the Network tab of your browser tools.","net_unknown":"Information unavailable: the file has no transparency descriptor.","store_h":"Local storage","store_none":"No keys in localStorage.","store_sum":"{n} keys · {size}","store_key":"Key","store_size":"Size","store_more":"…and {n} more keys","store_idb":"The app also uses IndexedDB, which is not included in the backup.","store_note":"Data stays in this browser; nothing is sent.","perm_h":"Permissions and APIs used","perm_none":"No sensitive APIs detected.","perm_note":"Detected statically in the source code; for sensitive ones the browser asks for your consent.","perm_cam":"Camera / microphone","perm_geo":"Location","perm_rtc":"Direct browser-to-browser connections (WebRTC)","perm_share":"Sharing (Web Share)","perm_notif":"Notifications","perm_tts":"Speech synthesis","perm_stt":"Speech recognition","perm_clip":"Clipboard","perm_sw":"Service worker (install / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Cryptography (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"File","file_size":"Size: {size}","file_hash":"Declared SHA-256:","file_nohash":"No checksum is declared in this file.","file_how_h":"How to verify","file_how":"Choose the downloaded file: its SHA-256 is computed after blanking the hash fields (data-fff-hash and \"sha256\") and compared with the declared value. The same computation in a terminal:","verify_btn":"Verify a downloaded file…","verify_ok":"Match: the file is identical to the declared one.","verify_bad":"No match. Computed: {got}","verify_err":"The file could not be read.","verify_cmd":"Verification command","bk_h":"Backup","bk_hint":"A .fff.json file with the app's localStorage data. The encrypted variant uses AES-GCM 256 with a key derived via PBKDF2-SHA256 ({iter} iterations); the password cannot be recovered.","bk_export":"Export","bk_export_enc":"Export encrypted…","bk_import":"Import…","bk_wipe":"Delete app data","bk_pw":"Password (min. {n} characters)","bk_pw2":"Repeat password","bk_go":"Export encrypted","bk_pw_file":"File password","bk_import_go":"Import","pw_mismatch":"Passwords do not match.","ok_export":"Exported: {file} ({n} keys).","ok_export_enc":"Exported encrypted: {file} ({n} keys).","ok_import":"Imported {n} keys. Reloading the page…","ok_wipe":"Deleted {n} keys. Reloading the page…","nothing_to_wipe":"There is no data to delete.","enter_pw":"The file {file} is encrypted: enter the password.","cancelled":"Cancelled.","kit_line":"fff-kit v{v} · modules: {mods}","install":"Install the app","bk_sync":"Sync between devices","bk_history":"History (time machine)"},"fr":{"title":"Transparence","open_hint":"Ouvrir l’étiquette de transparence","close":"Fermer","disabled":"Les fonctions du kit sont désactivées pour cette application : {reason}","self_mod":"Attention : cette application peut enregistrer sa propre copie (avec vos données). Le SHA-256 déclaré ne vaut que pour le fichier distribué à l’origine.","net_h":"Réseau","net_none":"0 requête externe déclarée","net_list":"Hôtes externes déclarés ou autorisés par la politique de sécurité (CSP) :","net_note":"Déclaré à la construction par analyse du code ; vous pouvez aussi vérifier dans l’onglet Réseau des outils du navigateur.","net_unknown":"Informations indisponibles : le fichier ne contient pas de descripteur de transparence.","store_h":"Stockage local","store_none":"Aucune clé dans localStorage.","store_sum":"{n} clés · {size}","store_key":"Clé","store_size":"Taille","store_more":"…et {n} clés de plus","store_idb":"L’application utilise aussi IndexedDB, non inclus dans la sauvegarde.","store_note":"Les données restent dans ce navigateur ; rien n’est envoyé.","perm_h":"Autorisations et API utilisées","perm_none":"Aucune API sensible détectée.","perm_note":"Détectées statiquement dans le code source ; pour les API sensibles, le navigateur demande votre accord.","perm_cam":"Caméra / microphone","perm_geo":"Localisation","perm_rtc":"Connexions directes entre navigateurs (WebRTC)","perm_share":"Partage (Web Share)","perm_notif":"Notifications","perm_tts":"Synthèse vocale","perm_stt":"Reconnaissance vocale","perm_clip":"Presse-papiers","perm_sw":"Service worker (installation / hors ligne)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Cryptographie (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Fichier","file_size":"Taille : {size}","file_hash":"SHA-256 déclaré :","file_nohash":"Aucune somme de contrôle n’est déclarée dans ce fichier.","file_how_h":"Comment vérifier","file_how":"Choisissez le fichier téléchargé : son SHA-256 est calculé après avoir vidé les champs de hachage (data-fff-hash et « sha256 ») puis comparé à la valeur déclarée. Même calcul dans un terminal :","verify_btn":"Vérifier un fichier téléchargé…","verify_ok":"Concordance : le fichier est identique à celui déclaré.","verify_bad":"Pas de concordance. Calculé : {got}","verify_err":"Le fichier n’a pas pu être lu.","verify_cmd":"Commande de vérification","bk_h":"Sauvegarde","bk_hint":"Un fichier .fff.json avec les données localStorage de l’application. La variante chiffrée utilise AES-GCM 256 avec une clé dérivée par PBKDF2-SHA256 ({iter} itérations) ; le mot de passe est irrécupérable.","bk_export":"Exporter","bk_export_enc":"Exporter chiffré…","bk_import":"Importer…","bk_wipe":"Supprimer les données de l’application","bk_pw":"Mot de passe (min. {n} caractères)","bk_pw2":"Répéter le mot de passe","bk_go":"Exporter chiffré","bk_pw_file":"Mot de passe du fichier","bk_import_go":"Importer","pw_mismatch":"Les mots de passe ne correspondent pas.","ok_export":"Exporté : {file} ({n} clés).","ok_export_enc":"Exporté chiffré : {file} ({n} clés).","ok_import":"{n} clés importées. Rechargement de la page…","ok_wipe":"{n} clés supprimées. Rechargement de la page…","nothing_to_wipe":"Aucune donnée à supprimer.","enter_pw":"Le fichier {file} est chiffré : saisissez le mot de passe.","cancelled":"Annulé.","kit_line":"fff-kit v{v} · modules : {mods}","install":"Installer l’application","bk_sync":"Synchroniser entre appareils","bk_history":"Historique (machine à remonter le temps)"},"it":{"title":"Trasparenza","open_hint":"Apri l’etichetta di trasparenza","close":"Chiudi","disabled":"Le funzioni del kit sono disattivate per questa app: {reason}","self_mod":"Attenzione: questa app può salvare una propria copia (insieme ai tuoi dati). Lo SHA-256 dichiarato vale solo per il file distribuito in origine.","net_h":"Rete","net_none":"0 richieste esterne dichiarate","net_list":"Host esterni dichiarati o consentiti dalla politica di sicurezza (CSP):","net_note":"Dichiarato in fase di costruzione tramite analisi del codice; puoi controllare anche nella scheda Rete degli strumenti del browser.","net_unknown":"Informazioni non disponibili: il file non contiene il descrittore di trasparenza.","store_h":"Archiviazione locale","store_none":"Nessuna chiave in localStorage.","store_sum":"{n} chiavi · {size}","store_key":"Chiave","store_size":"Dimensione","store_more":"…e altre {n} chiavi","store_idb":"L’app usa anche IndexedDB, non incluso nel backup.","store_note":"I dati restano in questo browser; non viene inviato nulla.","perm_h":"Permessi e API usati","perm_none":"Nessuna API sensibile rilevata.","perm_note":"Rilevate in modo statico nel codice sorgente; per quelle sensibili il browser chiede il tuo consenso.","perm_cam":"Fotocamera / microfono","perm_geo":"Posizione","perm_rtc":"Connessioni dirette tra browser (WebRTC)","perm_share":"Condivisione (Web Share)","perm_notif":"Notifiche","perm_tts":"Sintesi vocale","perm_stt":"Riconoscimento vocale","perm_clip":"Appunti","perm_sw":"Service worker (installazione / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Crittografia (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"File","file_size":"Dimensione: {size}","file_hash":"SHA-256 dichiarato:","file_nohash":"In questo file non è dichiarata alcuna somma di controllo.","file_how_h":"Come verificare","file_how":"Scegli il file scaricato: ne viene calcolato lo SHA-256 dopo aver svuotato i campi hash (data-fff-hash e «sha256») e confrontato con il valore dichiarato. Lo stesso calcolo da terminale:","verify_btn":"Verifica un file scaricato…","verify_ok":"Corrisponde: il file è identico a quello dichiarato.","verify_bad":"Non corrisponde. Calcolato: {got}","verify_err":"Impossibile leggere il file.","verify_cmd":"Comando di verifica","bk_h":"Copia di sicurezza","bk_hint":"Un file .fff.json con i dati localStorage dell’app. La variante cifrata usa AES-GCM 256 con chiave derivata tramite PBKDF2-SHA256 ({iter} iterazioni); la password non è recuperabile.","bk_export":"Esporta","bk_export_enc":"Esporta cifrato…","bk_import":"Importa…","bk_wipe":"Elimina i dati dell’app","bk_pw":"Password (min. {n} caratteri)","bk_pw2":"Ripeti la password","bk_go":"Esporta cifrato","bk_pw_file":"Password del file","bk_import_go":"Importa","pw_mismatch":"Le password non coincidono.","ok_export":"Esportato: {file} ({n} chiavi).","ok_export_enc":"Esportato cifrato: {file} ({n} chiavi).","ok_import":"Importate {n} chiavi. Ricarico la pagina…","ok_wipe":"Eliminate {n} chiavi. Ricarico la pagina…","nothing_to_wipe":"Non ci sono dati da eliminare.","enter_pw":"Il file {file} è cifrato: inserisci la password.","cancelled":"Annullato.","kit_line":"fff-kit v{v} · moduli: {mods}","install":"Installa l’app","bk_sync":"Sincronizza tra dispositivi","bk_history":"Cronologia (macchina del tempo)"},"es":{"title":"Transparencia","open_hint":"Abrir la etiqueta de transparencia","close":"Cerrar","disabled":"Las funciones del kit están desactivadas para esta aplicación: {reason}","self_mod":"Atención: esta aplicación puede guardar su propia copia (junto con tus datos). El SHA-256 declarado solo vale para el archivo distribuido originalmente.","net_h":"Red","net_none":"0 solicitudes externas declaradas","net_list":"Hosts externos declarados o permitidos por la política de seguridad (CSP):","net_note":"Declarado al construir el archivo mediante análisis del código; también puedes comprobarlo en la pestaña Red de las herramientas del navegador.","net_unknown":"Información no disponible: el archivo no contiene el descriptor de transparencia.","store_h":"Almacenamiento local","store_none":"Ninguna clave en localStorage.","store_sum":"{n} claves · {size}","store_key":"Clave","store_size":"Tamaño","store_more":"…y {n} claves más","store_idb":"La aplicación también usa IndexedDB, que no se incluye en la copia de seguridad.","store_note":"Los datos permanecen en este navegador; no se envía nada.","perm_h":"Permisos y API usadas","perm_none":"No se detectaron API sensibles.","perm_note":"Detectadas de forma estática en el código fuente; para las sensibles, el navegador pide tu consentimiento.","perm_cam":"Cámara / micrófono","perm_geo":"Ubicación","perm_rtc":"Conexiones directas entre navegadores (WebRTC)","perm_share":"Compartir (Web Share)","perm_notif":"Notificaciones","perm_tts":"Síntesis de voz","perm_stt":"Reconocimiento de voz","perm_clip":"Portapapeles","perm_sw":"Service worker (instalación / sin conexión)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Criptografía (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Archivo","file_size":"Tamaño: {size}","file_hash":"SHA-256 declarado:","file_nohash":"Este archivo no declara ninguna suma de verificación.","file_how_h":"Cómo verificar","file_how":"Elige el archivo descargado: se calcula su SHA-256 tras vaciar los campos de hash (data-fff-hash y «sha256») y se compara con el valor declarado. El mismo cálculo en una terminal:","verify_btn":"Verificar un archivo descargado…","verify_ok":"Coincide: el archivo es idéntico al declarado.","verify_bad":"No coincide. Calculado: {got}","verify_err":"No se pudo leer el archivo.","verify_cmd":"Comando de verificación","bk_h":"Copia de seguridad","bk_hint":"Un archivo .fff.json con los datos de localStorage de la aplicación. La variante cifrada usa AES-GCM 256 con clave derivada mediante PBKDF2-SHA256 ({iter} iteraciones); la contraseña no se puede recuperar.","bk_export":"Exportar","bk_export_enc":"Exportar cifrado…","bk_import":"Importar…","bk_wipe":"Borrar los datos de la aplicación","bk_pw":"Contraseña (mín. {n} caracteres)","bk_pw2":"Repite la contraseña","bk_go":"Exportar cifrado","bk_pw_file":"Contraseña del archivo","bk_import_go":"Importar","pw_mismatch":"Las contraseñas no coinciden.","ok_export":"Exportado: {file} ({n} claves).","ok_export_enc":"Exportado cifrado: {file} ({n} claves).","ok_import":"{n} claves importadas. Recargando la página…","ok_wipe":"{n} claves borradas. Recargando la página…","nothing_to_wipe":"No hay datos que borrar.","enter_pw":"El archivo {file} está cifrado: introduce la contraseña.","cancelled":"Cancelado.","kit_line":"fff-kit v{v} · módulos: {mods}","install":"Instalar la aplicación","bk_sync":"Sincronizar entre dispositivos","bk_history":"Historial (máquina del tiempo)"},"pt":{"title":"Transparência","open_hint":"Abrir a etiqueta de transparência","close":"Fechar","disabled":"As funções do kit estão desativadas para esta aplicação: {reason}","self_mod":"Atenção: esta aplicação pode guardar a sua própria cópia (juntamente com os seus dados). O SHA-256 declarado aplica-se apenas ao ficheiro distribuído originalmente.","net_h":"Rede","net_none":"0 pedidos externos declarados","net_list":"Anfitriões externos declarados ou permitidos pela política de segurança (CSP):","net_note":"Declarado na construção do ficheiro, por análise do código; pode também verificar no separador Rede das ferramentas do navegador.","net_unknown":"Informação indisponível: o ficheiro não contém o descritor de transparência.","store_h":"Armazenamento local","store_none":"Nenhuma chave em localStorage.","store_sum":"{n} chaves · {size}","store_key":"Chave","store_size":"Tamanho","store_more":"…e mais {n} chaves","store_idb":"A aplicação usa também IndexedDB, que não está incluído na cópia de segurança.","store_note":"Os dados ficam neste navegador; nada é enviado.","perm_h":"Permissões e APIs usadas","perm_none":"Não foram detetadas APIs sensíveis.","perm_note":"Detetadas de forma estática no código-fonte; para as sensíveis, o navegador pede o seu consentimento.","perm_cam":"Câmara / microfone","perm_geo":"Localização","perm_rtc":"Ligações diretas entre navegadores (WebRTC)","perm_share":"Partilha (Web Share)","perm_notif":"Notificações","perm_tts":"Síntese de voz","perm_stt":"Reconhecimento de voz","perm_clip":"Área de transferência","perm_sw":"Service worker (instalação / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Criptografia (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Ficheiro","file_size":"Tamanho: {size}","file_hash":"SHA-256 declarado:","file_nohash":"Este ficheiro não declara nenhuma soma de verificação.","file_how_h":"Como verificar","file_how":"Escolha o ficheiro descarregado: o seu SHA-256 é calculado após esvaziar os campos de hash (data-fff-hash e «sha256») e comparado com o valor declarado. O mesmo cálculo num terminal:","verify_btn":"Verificar um ficheiro descarregado…","verify_ok":"Coincide: o ficheiro é idêntico ao declarado.","verify_bad":"Não coincide. Calculado: {got}","verify_err":"Não foi possível ler o ficheiro.","verify_cmd":"Comando de verificação","bk_h":"Cópia de segurança","bk_hint":"Um ficheiro .fff.json com os dados de localStorage da aplicação. A variante cifrada usa AES-GCM 256 com chave derivada por PBKDF2-SHA256 ({iter} iterações); a palavra-passe não pode ser recuperada.","bk_export":"Exportar","bk_export_enc":"Exportar cifrado…","bk_import":"Importar…","bk_wipe":"Apagar os dados da aplicação","bk_pw":"Palavra-passe (mín. {n} caracteres)","bk_pw2":"Repita a palavra-passe","bk_go":"Exportar cifrado","bk_pw_file":"Palavra-passe do ficheiro","bk_import_go":"Importar","pw_mismatch":"As palavras-passe não coincidem.","ok_export":"Exportado: {file} ({n} chaves).","ok_export_enc":"Exportado cifrado: {file} ({n} chaves).","ok_import":"{n} chaves importadas. A recarregar a página…","ok_wipe":"{n} chaves apagadas. A recarregar a página…","nothing_to_wipe":"Não há dados para apagar.","enter_pw":"O ficheiro {file} está cifrado: introduza a palavra-passe.","cancelled":"Cancelado.","kit_line":"fff-kit v{v} · módulos: {mods}","install":"Instalar a aplicação","bk_sync":"Sincronizar entre dispositivos","bk_history":"Histórico (máquina do tempo)"},"hu":{"title":"Átláthatóság","open_hint":"Az átláthatósági címke megnyitása","close":"Bezárás","disabled":"A kit funkciói ki vannak kapcsolva ennél az alkalmazásnál: {reason}","self_mod":"Figyelem: ez az alkalmazás képes saját másolatot menteni (az adataiddal együtt). A megadott SHA-256 csak az eredetileg terjesztett fájlra érvényes.","net_h":"Hálózat","net_none":"0 külső kérés megadva","net_list":"A biztonsági irányelv (CSP) által megadott vagy engedélyezett külső gazdák:","net_note":"Az összeállításkor a kód elemzésével megadva; a böngésző eszközeinek Hálózat lapján is ellenőrizheted.","net_unknown":"Az információ nem érhető el: a fájl nem tartalmaz átláthatósági leírót.","store_h":"Helyi tárolás","store_none":"Nincs kulcs a localStorage-ban.","store_sum":"{n} kulcs · {size}","store_key":"Kulcs","store_size":"Méret","store_more":"…és még {n} kulcs","store_idb":"Az alkalmazás IndexedDB-t is használ, amely nem része a biztonsági mentésnek.","store_note":"Az adatok ebben a böngészőben maradnak; semmi sem kerül elküldésre.","perm_h":"Használt engedélyek és API-k","perm_none":"Nem található érzékeny API.","perm_note":"Statikusan, a forráskódban észlelve; az érzékenyeknél a böngésző a hozzájárulásodat kéri.","perm_cam":"Kamera / mikrofon","perm_geo":"Helyadat","perm_rtc":"Közvetlen böngésző–böngésző kapcsolatok (WebRTC)","perm_share":"Megosztás (Web Share)","perm_notif":"Értesítések","perm_tts":"Beszédszintézis","perm_stt":"Beszédfelismerés","perm_clip":"Vágólap","perm_sw":"Service worker (telepítés / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Kriptográfia (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Fájl","file_size":"Méret: {size}","file_hash":"Megadott SHA-256:","file_nohash":"Ebben a fájlban nincs megadva ellenőrző összeg.","file_how_h":"Hogyan ellenőrizd","file_how":"Válaszd ki a letöltött fájlt: a program kiszámolja az SHA-256 értéket a hash mezők (data-fff-hash és „sha256”) kiürítése után, és összeveti a megadottal. Ugyanez terminálban:","verify_btn":"Letöltött fájl ellenőrzése…","verify_ok":"Egyezik: a fájl megegyezik a megadottal.","verify_bad":"Nem egyezik. Számított: {got}","verify_err":"A fájlt nem sikerült beolvasni.","verify_cmd":"Ellenőrző parancs","bk_h":"Biztonsági mentés","bk_hint":"Egy .fff.json fájl az alkalmazás localStorage-adataival. A titkosított változat AES-GCM 256-ot használ, PBKDF2-SHA256-tal ({iter} iteráció) származtatott kulccsal; a jelszó nem állítható vissza.","bk_export":"Exportálás","bk_export_enc":"Titkosított exportálás…","bk_import":"Importálás…","bk_wipe":"Az alkalmazás adatainak törlése","bk_pw":"Jelszó (legalább {n} karakter)","bk_pw2":"Jelszó újra","bk_go":"Titkosított exportálás","bk_pw_file":"A fájl jelszava","bk_import_go":"Importálás","pw_mismatch":"A jelszavak nem egyeznek.","ok_export":"Exportálva: {file} ({n} kulcs).","ok_export_enc":"Titkosítva exportálva: {file} ({n} kulcs).","ok_import":"{n} kulcs importálva. Az oldal újratöltése…","ok_wipe":"{n} kulcs törölve. Az oldal újratöltése…","nothing_to_wipe":"Nincs törölhető adat.","enter_pw":"A(z) {file} fájl titkosított: add meg a jelszót.","cancelled":"Megszakítva.","kit_line":"fff-kit v{v} · modulok: {mods}","install":"Alkalmazás telepítése","bk_sync":"Szinkronizálás eszközök között","bk_history":"Előzmények (időgép)"},"de":{"title":"Transparenz","open_hint":"Transparenz-Etikett öffnen","close":"Schließen","disabled":"Die Kit-Funktionen sind für diese App deaktiviert: {reason}","self_mod":"Hinweis: Diese App kann eine eigene Kopie speichern (samt deiner Daten). Der angegebene SHA-256 gilt nur für die ursprünglich verteilte Datei.","net_h":"Netzwerk","net_none":"0 externe Anfragen angegeben","net_list":"Externe Hosts, die angegeben oder von der Sicherheitsrichtlinie (CSP) erlaubt sind:","net_note":"Beim Erstellen per Code-Analyse angegeben; du kannst es auch im Netzwerk-Tab der Browser-Werkzeuge prüfen.","net_unknown":"Informationen nicht verfügbar: Die Datei enthält keinen Transparenz-Deskriptor.","store_h":"Lokaler Speicher","store_none":"Keine Schlüssel in localStorage.","store_sum":"{n} Schlüssel · {size}","store_key":"Schlüssel","store_size":"Größe","store_more":"…und {n} weitere Schlüssel","store_idb":"Die App nutzt auch IndexedDB, das nicht in der Sicherung enthalten ist.","store_note":"Die Daten bleiben in diesem Browser; nichts wird gesendet.","perm_h":"Verwendete Berechtigungen und APIs","perm_none":"Keine sensiblen APIs erkannt.","perm_note":"Statisch im Quelltext erkannt; bei sensiblen fragt der Browser nach deiner Zustimmung.","perm_cam":"Kamera / Mikrofon","perm_geo":"Standort","perm_rtc":"Direkte Browser-zu-Browser-Verbindungen (WebRTC)","perm_share":"Teilen (Web Share)","perm_notif":"Benachrichtigungen","perm_tts":"Sprachsynthese","perm_stt":"Spracherkennung","perm_clip":"Zwischenablage","perm_sw":"Service Worker (Installation / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Kryptografie (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Datei","file_size":"Größe: {size}","file_hash":"Angegebener SHA-256:","file_nohash":"In dieser Datei ist keine Prüfsumme angegeben.","file_how_h":"So prüfst du","file_how":"Wähle die heruntergeladene Datei: Ihr SHA-256 wird nach dem Leeren der Hash-Felder (data-fff-hash und „sha256“) berechnet und mit dem angegebenen Wert verglichen. Dieselbe Berechnung im Terminal:","verify_btn":"Heruntergeladene Datei prüfen…","verify_ok":"Übereinstimmung: Die Datei ist identisch mit der angegebenen.","verify_bad":"Keine Übereinstimmung. Berechnet: {got}","verify_err":"Die Datei konnte nicht gelesen werden.","verify_cmd":"Prüfbefehl","bk_h":"Sicherung","bk_hint":"Eine .fff.json-Datei mit den localStorage-Daten der App. Die verschlüsselte Variante nutzt AES-GCM 256 mit einem per PBKDF2-SHA256 ({iter} Iterationen) abgeleiteten Schlüssel; das Passwort ist nicht wiederherstellbar.","bk_export":"Exportieren","bk_export_enc":"Verschlüsselt exportieren…","bk_import":"Importieren…","bk_wipe":"App-Daten löschen","bk_pw":"Passwort (mind. {n} Zeichen)","bk_pw2":"Passwort wiederholen","bk_go":"Verschlüsselt exportieren","bk_pw_file":"Passwort der Datei","bk_import_go":"Importieren","pw_mismatch":"Die Passwörter stimmen nicht überein.","ok_export":"Exportiert: {file} ({n} Schlüssel).","ok_export_enc":"Verschlüsselt exportiert: {file} ({n} Schlüssel).","ok_import":"{n} Schlüssel importiert. Seite wird neu geladen…","ok_wipe":"{n} Schlüssel gelöscht. Seite wird neu geladen…","nothing_to_wipe":"Keine Daten zum Löschen vorhanden.","enter_pw":"Die Datei {file} ist verschlüsselt: Passwort eingeben.","cancelled":"Abgebrochen.","kit_line":"fff-kit v{v} · Module: {mods}","install":"App installieren","bk_sync":"Zwischen Geräten synchronisieren","bk_history":"Verlauf (Zeitmaschine)"}}}</script>
+<!--fff:kit:end-->
+<!--fff:info:start-->
+<script type="application/json" id="fff-info">{"schema":1,"slug":"antropos","name":"ANTROPOS — profil științific al persoanei","version":"1.0.0","updated":"2026-11-14","description":"ANTROPOS — profil științific orientativ: vârstă biologică PhenoAge, voce, scris, ceas, TIPI, reacție. Local, offline, fără urmărire; nu este diagnostic.","egress":[],"permissions":["getUserMedia","localStorage"],"storageKeys":["antropos_v1"],"sizeBytes":184376,"sha256":"90e7776a31e9ae248c8b68e8270dc43d8f28df4b9adc02bd5444766dc955b32f","csp":{"present":true,"directives":{"default-src":"'none'","style-src":"'unsafe-inline'","script-src":"sha256×2","img-src":"data:","media-src":"blob: data:","connect-src":"'none'","base-uri":"'none'","form-action":"'none'"},"scriptInline":"hash","connect":"'none'"},"features":{"export":true,"import":true,"i18n":[],"pwa":{"manifest":false,"serviceWorker":false},"modules":["core","store","dialog","ux","label"]},"kit":{"version":"1.5.0","modules":["core","store","dialog","ux","label"]},"selfSerializing":false}</script>
+<!--fff:info:end-->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ANTROPOS — profil științific orientativ: vârstă biologică PhenoAge, voce, scris, ceas, TIPI, reacție. Local, offline, fără urmărire; nu este diagnostic.">
+<meta name="application-version" content="1.0.0">
+<meta name="last-updated" content="2026-11-14">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-kdrlsbBqOCo6r07NrEwznajPlFjGmPBwAKtD+QDCpwo=' 'sha256-HgfreiT29ohf0IwD4PKfspmRaJiMf0rPKvZxR/eEfjM='; img-src data:; media-src blob: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>ANTROPOS — profil științific al persoanei</title>
+<style>
+:root{--bg:#f4f6f9;--card:#fff;--ink:#1b2430;--mute:#5f6b7a;--line:#dde2e8;--acc:#1f5fbf;--accbg:#e8f0fc;--ok:#1e8a4c;--warn:#b7791f;--bad:#c0392b;--info:#8a95a3}
+@media (prefers-color-scheme:dark){:root{--bg:#10151c;--card:#18202a;--ink:#e8edf3;--mute:#9aa7b6;--line:#2a3542;--acc:#6aa5ff;--accbg:#1c2b44;--ok:#4cc38a;--warn:#e0b04c;--bad:#ff7b6b;--info:#7b8796}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:14px 16px 6px}
+h1{margin:0;font-size:22px;letter-spacing:.08em}
+header p{margin:2px 0 0;color:var(--mute);font-size:13px}
+.banner{margin:8px 16px;padding:8px 12px;border-left:4px solid var(--warn);background:var(--card);border-radius:6px;font-size:13px;color:var(--mute)}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;padding:8px 12px;background:var(--bg);border-bottom:1px solid var(--line)}
+nav button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:999px;font:inherit;font-size:13px;cursor:pointer}
+nav button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+@media (prefers-color-scheme:dark){nav button.on{color:#0b1220}}
+main{max-width:860px;margin:0 auto;padding:12px}
+.tab{display:none}.tab.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+.card h2{margin:0 0 6px;font-size:17px}.card h3{margin:12px 0 4px;font-size:14px}
+.mute{color:var(--mute);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+label{display:block;font-size:12px;color:var(--mute)}
+input,select,textarea{width:100%;margin-top:2px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.btn{display:inline-block;margin:6px 6px 0 0;padding:9px 14px;border:1px solid var(--acc);background:var(--acc);color:#fff;border-radius:8px;font:inherit;cursor:pointer}
+.btn.sec{background:transparent;color:var(--acc)}
+.btn.rec{background:var(--bad);border-color:var(--bad)}
+canvas.pad{display:block;width:100%;border:1px solid var(--line);border-radius:8px;touch-action:none;background:#fff;cursor:crosshair}
+table.rows{width:100%;border-collapse:collapse;margin-top:8px}
+table.rows td{padding:5px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+table.rows td.l{width:52%}table.rows td.v{font-weight:600}
+table.rows tr.n td{font-size:12px;color:var(--mute);border-bottom:1px solid var(--line);padding-top:0}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;background:var(--info)}
+.dot.ok{background:var(--ok)}.dot.warn{background:var(--warn)}.dot.bad{background:var(--bad)}
+.meter{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:6px}
+.meter i{display:block;height:100%;background:var(--acc);width:0;transition:width .1s}
+.big{display:flex;align-items:center;justify-content:center;min-height:150px;border-radius:12px;font-size:20px;font-weight:600;text-align:center;padding:12px;user-select:none;touch-action:manipulation;cursor:pointer;color:#fff;background:#546274}
+.passage{padding:10px;background:var(--accbg);border-radius:8px;font-size:15px}
+.chk{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:4px}
+.chk label{display:flex;gap:6px;align-items:center;color:var(--ink);font-size:13px}.chk input{width:auto;margin:0}
+.tipi{display:grid;grid-template-columns:1fr 110px;gap:6px 10px;align-items:center}
+.tipi div{font-size:14px}
+.bars .b{margin:8px 0}.bars .b span{font-size:13px}
+details{margin:6px 0}summary{cursor:pointer;font-weight:600}
+@media print{header,.banner,nav,.noprint{display:none!important}.tab{display:none!important}#tab-raport{display:block!important}.card{border:none;padding:0}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<header>
+<h1>ANTROPOS</h1>
+<p>Profil științific al persoanei · măsurători obiective · offline, fără trackere, fără server</p>
+</header>
+<aside class="banner" aria-label="Avertisment">Instrument educațional și de screening, <b>nu diagnostic</b>. Datele rămân doar în acest dispozitiv. Folosește-l pe tine sau cu consimțământul informat al persoanei evaluate; nu pentru selecție de personal sau decizii cu consecințe asupra altora.</aside>
+<nav id="nav"></nav>
+<main>
+
+<section class="tab" id="tab-date">
+<div class="card"><h2>Date de bază</h2><p class="mute">Sexul și vârsta calibrează toate modulele (voce, corp, vârstă biologică). Valorile se salvează local.</p><div class="grid" id="f-person"></div></div>
+<div class="card"><h2>Capacitate funcțională (opțional)</h2><div class="grid" id="f-func"></div></div>
+</section>
+
+<section class="tab" id="tab-corp">
+<div class="card"><h2>Corp și metabolism</h2><p class="mute">Indici antropometrici și cardiometabolici cu formule publicate. Completează „Date”.</p><div id="out-body"></div></div>
+</section>
+
+<section class="tab" id="tab-bio">
+<div class="card"><h2>Vârstă cronologică și biologică</h2><div id="out-age"></div></div>
+<div class="card"><h2>Vârsta fenotipică (PhenoAge, Levine 2018)</h2>
+<p class="mute">Combină 9 analize de sânge uzuale cu vârsta cronologică; are validare prospectivă pentru mortalitate. Introdu valorile din buletinul de analize.</p>
+<div class="grid" id="f-labs"></div><div id="out-pheno"></div></div>
+<div class="card"><h2>Capacitate funcțională și fitness</h2><div id="out-func"></div></div>
+</section>
+
+<section class="tab" id="tab-voce">
+<div class="card"><h2>Analiza vocii (acustică)</h2>
+<p class="mute">Parametri acustici măsurabili: F0, variabilitate, jitter, shimmer, HNR, formanți, timp maxim de fonație, pauze și ritm. Cameră liniștită, microfon la 10–15 cm. Estimările sunt aproximative față de Praat/MDVP.</p>
+<h3>Sarcina 1 — vocală susținută „aaa” (5–10 s)</h3>
+<button class="btn" id="rec-vowel">● Înregistrează</button>
+<label class="noprint" style="display:inline-block;margin-top:6px">sau încarcă un fișier audio <input type="file" accept="audio/*" id="up-vowel"></label>
+<div class="meter"><i id="lvl-vowel"></i></div>
+<div id="out-vowel"></div>
+<h3>Sarcina 2 — citire cu voce tare</h3>
+<div class="passage" id="passage"></div>
+<button class="btn" id="rec-read">● Înregistrează</button>
+<label class="noprint" style="display:inline-block;margin-top:6px">sau încarcă un fișier audio <input type="file" accept="audio/*" id="up-read"></label>
+<div class="meter"><i id="lvl-read"></i></div>
+<div id="out-read"></div>
+</div>
+</section>
+
+<section class="tab" id="tab-scris">
+<div class="card"><h2>Scris de mână — analiză grafometrică</h2>
+<p class="mute">Se măsoară caracteristici obiective ale mișcării și ale traseului (viteză, fluență, înclinare, linie de bază, spațiere, presiune). <b>Nu se deduc trăsături de personalitate</b> — nu există dovezi că scrisul le prezice. Valorile servesc la urmărirea evoluției și la screening de fluență motorie.</p>
+<p><b>Scrie de mână, în ritmul tău obișnuit:</b> <i>„Astăzi scriu cu grijă, în ritmul meu obișnuit, ca să pot citi totul mai târziu.”</i></p>
+<canvas class="pad" id="pad-hand" data-h="260"></canvas>
+<label style="margin-top:6px">Lizibilitate autoevaluată (1 = slabă … 5 = foarte bună)<select id="legib"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+<button class="btn" id="hand-go">Analizează</button><button class="btn sec" id="hand-clr">Șterge</button>
+<div id="out-hand"></div></div>
+
+<div class="card"><h2>Spirala Arhimede (control motor, tremor)</h2>
+<p class="mute">Urmărește spirala punctată de la centru spre exterior, fără grabă. Se măsoară deviația față de șablon și frecvența dominantă a oscilațiilor (2–12 Hz). Indicator orientativ, nu diagnostic.</p>
+<canvas class="pad" id="pad-spiral" data-h="340"></canvas>
+<button class="btn" id="spiral-go">Analizează</button><button class="btn sec" id="spiral-clr">Șterge</button>
+<div id="out-spiral"></div></div>
+
+<div class="card"><h2>Scris scanat / fotografiat (opțional)</h2>
+<p class="mute">Încarcă imaginea unui text scris de mână (hârtie albă, lumină uniformă). Se estimează înclinarea (metoda varianței proiecției), înclinarea liniei și densitatea cernelii.</p>
+<input type="file" accept="image/*" id="up-img-hand"><div id="out-imghand"></div></div>
+</section>
+
+<section class="tab" id="tab-desene">
+<div class="card"><h2>Desene — teste cognitive și de dezvoltare</h2>
+<p class="mute">Se folosesc doar utilizări cu validare: testul desenului ceasului (screening cognitiv, scara Shulman) și desenul figurii umane ca indicator informal de maturizare grafică la copii. <b>Interpretările proiective de personalitate</b> (mărimea mâinilor, umbrire, poziție pe pagină etc.) <b>nu sunt susținute de cercetare</b> și nu sunt incluse.</p></div>
+
+<div class="card"><h2>Testul ceasului</h2>
+<p><b>Desenează un ceas complet, cu toate numerele, și așază acele pe 11 și 10</b> (unsprezece și zece minute).</p>
+<canvas class="pad" id="pad-clock" data-h="340"></canvas>
+<button class="btn" id="clock-go">Analizează</button><button class="btn sec" id="clock-clr">Șterge</button>
+<label style="margin-top:8px">Scor Shulman (evaluat vizual de tine sau de un specialist)
+<select id="shulman"><option value="">—</option>
+<option value="1">1 — ceas perfect</option>
+<option value="2">2 — erori vizuo-spațiale minore</option>
+<option value="3">3 — ora indicată incorect, vizuo-spațial intact</option>
+<option value="4">4 — dezorganizare vizuo-spațială moderată, ora greu de stabilit</option>
+<option value="5">5 — dezorganizare severă</option>
+<option value="6">6 — fără reprezentare rezonabilă a unui ceas</option></select></label>
+<div id="out-clock"></div></div>
+
+<div class="card"><h2>Desenul figurii umane (copii)</h2>
+<p><b>Desenează o persoană întreagă.</b></p>
+<canvas class="pad" id="pad-person" data-h="380"></canvas>
+<button class="btn" id="person-go">Analizează</button><button class="btn sec" id="person-clr">Șterge</button>
+<h3>Detalii prezente (bifează)</h3><div class="chk" id="chk-person"></div>
+<div id="out-person"></div></div>
+
+<div class="card"><h2>Desen scanat / fotografiat (opțional)</h2>
+<p class="mute">Descriptori obiectivi ai imaginii: acoperire, ocuparea paginii, echilibru stânga/dreapta. Fără interpretare psihologică.</p>
+<input type="file" accept="image/*" id="up-img-draw"><div id="out-imgdraw"></div></div>
+</section>
+
+<section class="tab" id="tab-pers">
+<div class="card"><h2>Personalitate — chestionar TIPI (Big Five)</h2>
+<p class="mute">Ten-Item Personality Inventory (Gosling, Rentfrow &amp; Swann, 2003): instrument validat pentru cele cinci mari dimensiuni. Traducere proprie, nevalidată pe populația română; folosește rezultatul ca orientativ. „Mă văd ca fiind o persoană care este…” (1 = dezacord total … 7 = acord total).</p>
+<div class="tipi" id="tipi"></div><div id="out-tipi"></div></div>
+</section>
+
+<section class="tab" id="tab-reactie">
+<div class="card"><h2>Timp de reacție</h2>
+<p class="mute">Atinge când ecranul devine verde. 5 încercări; se raportează mediana. Valorile depind de dispozitiv (latență ecran/atingere): compară doar pe același dispozitiv.</p>
+<div class="big" id="rtbox">Atinge pentru a începe</div><div id="out-rt"></div></div>
+<div class="card"><h2>Tapping (viteză motorie)</h2>
+<p class="mute">Atinge cât poți de repede, 10 secunde, cu degetul arătător al mâinii dominante.</p>
+<div class="big" id="tapbox">Atinge pentru a începe</div><div id="out-tap"></div></div>
+</section>
+
+<section class="tab" id="tab-raport">
+<div class="card"><h2>Raport</h2><div id="out-report"></div>
+<div class="noprint"><button class="btn" id="rep-print">Tipărește / PDF</button><button class="btn sec" id="rep-export">Exportă JSON</button>
+<label style="display:inline-block">Importă JSON <input type="file" accept="application/json" id="rep-import"></label>
+<button class="btn sec" id="rep-reset">Șterge toate datele</button></div></div>
+</section>
+
+<section class="tab" id="tab-metoda">
+<div class="card"><h2>Metodologie și limite</h2>
+<h3>Ce măsoară aplicația</h3>
+<p>Doar mărimi observabile, cu formule sau instrumente publicate: antropometrie, vârstă fenotipică, acustica vocii, cinematica scrisului, deviația grafică, teste cognitive de screening și un chestionar de personalitate validat.</p>
+<h3>Grafologia și desenele</h3>
+<p>Revizuirile sistematice și meta-analizele arată că deducerea personalității sau a performanței profesionale din scris (grafologia) nu depășește șansa și nu e validă (ex. Neter &amp; Ben-Shakhar, 1989; Dean, 1992). Tehnicile proiective de desen au validitate slabă pentru personalitate sau psihopatologie (Lilienfeld, Wood &amp; Garb, 2000). Din acest motiv, aplicația păstrează aceste module <b>doar prin ce au validitate</b>: grafometrie (fluență, viteză, tremor — folosite în evaluarea disgrafiei și a tulburărilor motorii), testul ceasului (screening cognitiv) și desenul figurii umane ca indicator de dezvoltare la copii.</p>
+<h3>Chiromanția</h3>
+<p>Nu are bază științifică și a fost scoasă. Dermatoglifele (amprente) au utilizări medicale și genetice, dar necesită imagistică și analiză de laborator și nu permit „profil de personalitate”.</p>
+<h3>Formule și surse</h3>
+<p>Vârstă fenotipică: Levine și colab., <i>Aging</i> 2018. Metabolism bazal: Mifflin–St Jeor, <i>AJCN</i> 1990. Grăsime corporală estimată: Deurenberg și colab., <i>Br J Nutr</i> 1991. Puls maxim: Tanaka și colab., <i>JACC</i> 2001. VO₂max estimat din raportul HRmax/HRrepaus: Uth și colab., 2004. Praguri de forță/mers/ridicare de pe scaun: EWGSOP2, Cruz-Jentoft 2019. Tensiune: ghid ESC/ESH 2018. Talie: OMS/IDF; raport talie/înălțime: NICE. Scara Shulman a testului ceasului: Shulman 2000. TIPI: Gosling și colab., <i>J Res Pers</i> 2003. Voce: Baken &amp; Orlikoff, <i>Clinical Measurement of Speech and Voice</i>; Boersma 1993 (HNR prin autocorelație); formanți prin predicție liniară (LPC).</p>
+<h3>Limite</h3>
+<ul><li>Valorile din microfon/ecran sunt <b>aproximative</b>, nu de grad clinic.</li><li>Un singur rezultat nu înseamnă diagnostic; abaterile se discută cu medicul sau psihologul.</li><li>IMC și formulele de grăsime nu se aplică copiilor (folosește curbe de creștere).</li><li>Intervalele de referință sunt orientative și variază cu vârsta, populația și metoda.</li></ul>
+</div>
+</section>
+
+</main>
+<script>
+/*TEST-START*/
+function median(a){if(!a.length)return NaN;const b=[...a].sort((x,y)=>x-y),m=b.length>>1;return b.length%2?b[m]:(b[m-1]+b[m])/2}
+function mean(a){return a.length?a.reduce((x,y)=>x+y,0)/a.length:NaN}
+function sd(a){if(a.length<2)return NaN;const m=mean(a);return Math.sqrt(a.reduce((s,x)=>s+(x-m)**2,0)/(a.length-1))}
+function pct(a,p){if(!a.length)return NaN;const b=[...a].sort((x,y)=>x-y),i=(b.length-1)*p,lo=Math.floor(i),hi=Math.ceil(i);return b[lo]+(b[hi]-b[lo])*(i-lo)}
+function phenoAge(v){
+ const xb=-19.9067-0.0336*v.alb+0.0095*v.cre+0.1953*v.glu+0.0954*Math.log(Math.max(v.crp,0.01))-0.0120*v.lym+0.0268*v.mcv+0.3306*v.rdw+0.00188*v.alp+0.0554*v.wbc+0.0804*v.age;
+ const M=1-Math.exp(-1.51714*Math.exp(xb)/0.0076927);
+ return 141.50225+Math.log(-0.00553*Math.log(1-M))/0.090165;
+}
+function decimate(x,fs,target){const f=Math.max(1,Math.round(fs/target));if(f===1)return{y:x,fs};const n=Math.floor(x.length/f),y=new Float32Array(n);for(let i=0;i<n;i++){let s=0;for(let j=0;j<f;j++)s+=x[i*f+j];y[i]=s/f}return{y,fs:fs/f}}
+function pitchTrack(y,fs,fmin=60,fmax=500,win=0.05,hop=0.01){
+ const N=Math.round(win*fs),H=Math.round(hop*fs),tmin=Math.max(2,Math.floor(fs/fmax)),tmax=Math.min(N-3,Math.ceil(fs/fmin));
+ const w=new Float32Array(N);for(let i=0;i<N;i++)w[i]=0.5-0.5*Math.cos(2*Math.PI*i/(N-1));
+ const wa=new Float64Array(tmax+3);for(let t=0;t<=tmax+2;t++){let s=0;for(let i=0;i+t<N;i++)s+=w[i]*w[i+t];wa[t]=s}
+ const fr=[],seg=new Float64Array(N),r=new Float64Array(tmax+3);let maxr=0;
+ for(let s=0;s+N<=y.length;s+=H){
+  let m=0;for(let i=0;i<N;i++)m+=y[s+i];m/=N;let e=0;
+  for(let i=0;i<N;i++){const d=y[s+i]-m;e+=d*d;seg[i]=d*w[i]}
+  const rms=Math.sqrt(e/N);if(rms>maxr)maxr=rms;
+  let a0=0;for(let i=0;i<N;i++)a0+=seg[i]*seg[i];
+  let f0=0,best=0;
+  if(a0>0){
+   for(let t=tmin-1;t<=tmax+1;t++){let a=0;for(let i=0;i+t<N;i++)a+=seg[i]*seg[i+t];r[t]=(a/a0)/(wa[t]/wa[0])}
+   let mxr=-1;const pks=[];
+   for(let t=tmin;t<=tmax;t++){if(r[t]>r[t-1]&&r[t]>=r[t+1]){pks.push(t);if(r[t]>mxr)mxr=r[t]}}
+   let bt=0;for(const t of pks){if(r[t]>=0.95*mxr){bt=t;break}}
+   if(bt){const a=r[bt-1],b=r[bt],c=r[bt+1],den=a-2*b+c;let t=bt;if(den!==0)t=bt+0.5*(a-c)/den;best=Math.min(0.9999,Math.max(b,0));f0=fs/t}
+  }
+  fr.push({time:s/fs,f0,r:best,rms});
+ }
+ const sil=0.03*maxr;
+ for(const f of fr){if(!(f.r>=0.45&&f.rms>sil))f.f0=0}
+ return fr;
+}
+function lpcCoefs(x,p){
+ const r=new Float64Array(p+1);for(let k=0;k<=p;k++){let s=0;for(let i=k;i<x.length;i++)s+=x[i]*x[i-k];r[k]=s}
+ if(r[0]<=0)return null;r[0]*=1.0001;
+ const a=new Float64Array(p+1);a[0]=1;let e=r[0];
+ for(let i=1;i<=p;i++){let acc=r[i];for(let j=1;j<i;j++)acc+=a[j]*r[i-j];const k=-acc/e,tmp=a.slice();for(let j=1;j<i;j++)a[j]=tmp[j]+k*tmp[i-j];a[i]=k;e*=(1-k*k);if(e<=0)break}
+ return a;
+}
+function polyRoots(a){
+ const n=a.length-1,rr=new Float64Array(n),ri=new Float64Array(n);
+ for(let k=0;k<n;k++){const g=2*Math.PI*k/n+0.4;rr[k]=0.9*Math.cos(g);ri[k]=0.9*Math.sin(g)}
+ for(let it=0;it<300;it++){let md=0;
+  for(let i=0;i<n;i++){
+   let pr=1,pi=0;for(let j=1;j<=n;j++){const nr=pr*rr[i]-pi*ri[i]+a[j],ni=pr*ri[i]+pi*rr[i];pr=nr;pi=ni}
+   let dr=1,di=0;for(let j=0;j<n;j++)if(j!==i){const xr=rr[i]-rr[j],xi=ri[i]-ri[j],nr=dr*xr-di*xi;di=dr*xi+di*xr;dr=nr}
+   const den=dr*dr+di*di;if(den===0)continue;
+   const qr=(pr*dr+pi*di)/den,qi=(pi*dr-pr*di)/den;rr[i]-=qr;ri[i]-=qi;md=Math.max(md,Math.hypot(qr,qi));
+  }
+  if(md<1e-10)break;}
+ return{rr,ri};
+}
+function formantsAt(y,fs,start,len,order){
+ const x=new Float64Array(len);
+ for(let i=0;i<len;i++){const v=y[start+i]-(i?0.97*y[start+i-1]:0);x[i]=v*(0.54-0.46*Math.cos(2*Math.PI*i/(len-1)))}
+ const a=lpcCoefs(x,order);if(!a)return[];
+ const {rr,ri}=polyRoots(a),out=[];
+ for(let k=0;k<rr.length;k++){if(ri[k]>0.01){const f=Math.atan2(ri[k],rr[k])*fs/(2*Math.PI),bw=-Math.log(Math.hypot(rr[k],ri[k]))*fs/Math.PI;if(f>90&&f<fs/2-200&&bw<450)out.push(f)}}
+ return out.sort((p,q)=>p-q);
+}
+function runsOf(fr,gap){const runs=[];let s=-1,l=-1;fr.forEach((f,i)=>{if(f.f0>0){if(s<0){s=i}else if(i-l>gap+1){runs.push([s,l]);s=i}l=i}});if(s>=0)runs.push([s,l]);return runs}
+function cyclesJS(y,fs,i0,i1,T0s){
+ const pk=[];let T=T0s*fs,p=i0,best=-1e9;
+ for(let i=i0;i<Math.min(i1,i0+Math.round(T*1.2));i++)if(y[i]>best){best=y[i];p=i}
+ pk.push(p);const per=[];
+ while(true){const lo=Math.round(p+0.8*T),hi=Math.round(p+1.2*T);if(hi>=i1-1)break;
+  let b=-1e9,q=lo;for(let i=lo;i<=hi;i++)if(y[i]>b){b=y[i];q=i}
+  let qq=q;if(q>0){const A=y[q-1],B=y[q],C=y[q+1],den=A-2*B+C;if(den!==0)qq=q+0.5*(A-C)/den}
+  const pr=qq-p;T=0.5*T+0.5*pr;per.push(pr);p=qq;pk.push(qq)}
+ const amp=[];for(let k=0;k+1<pk.length;k++){let mx=-1e9,mn=1e9;for(let i=Math.round(pk[k]);i<Math.round(pk[k+1]);i++){if(y[i]>mx)mx=y[i];if(y[i]<mn)mn=y[i]}amp.push(mx-mn)}
+ return{per:per.map(v=>v/fs),amp};
+}
+function countSyl(t){return(t.toLowerCase().match(/[aeiouăâîéèê]+/g)||[]).length}
+function analyzeVoice(x,fs,task,passage){
+ const d8=decimate(x,fs,8000),fr=pitchTrack(d8.y,d8.fs),hop=0.01;
+ if(fr.length<20)return{error:'Înregistrare prea scurtă.'};
+ const total=fr.length*hop;
+ let voiced=fr.filter(f=>f.f0>0);
+ if(voiced.length<15)return{error:'Nu s-a detectat voce suficientă (prea slab sau prea mult zgomot).'};
+ if(task==='vowel'){
+  const med=median(voiced.map(f=>f.f0));for(const f of fr)if(f.f0>0&&(f.f0<0.75*med||f.f0>1.33*med))f.f0=0;
+  const runs=runsOf(fr,3);if(!runs.length)return{error:'Nu s-a detectat o fonație stabilă.'};
+  runs.sort((p,q)=>(q[1]-q[0])-(p[1]-p[0]));const [s,e]=runs[0];
+  const seg=fr.slice(s,e+1),vf=seg.filter(f=>f.f0>0),f0=vf.map(f=>f.f0);
+  if(vf.length<15)return{error:'Fonație prea scurtă pentru analiză (≥ 0,3 s stabilă).'};
+  const fm=mean(f0),res={task,total,mpt:(e-s+1)*hop,voicedPct:100*vf.length/fr.length,f0mean:fm,f0med:median(f0),f0sd:sd(f0),f0min:Math.min(...f0),f0max:Math.max(...f0),f0sdst:sd(f0.map(v=>12*Math.log2(v/fm)))};
+  res.int=20*Math.log10(Math.max(1e-6,mean(vf.map(f=>f.rms))));
+  const c0=Math.floor(vf.length*0.15),c1=Math.ceil(vf.length*0.85),core=seg.filter(f=>f.f0>0).slice(c0,c1);
+  res.hnr=mean(core.map(f=>{const r=Math.min(0.9999,Math.max(1e-4,f.r));return 10*Math.log10(r/(1-r))}));
+  const d16=decimate(x,fs,16000),y16=d16.y,f16=d16.fs,k=Math.max(1,Math.round(f16/(res.f0med*10)));
+  const sm=new Float32Array(y16.length);for(let i=k;i<y16.length-k;i++){let a=0;for(let j=-k;j<=k;j++)a+=y16[i+j];sm[i]=a/(2*k+1)}
+  const i0=Math.round(seg[Math.floor(seg.length*0.15)].time*f16),i1=Math.round(seg[Math.floor(seg.length*0.85)].time*f16);
+  if(i1-i0>f16*0.2){
+   const cy=cyclesJS(sm,f16,i0,i1,1/res.f0med),mp=median(cy.per),ok=[];
+   for(let i=0;i<cy.per.length;i++)if(Math.abs(cy.per[i]/mp-1)<0.2)ok.push(i);
+   const dj=[],ds=[],dsd=[];
+   for(let n=1;n<ok.length;n++){if(ok[n]-ok[n-1]===1){dj.push(Math.abs(cy.per[ok[n]]-cy.per[ok[n-1]]));const A=cy.amp[ok[n]],B=cy.amp[ok[n-1]];if(A>0&&B>0){ds.push(Math.abs(A-B));dsd.push(Math.abs(20*Math.log10(A/B)))}}}
+   if(dj.length>10){res.jit=100*mean(dj)/mean(ok.map(i=>cy.per[i]));res.shim=100*mean(ds)/mean(ok.map(i=>cy.amp[i]));res.shimdb=mean(dsd);res.ncyc=ok.length}
+  }
+  const dF=decimate(x,fs,11000),yF=dF.y,fF=dF.fs,len=Math.round(0.03*fF),order=2+Math.round(fF/1000),F=[[],[],[]];
+  const nW=7,cs=Math.round(seg[c0]?seg[c0].time*fF:0),ce=Math.round((core.length?core[core.length-1].time:0)*fF)-len;
+  if(ce>cs)for(let w=0;w<nW;w++){const st=Math.round(cs+(ce-cs)*w/(nW-1)),fo=formantsAt(yF,fF,st,len,order);if(fo.length>=3)for(let q=0;q<3;q++)F[q].push(fo[q])}
+  if(F[0].length>=3){res.F1=median(F[0]);res.F2=median(F[1]);res.F3=median(F[2])}
+  return res;
+ }
+ // citire: elimină salturile izolate de octavă (mediană locală pe 7 cadre)
+ {const orig=fr.map(f=>f.f0);for(let i=0;i<fr.length;i++){if(!orig[i])continue;const nb=[];for(let j=Math.max(0,i-3);j<=Math.min(fr.length-1,i+3);j++)if(orig[j]>0)nb.push(orig[j]);if(nb.length>=3){const m=median(nb);if(orig[i]<0.7*m||orig[i]>1.4*m)fr[i].f0=0}}
+  voiced=fr.filter(f=>f.f0>0);if(voiced.length<15)return{error:'Nu s-a detectat voce suficientă.'}}
+ const rmsv=fr.map(f=>f.rms),p95=pct(rmsv,0.95),floor=pct(rmsv,0.1),thr=Math.max(3*floor,0.05*p95),act=fr.map(f=>f.rms>thr);
+ const first=act.indexOf(true),last=act.lastIndexOf(true);
+ if(first<0||last-first<50)return{error:'Citire prea scurtă sau prea slabă.'};
+ let pauses=[],run=0;
+ for(let i=first;i<=last;i++){if(!act[i])run++;else{if(run>=20)pauses.push(run*hop);run=0}}
+ const span=(last-first+1)*hop,pauseT=pauses.reduce((a,b)=>a+b,0),speakT=span-pauseT,f0=voiced.map(f=>f.f0),fm=mean(f0),st=f0.map(v=>12*Math.log2(v/fm));
+ const syl=countSyl(passage||'');
+ return{task,total,span,speakT,pauseN:pauses.length,pauseT,pauseMean:pauses.length?pauseT/pauses.length:0,phon:100*speakT/span,
+  rate:syl?syl/span:NaN,artic:syl?syl/speakT:NaN,f0mean:fm,f0med:median(f0),f0sd:sd(f0),f0sdst:sd(st),f0rng:pct(st,0.95)-pct(st,0.05),voicedPct:100*voiced.length/fr.length};
+}
+/*TEST-END*/
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=(n,d=1)=>(n==null||isNaN(n)||!isFinite(n))?'—':Number(n).toFixed(d).replace('.',',');
+const S={p:{},voice:{},tipi:[],chk:[]};
+function save(){try{localStorage.setItem('antropos_v1',JSON.stringify(S))}catch(e){}}
+function load(){try{const d=JSON.parse(localStorage.getItem('antropos_v1')||'{}');Object.assign(S,d);S.p=S.p||{};S.voice=S.voice||{};S.tipi=S.tipi||[];S.chk=S.chk||[]}catch(e){}}
+const num=k=>{const v=parseFloat(String(S.p[k]==null?'':S.p[k]).replace(',','.'));return isNaN(v)?NaN:v};
+function age(){if(S.p.dob){const d=new Date(S.p.dob);if(!isNaN(d)){const y=(Date.now()-d)/(365.2425*864e5);if(y>=0&&y<130)return y}}return num('age')}
+const R={};
+function table(rows){return '<table class="rows">'+rows.map(r=>`<tr><td class="l">${r[0]}</td><td class="v"><span class="dot ${r[3]||'info'}"></span>${r[1]}</td></tr>${r[2]?`<tr class="n"><td colspan="2">${r[2]}</td></tr>`:''}`).join('')+'</table>'}
+function put(sel,key,title,rows){R[key]={title,rows};$(sel).innerHTML=rows.length?table(rows):''}
+
+// ---------- tab-uri ----------
+const TABS=[['date','Date'],['corp','Corp'],['bio','Vârstă biologică'],['voce','Voce'],['scris','Scris de mână'],['desene','Desene'],['pers','Personalitate'],['reactie','Reacție & motricitate'],['raport','Raport'],['metoda','Metodă & limite']];
+const pads=[];
+function showTab(id){$$('.tab').forEach(t=>t.classList.toggle('on',t.id==='tab-'+id));$$('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===id));pads.forEach(p=>p.resize());if(id==='raport')renderReport();window.scrollTo(0,0)}
+$('#nav').innerHTML=TABS.map(t=>`<button data-t="${t[0]}">${t[1]}</button>`).join('');
+$('#nav').addEventListener('click',e=>{if(e.target.dataset.t)showTab(e.target.dataset.t)});
+
+// ---------- formulare ----------
+function fld(k,l,u,t,opts){
+ const lab=l+(u?` (${u})`:'');
+ if(t==='sel')return `<label>${lab}<select data-k="${k}">${opts.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join('')}</select></label>`;
+ if(t==='date')return `<label>${lab}<input type="date" data-k="${k}"></label>`;
+ if(t==='text')return `<label>${lab}<input type="text" data-k="${k}" autocomplete="off"></label>`;
+ return `<label>${lab}<input type="text" inputmode="decimal" data-k="${k}"></label>`;
+}
+$('#f-person').innerHTML=[
+ fld('name','Nume / cod (opțional)','','text'),
+ fld('sex','Sex biologic','','sel',[['','—'],['M','Masculin'],['F','Feminin']]),
+ fld('dob','Data nașterii','','date'),fld('age','sau vârsta cronologică','ani','num'),
+ fld('h','Înălțime','cm','num'),fld('w','Greutate','kg','num'),
+ fld('waist','Circumferința taliei','cm','num'),fld('hip','Circumferința șoldurilor','cm','num'),
+ fld('sbp','Tensiune sistolică','mmHg','num'),fld('dbp','Tensiune diastolică','mmHg','num'),
+ fld('hr','Puls în repaus','bpm','num'),fld('hrmax','Puls maxim măsurat (opțional)','bpm','num'),
+ fld('act','Nivel de activitate','','sel',[['1.2','Sedentar'],['1.375','Ușor activ (1–3 zile/săpt.)'],['1.55','Moderat (3–5 zile)'],['1.725','Foarte activ (6–7 zile)'],['1.9','Extrem de activ']]),
+ fld('hand','Mâna dominantă','','sel',[['','—'],['D','Dreapta'],['S','Stânga'],['A','Ambidextru']])
+].join('');
+$('#f-func').innerHTML=[fld('grip','Forța de strângere a mâinii (dinamometru)','kg','num'),fld('gait','Viteza de mers (4 m)','m/s','num'),fld('chair','5 ridicări de pe scaun, timp','s','num')].join('');
+$('#f-labs').innerHTML=[
+ fld('alb','Albumină','','num')+fld('albU','Unitate albumină','','sel',[['g/dL','g/dL'],['g/L','g/L']]),
+ fld('cre','Creatinină','','num')+fld('creU','Unitate creatinină','','sel',[['mg/dL','mg/dL'],['µmol/L','µmol/L']]),
+ fld('glu','Glicemie','','num')+fld('gluU','Unitate glicemie','','sel',[['mg/dL','mg/dL'],['mmol/L','mmol/L']]),
+ fld('crp','Proteină C reactivă','','num')+fld('crpU','Unitate CRP','','sel',[['mg/L','mg/L'],['mg/dL','mg/dL']]),
+ fld('lym','Limfocite','%','num'),fld('mcv','VEM (MCV)','fL','num'),fld('rdw','RDW','%','num'),fld('alp','Fosfatază alcalină','U/L','num'),fld('wbc','Leucocite','10³/µL (mii/mm³)','num')
+].join('');
+function fillForm(){$$('[data-k]').forEach(el=>{const v=S.p[el.dataset.k];if(v!=null&&v!=='')el.value=v})}
+document.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){S.p[k]=e.target.value;save();renderAll()}});
+document.addEventListener('change',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){S.p[k]=e.target.value;save();renderAll()}});
+
+// ---------- corp ----------
+function renderBody(){
+ const rows=[],a=age(),sex=S.p.sex,h=num('h'),w=num('w'),waist=num('waist'),hip=num('hip');
+ if(!isNaN(a))rows.push(['Vârstă cronologică',fmt(a,1)+' ani','', 'info']);
+ if(h>0&&w>0){
+  const m=h/100,bmi=w/(m*m);let c,s;
+  if(a<18){c='Pentru sub 18 ani se folosesc percentile IMC pe vârstă și sex (curbe OMS/CDC), nu praguri de adult.';s='info'}
+  else if(bmi<18.5){c='Subponderal';s='warn'}else if(bmi<25){c='Greutate normală';s='ok'}else if(bmi<30){c='Supraponderal';s='warn'}else if(bmi<35){c='Obezitate gradul I';s='bad'}else if(bmi<40){c='Obezitate gradul II';s='bad'}else{c='Obezitate gradul III';s='bad'}
+  rows.push(['IMC (kg/m²)',fmt(bmi,1),c+' (praguri OMS, adulți). IMC nu distinge masa musculară de cea grasă.',s]);
+  if(sex&&!isNaN(a)&&a>=18){const bf=1.20*bmi+0.23*a-10.8*(sex==='M'?1:0)-5.4;rows.push(['Grăsime corporală estimată (%)',fmt(bf,1),'Formula Deurenberg; eroare tipică ±5 puncte procentuale. Măsurarea reală: DEXA/bioimpedanță.','info'])}
+  if(sex&&!isNaN(a)){const bmr=10*w+6.25*h-5*a+(sex==='M'?5:-161),f=parseFloat(S.p.act||'1.2');rows.push(['Metabolism bazal (kcal/zi)',fmt(bmr,0),'Mifflin–St Jeor.','info']);rows.push(['Necesar energetic estimat (kcal/zi)',fmt(bmr*f,0),'Bazal × factor de activitate; estimare, ±10–15%.','info'])}
+ }
+ if(waist>0){let c='',s='ok';if(sex){const t1=sex==='M'?94:80,t2=sex==='M'?102:88;if(waist>=t2){c='Risc cardiometabolic crescut substanțial';s='bad'}else if(waist>=t1){c='Risc cardiometabolic crescut';s='warn'}else c='Sub pragul de risc'}rows.push(['Circumferința taliei (cm)',fmt(waist,0),c,s])}
+ if(waist>0&&h>0){const r=waist/h;rows.push(['Raport talie/înălțime',fmt(r,2),r<0.5?'Sub 0,5 — în general favorabil':r<0.6?'0,5–0,59: risc crescut':'≥ 0,6: risc ridicat',r<0.5?'ok':r<0.6?'warn':'bad'])}
+ if(waist>0&&hip>0){const r=waist/hip;let c='',s='info';if(sex){const t=sex==='M'?0.90:0.85;s=r>t?'warn':'ok';c=r>t?`Peste pragul OMS (${fmt(t,2)}) pentru obezitate abdominală`:'Sub pragul OMS'}rows.push(['Raport talie/șold',fmt(r,2),c,s])}
+ const sb=num('sbp'),db=num('dbp');
+ if(sb>0&&db>0){const L=(s,d)=>{const a=s<120?0:s<130?1:s<140?2:s<160?3:s<180?4:5,b=d<80?0:d<85?1:d<90?2:d<100?3:d<110?4:5;return Math.max(a,b)};const l=L(sb,db),names=['Optimă','Normală','Normal-înaltă','HTA gradul 1','HTA gradul 2','HTA gradul 3'];rows.push(['Tensiune arterială',`${fmt(sb,0)}/${fmt(db,0)} mmHg`,names[l]+' (clasificare ESC/ESH 2018). Diagnosticul de HTA cere măsurători repetate.',l<=1?'ok':l===2?'warn':'bad'])}
+ const hr=num('hr');
+ if(hr>0){rows.push(['Puls în repaus (bpm)',fmt(hr,0),hr<60?'Sub 60: poate fi normal la persoane antrenate':hr<=100?'În intervalul normal 60–100':'Peste 100 în repaus',hr>=60&&hr<=100?'ok':'warn'])}
+ put('#out-body','body','Corp și metabolism',rows);
+}
+
+// ---------- bio ----------
+function renderBio(){
+ const a=age(),sex=S.p.sex,rows=[];
+ if(!isNaN(a))rows.push(['Vârstă cronologică',fmt(a,1)+' ani','','info']);
+ put('#out-age','age','Vârstă cronologică',rows);
+ const L=['alb','cre','glu','crp','lym','mcv','rdw','alp','wbc'].map(k=>num(k));
+ const rp=[];
+ if(L.every(v=>!isNaN(v))&&!isNaN(a)){
+  const alb=S.p.albU==='g/L'?L[0]:L[0]*10,cre=S.p.creU==='µmol/L'?L[1]:L[1]*88.4,glu=S.p.gluU==='mmol/L'?L[2]:L[2]/18.016,crp=S.p.crpU==='mg/dL'?L[3]:L[3]/10;
+  const lim=[['Albumină',alb,15,60,'g/L'],['Creatinină',cre,20,1000,'µmol/L'],['Glicemie',glu,1.5,40,'mmol/L'],['CRP',crp,0.01,400,'mg/L'],['Limfocite',L[4],1,80,'%'],['VEM',L[5],60,130,'fL'],['RDW',L[6],9,25,'%'],['Fosfatază alcalină',L[7],10,1500,'U/L'],['Leucocite',L[8],1,60,'10³/µL']];
+  const bad=lim.filter(q=>q[1]<q[2]||q[1]>q[3]);
+  if(bad.length||a<18||a>110){rp.push(['PhenoAge','nu se calculează',bad.length?'Valori neplauzibile (verifică unitatea de măsură): '+bad.map(q=>`${q[0]} = ${fmt(q[1],2)} ${q[4]} (așteptat ${q[2]}–${q[3]})`).join('; ')+'.':'Algoritmul a fost validat la adulți (peste 18 ani).','warn']);put('#out-pheno','pheno','Vârstă biologică (PhenoAge)',rp);return}
+  const pa=phenoAge({alb,cre,glu,crp,lym:L[4],mcv:L[5],rdw:L[6],alp:L[7],wbc:L[8],age:a}),d=pa-a;
+  rp.push(['Vârstă fenotipică (PhenoAge)',fmt(pa,1)+' ani','Algoritm publicat (Levine 2018), derivat din NHANES III; instrument de cercetare, nu de diagnostic.','info']);
+  rp.push(['Diferență față de vârsta cronologică',(d>0?'+':'')+fmt(d,1)+' ani',d>=5?'Biologic „mai în vârstă”: discută analizele și factorii de risc cu medicul':d<=-5?'Biologic „mai tânăr”':'În marja obișnuită (±5 ani)',d>=5?'warn':d<=-5?'ok':'info']);
+ }else rp.push(['PhenoAge','—','Completează vârsta și toate cele 9 analize.','info']);
+ put('#out-pheno','pheno','Vârstă biologică (PhenoAge)',rp);
+ const rf=[],grip=num('grip'),gait=num('gait'),ch=num('chair');
+ if(grip>0&&sex){const t=sex==='M'?27:16;rf.push(['Forța de strângere (kg)',fmt(grip,1),grip<t?`Sub pragul EWGSOP2 (${t} kg): forță scăzută`:'Peste pragul EWGSOP2 pentru forță scăzută',grip<t?'warn':'ok'])}
+ if(gait>0)rf.push(['Viteza de mers (m/s)',fmt(gait,2),gait<=0.8?'≤ 0,8 m/s: performanță fizică scăzută (EWGSOP2)':'> 0,8 m/s','' +(gait<=0.8?'warn':'ok')]);
+ if(ch>0)rf.push(['5 ridicări de pe scaun (s)',fmt(ch,1),ch>15?'> 15 s: forță scăzută a membrelor inferioare (EWGSOP2)':'≤ 15 s',ch>15?'warn':'ok']);
+ const hr=num('hr');
+ if(hr>0&&!isNaN(a)){const hrmax=num('hrmax')>0?num('hrmax'):208-0.7*a,vo=15.3*hrmax/hr;rf.push(['Puls maxim folosit (bpm)',fmt(hrmax,0),num('hrmax')>0?'Valoare măsurată':'Estimat: 208 − 0,7 × vârsta (Tanaka 2001)','info']);rf.push(['VO₂max estimat (mL/kg/min)',fmt(vo,1),'Metoda Uth (15,3 × HRmax/HRrepaus); eroare mare individuală. Testul real: efort cardiopulmonar.','info'])}
+ put('#out-func','func','Capacitate funcțională',rf);
+}
+
+// ---------- voce ----------
+const PASSAGE='Vântul de Nord și Soarele se certau care dintre ei este mai puternic, când a apărut un drumeț învelit într-o mantie groasă. Au căzut de acord că acela care îl va face pe drumeț să-și dea jos mantia va fi socotit mai puternic. Vântul de Nord a suflat cu toată puterea, dar cu cât sufla mai tare, cu atât drumețul se strângea mai bine în mantie. În cele din urmă, Vântul a renunțat. Atunci Soarele a început să strălucească fierbinte și îndată drumețul și-a scos mantia. Așa a fost nevoit Vântul de Nord să recunoască faptul că Soarele este mai puternic.';
+$('#passage').textContent=PASSAGE;
+const Rec={ctx:null,stream:null,node:null,chunks:[],on:false,task:null,fs:0,t0:0};
+async function recStart(task){
+ try{
+  Rec.stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
+  Rec.ctx=new(window.AudioContext||window.webkitAudioContext)();Rec.fs=Rec.ctx.sampleRate;
+  const src=Rec.ctx.createMediaStreamSource(Rec.stream);Rec.node=Rec.ctx.createScriptProcessor(4096,1,1);Rec.chunks=[];Rec.task=task;Rec.on=true;Rec.t0=Date.now();
+  const lv=$('#lvl-'+task);
+  Rec.node.onaudioprocess=e=>{if(!Rec.on)return;const d=e.inputBuffer.getChannelData(0);Rec.chunks.push(new Float32Array(d));let s=0;for(let i=0;i<d.length;i++)s+=d[i]*d[i];lv.style.width=Math.min(100,Math.sqrt(s/d.length)*400)+'%';const el=(Date.now()-Rec.t0)/1000;$('#rec-'+task).textContent='■ Oprește ('+Math.floor(el)+' s)';if(el>(task==='vowel'?15:75))recStop()};
+  src.connect(Rec.node);Rec.node.connect(Rec.ctx.destination);
+  $('#rec-'+task).classList.add('rec');
+ }catch(err){FFF.dialog.alert('Microfonul nu este disponibil: '+err.message)}
+}
+function recStop(){
+ if(!Rec.on)return;Rec.on=false;const task=Rec.task;
+ try{Rec.node.disconnect();Rec.stream.getTracks().forEach(t=>t.stop())}catch(e){}
+ const n=Rec.chunks.reduce((a,c)=>a+c.length,0),x=new Float32Array(n);let o=0;for(const c of Rec.chunks){x.set(c,o);o+=c.length}
+ const fs=Rec.fs;try{Rec.ctx.close()}catch(e){}
+ $('#rec-'+task).classList.remove('rec');$('#rec-'+task).textContent='● Înregistrează';$('#lvl-'+task).style.width='0';
+ runVoice(x,fs,task);
+}
+function runVoice(x,fs,task){const m=analyzeVoice(x,fs,task,PASSAGE);S.voice[task]=m;save();renderVoice(task);renderReport()}
+['vowel','read'].forEach(t=>{
+ $('#rec-'+t).addEventListener('click',()=>Rec.on?recStop():recStart(t));
+ $('#up-'+t).addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const ac=new(window.AudioContext||window.webkitAudioContext)(),b=await ac.decodeAudioData(await f.arrayBuffer());runVoice(b.getChannelData(0),b.sampleRate,t);ac.close()}catch(err){FFF.dialog.alert('Nu pot decoda fișierul audio.')}});
+});
+function renderVoice(task){
+ const m=S.voice[task],sex=S.p.sex,rows=[],title=task==='vowel'?'Voce — vocală susținută':'Voce — citire';
+ if(!m){put('#out-'+task,task,title,[]);return}
+ if(m.error){put('#out-'+task,task,title,[['Rezultat',esc(m.error),'','warn']]);return}
+ const rng=sex==='M'?[85,180]:sex==='F'?[165,255]:null;
+ const f0s=(v)=>{if(!rng)return['info','Alege sexul în „Date” pentru comparație.'];return v>=rng[0]&&v<=rng[1]?['ok',`În intervalul uzual al vocii vorbite (${rng[0]}–${rng[1]} Hz)`]:['info',`În afara intervalului uzual (${rng[0]}–${rng[1]} Hz); F0 variază cu vârsta și cu sarcina vocală`]};
+ if(task==='vowel'){
+  const q=f0s(m.f0mean);
+  rows.push(['Durata fonației (MPT proxy, s)',fmt(m.mpt,1),'Adulți sănătoși ating de obicei > 15 s la fonație maximă; aici durata înregistrată nu este neapărat maximă.','info']);
+  rows.push(['F0 medie (Hz)',fmt(m.f0mean,1),q[1],q[0]]);
+  rows.push(['F0 mediană / min–max (Hz)',`${fmt(m.f0med,1)} / ${fmt(m.f0min,0)}–${fmt(m.f0max,0)}`,'','info']);
+  rows.push(['Variabilitatea F0 (SD, Hz / semitonuri)',`${fmt(m.f0sd,2)} / ${fmt(m.f0sdst,2)}`,'','info']);
+  if(m.jit!=null){rows.push(['Jitter local (%)',fmt(m.jit,2),'Prag uzual ~1,04 % (MDVP/Praat). Estimare aproximativă din '+m.ncyc+' cicluri.',m.jit<1.04?'ok':'warn']);rows.push(['Shimmer local (%) / (dB)',`${fmt(m.shim,2)} / ${fmt(m.shimdb,2)}`,'Prag uzual ~3,81 % (MDVP/Praat).',m.shim<3.81?'ok':'warn'])}
+  else rows.push(['Jitter / Shimmer','—','Fonație prea instabilă sau prea scurtă pentru extragerea ciclurilor.','info']);
+  rows.push(['HNR (dB)',fmt(m.hnr,1),'Raport armonice/zgomot; la voci sănătoase, de regulă > 20 dB (depinde de microfon și zgomot ambiental).',m.hnr>=20?'ok':'warn']);
+  rows.push(['Intensitate (dBFS, necalibrată)',fmt(m.int,1),'Relativă la nivelul digital maxim; nu este SPL.','info']);
+  if(m.F1){const ref=sex==='M'?'Bărbați, /a/: F1 ≈ 600–800, F2 ≈ 1000–1300 Hz (orientativ)':sex==='F'?'Femei, /a/: F1 ≈ 750–1000, F2 ≈ 1100–1450 Hz (orientativ)':'';rows.push(['Formanți F1 / F2 / F3 (Hz)',`${fmt(m.F1,0)} / ${fmt(m.F2,0)} / ${fmt(m.F3,0)}`,ref+'. Estimare LPC; depinde de vocală și articulare.','info'])}
+  else rows.push(['Formanți','—','Nu s-au putut estima stabil (semnal slab sau zgomotos).','info']);
+ }else{
+  const q=f0s(m.f0mean);
+  rows.push(['Durata vorbirii (s)',fmt(m.span,1),'','info']);
+  rows.push(['Ritm de vorbire (silabe/s, cu pauze)',fmt(m.rate,2),'Silabe numărate aproximativ din text. Citirea obișnuită: de regulă ~4–6 silabe/s.','info']);
+  rows.push(['Ritm de articulare (silabe/s, fără pauze)',fmt(m.artic,2),'','info']);
+  rows.push(['Pauze ≥ 200 ms (număr / total s / medie s)',`${m.pauseN} / ${fmt(m.pauseT,1)} / ${fmt(m.pauseMean,2)}`,'','info']);
+  rows.push(['Fracțiune de fonație (%)',fmt(m.phon,0),'','info']);
+  rows.push(['F0 medie (Hz)',fmt(m.f0mean,1),q[1],q[0]]);
+  rows.push(['Variabilitate F0 (SD, Hz / semitonuri)',`${fmt(m.f0sd,1)} / ${fmt(m.f0sdst,2)}`,'Monotonia sau expresivitatea prozodică se reflectă aici.','info']);
+  rows.push(['Plaja F0 (percentila 5–95, semitonuri)',fmt(m.f0rng,1),'','info']);
+ }
+ put('#out-'+task,task,title,rows);
+}
+
+// ---------- pad desen ----------
+function Pad(id,opt){
+ const cv=document.getElementById(id),ctx=cv.getContext('2d'),P={cv,strokes:[],W:0,H:0,meta:{}};let cur=null;
+ cv.style.height=cv.dataset.h+'px';
+ P.resize=()=>{const r=cv.getBoundingClientRect();if(!r.width)return;const d=window.devicePixelRatio||1;P.W=r.width;P.H=r.height;cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);ctx.setTransform(d,0,0,d,0,0);P.redraw()};
+ P.redraw=()=>{ctx.fillStyle='#fff';ctx.fillRect(0,0,P.W,P.H);if(opt.bg)opt.bg(ctx,P);ctx.strokeStyle='#111';ctx.lineWidth=2.2;ctx.lineCap='round';ctx.lineJoin='round';ctx.setLineDash([]);for(const s of P.strokes){ctx.beginPath();s.pts.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));if(s.pts.length===1)ctx.lineTo(s.pts[0].x+0.01,s.pts[0].y);ctx.stroke()}};
+ const pt=e=>{const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top,t:e.timeStamp,p:e.pressure}};
+ cv.addEventListener('pointerdown',e=>{e.preventDefault();try{cv.setPointerCapture(e.pointerId)}catch(_){}cur={pts:[pt(e)],type:e.pointerType};P.strokes.push(cur);P.redraw()});
+ cv.addEventListener('pointermove',e=>{if(!cur)return;e.preventDefault();const ev=(e.getCoalescedEvents&&e.getCoalescedEvents())||[],list=ev.length?ev:[e];for(const q of list){const p=pt(q),l=cur.pts[cur.pts.length-1];ctx.beginPath();ctx.moveTo(l.x,l.y);ctx.lineTo(p.x,p.y);ctx.stroke();cur.pts.push(p)}});
+ const end=()=>{cur=null};cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);cv.addEventListener('contextmenu',e=>e.preventDefault());
+ P.clear=()=>{P.strokes=[];P.redraw()};
+ pads.push(P);return P;
+}
+const spiralBg=(ctx,P)=>{const cx=P.W/2,cy=P.H/2,R=Math.min(P.W,P.H)*0.42,turns=3,a=R/(2*Math.PI*turns);P.meta={cx,cy,a,turns,R};ctx.strokeStyle='#9aa7b6';ctx.lineWidth=1.6;ctx.setLineDash([3,4]);ctx.beginPath();for(let i=0;i<=1200;i++){const th=2*Math.PI*turns*i/1200,r=a*th,x=cx+r*Math.cos(th),y=cy+r*Math.sin(th);i?ctx.lineTo(x,y):ctx.moveTo(x,y)}ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#c0392b';ctx.beginPath();ctx.arc(cx,cy,3.5,0,7);ctx.fill()};
+const handBg=(ctx,P)=>{ctx.strokeStyle='#c9d1db';ctx.lineWidth=1;ctx.setLineDash([]);for(let y=60;y<P.H;y+=60){ctx.beginPath();ctx.moveTo(8,y);ctx.lineTo(P.W-8,y);ctx.stroke()}};
+const padHand=Pad('pad-hand',{bg:handBg}),padSpiral=Pad('pad-spiral',{bg:spiralBg}),padClock=Pad('pad-clock',{}),padPerson=Pad('pad-person',{});
+addEventListener('resize',()=>pads.forEach(p=>p.resize()));
+
+// ---------- cinematică ----------
+const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+function strokeLen(s){let L=0;for(let i=1;i<s.pts.length;i++)L+=dist(s.pts[i],s.pts[i-1]);return L}
+function strokeDur(s){return(s.pts[s.pts.length-1].t-s.pts[0].t)/1000}
+function bbox(s){let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const p of s.pts){if(p.x<x0)x0=p.x;if(p.x>x1)x1=p.x;if(p.y<y0)y0=p.y;if(p.y>y1)y1=p.y}return{x0,y0,x1,y1}}
+function speeds(pts){const v=[];for(let i=1;i<pts.length;i++){const dt=(pts[i].t-pts[i-1].t)/1000;if(dt>0)v.push(dist(pts[i],pts[i-1])/dt)}const o=v.map((_,i)=>{let s=0,n=0;for(let j=Math.max(0,i-2);j<=Math.min(v.length-1,i+2);j++){s+=v[j];n++}return s/n});return o}
+function niv(v){if(v.length<4)return 0;const mx=Math.max(...v),thr=0.1*mx;if(mx<=0)return 0;let dir=1,hi=v[0],lo=v[0],pk=0;for(let i=1;i<v.length;i++){const x=v[i];if(dir===1){if(x>hi)hi=x;if(hi-x>thr){pk++;dir=-1;lo=x}}else{if(x<lo)lo=x;if(x-lo>thr){dir=1;hi=x}}}return Math.max(pk,1)}
+function genMetrics(strokes){
+ const ss=strokes.filter(s=>s.pts.length>1);if(!ss.length)return null;
+ const t0=ss[0].pts[0].t,t1=ss[ss.length-1].pts[ss[ss.length-1].pts.length-1].t,total=(t1-t0)/1000,wr=ss.reduce((a,s)=>a+strokeDur(s),0),L=ss.reduce((a,s)=>a+strokeLen(s),0);
+ let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const s of ss){const b=bbox(s);x0=Math.min(x0,b.x0);y0=Math.min(y0,b.y0);x1=Math.max(x1,b.x1);y1=Math.max(y1,b.y1)}
+ return{n:ss.length,total,wr,pauseFrac:total>0?Math.max(0,1-wr/total):0,len:L,speed:wr>0?L/wr:NaN,w:x1-x0,h:y1-y0};
+}
+
+// ---------- scris ----------
+function analyzeHand(P){
+ const ss=P.strokes.filter(s=>s.pts.length>2);if(ss.length<3)return{error:'Scrie mai mult (cel puțin o propoziție).'};
+ const g=genMetrics(ss),W=P.W||300;
+ let sw=0,sa=0,sa2=0;
+ for(const s of ss)for(let i=1;i<s.pts.length;i++){let dx=s.pts[i].x-s.pts[i-1].x,dy=s.pts[i].y-s.pts[i-1].y;const l=Math.hypot(dx,dy);if(l<3)continue;if(dy<0){dx=-dx;dy=-dy}const an=Math.atan2(-dx,dy)*180/Math.PI;if(Math.abs(an)<=60){sw+=l;sa+=l*an;sa2+=l*an*an}}
+ const slant=sw>0?sa/sw:NaN,slantSD=sw>0?Math.sqrt(Math.max(0,sa2/sw-slant*slant)):NaN;
+ const bb=ss.map(s=>({b:bbox(s),s}));
+ const lines=[[]];for(let i=0;i<bb.length;i++){if(i>0){const pc=(bb[i-1].b.x0+bb[i-1].b.x1)/2,cc=(bb[i].b.x0+bb[i].b.x1)/2;if(cc<pc-0.35*W)lines.push([])}lines[lines.length-1].push(bb[i])}
+ const bl=[],gaps=[];
+ for(const ln of lines){
+  if(ln.length>=6){const xs=ln.map(o=>(o.b.x0+o.b.x1)/2),ys=ln.map(o=>o.b.y1),mx=mean(xs),my=mean(ys);let sxy=0,sxx=0;for(let i=0;i<xs.length;i++){sxy+=(xs[i]-mx)*(ys[i]-my);sxx+=(xs[i]-mx)**2}if(sxx>0)bl.push(-Math.atan(sxy/sxx)*180/Math.PI)}
+  const so=[...ln].sort((p,q)=>p.b.x0-q.b.x0);for(let i=1;i<so.length;i++){const gp=so[i].b.x0-so[i-1].b.x1;if(gp>=2&&gp<W*0.3)gaps.push(gp)}
+ }
+ const nv=[],nvh=[];for(const s of ss){if(s.pts.length>=8&&strokeDur(s)>=0.08){const n=niv(speeds(s.pts));nv.push(n);const l=strokeLen(s);if(l>0)nvh.push(n/(l/100))}}
+ const pr=[];if(ss.some(s=>s.type==='pen')){for(const s of ss)if(s.type==='pen')for(const p of s.pts)if(p.p>0)pr.push(p.p)}
+ const prOk=pr.length>20&&new Set(pr.map(v=>v.toFixed(2))).size>3;
+ return{n:g.n,total:g.total,wr:g.wr,pauseFrac:g.pauseFrac,len:g.len,speed:g.speed,slant,slantSD,baseline:bl.length?mean(bl):NaN,gapMed:median(gaps),gapCV:gaps.length>3?sd(gaps)/mean(gaps):NaN,niv:mean(nv),nivh:mean(nvh),press:prOk?mean(pr):NaN,pressCV:prOk?sd(pr)/mean(pr):NaN,lines:lines.length,legib:S.p.legib||''};
+}
+function renderHand(){
+ const m=S.hand,rows=[];
+ if(!m){put('#out-hand','hand','Scris de mână',[]);return}
+ if(m.error){put('#out-hand','hand','Scris de mână',[['Rezultat',m.error,'','warn']]);return}
+ rows.push(['Durată totală / timp efectiv de scris (s)',`${fmt(m.total,1)} / ${fmt(m.wr,1)}`,'','info']);
+ rows.push(['Fracțiune de timp cu creionul ridicat (%)',fmt(100*m.pauseFrac,0),'Pauzele lungi reflectă planificare, ezitare sau oboseală; fără prag universal.','info']);
+ rows.push(['Număr de trasee (ridicări de creion)',m.n,'','info']);
+ rows.push(['Lungime traseu (px) / viteză medie (px/s)',`${fmt(m.len,0)} / ${fmt(m.speed,0)}`,'Valorile în pixeli depind de ecran: compară doar între sesiuni pe același dispozitiv.','info']);
+ rows.push(['Fluență: inversiuni de viteză pe traseu (NIV)',fmt(m.niv,1),`≈ ${fmt(m.nivh,1)} la 100 px. Valori mai mari = mișcare mai sacadată (indicator folosit în cercetarea disgrafiei).`,'info']);
+ rows.push(['Înclinarea literelor (° față de verticală, + = spre dreapta)',fmt(m.slant,1),`Dispersie ${fmt(m.slantSD,1)}°. Descriptiv; nu are valoare de interpretare psihologică.`,'info']);
+ rows.push(['Linia de bază (°, + = urcă spre dreapta)',fmt(m.baseline,1),'Medie pe rânduri cu ≥ 6 trasee.','info']);
+ rows.push(['Spațiere între trasee: mediană (px) / variabilitate (CV)',`${fmt(m.gapMed,0)} / ${fmt(m.gapCV,2)}`,'','info']);
+ if(!isNaN(m.press))rows.push(['Presiune (0–1) / variabilitate (CV)',`${fmt(m.press,2)} / ${fmt(m.pressCV,2)}`,'Disponibilă doar cu creion optic sensibil la presiune.','info']);
+ if(m.legib)rows.push(['Lizibilitate autoevaluată',m.legib+'/5','','info']);
+ put('#out-hand','hand','Scris de mână — grafometrie',rows);
+}
+$('#hand-go').onclick=()=>{S.hand=analyzeHand(padHand);if(S.hand&&!S.hand.error)S.hand.legib=$('#legib').value;save();renderHand()};
+$('#hand-clr').onclick=()=>{padHand.clear();S.hand=null;save();renderHand()};
+
+// ---------- spirală ----------
+function analyzeSpiral(P){
+ const ss=P.strokes.filter(s=>s.pts.length>5),m=P.meta;if(!ss.length||!m.a)return{error:'Desenează spirala.'};
+ const T=[];const N=3000;for(let i=0;i<=N;i++){const th=2*Math.PI*m.turns*i/N,r=m.a*th;T.push({x:m.cx+r*Math.cos(th),y:m.cy+r*Math.sin(th),r})}
+ let tl=0;for(let i=1;i<T.length;i++)tl+=dist(T[i],T[i-1]);
+ const g=genMetrics(ss),devs=[];
+ const sd_=s=>s.pts.map(p=>{let b=1e9,br=0;for(const q of T){const d=(p.x-q.x)**2+(p.y-q.y)**2;if(d<b){b=d;br=q.r}}const r=Math.hypot(p.x-m.cx,p.y-m.cy);devs.push(Math.sqrt(b));return r-br});
+ const sgn=ss.map(s=>({s,d:sd_(s)}));
+ const res={n:g.n,total:g.total,wr:g.wr,len:g.len,tlen:tl,ratio:g.len/tl,speed:g.speed,dev:mean(devs),dev95:pct(devs,0.95),R:m.R};
+ const lg=sgn.sort((p,q)=>strokeDur(q.s)-strokeDur(p.s))[0],pts=lg.s.pts;
+ if(strokeDur(lg.s)>=3){
+  const dts=[];for(let i=1;i<pts.length;i++)dts.push(pts[i].t-pts[i-1].t);
+  if(median(dts)>40)res.tremor={low:true};
+  else{
+   const fsr=50,t0=pts[0].t,n=Math.floor(strokeDur(lg.s)*fsr),x=new Float64Array(n);let j=0;
+   for(let i=0;i<n;i++){const t=t0+i*1000/fsr;while(j<pts.length-2&&pts[j+1].t<t)j++;const a=pts[j],b=pts[j+1],f=b.t>a.t?(t-a.t)/(b.t-a.t):0;x[i]=lg.d[j]+(lg.d[j+1]-lg.d[j])*Math.min(1,Math.max(0,f))}
+   const y=new Float64Array(n),hw=25;for(let i=0;i<n;i++){let s=0,c=0;for(let k=Math.max(0,i-hw);k<=Math.min(n-1,i+hw);k++){s+=x[k];c++}y[i]=x[i]-s/c}
+   const amps=[];let best=0,bf=0,sw=0;for(let i=0;i<n;i++)sw+=0.5-0.5*Math.cos(2*Math.PI*i/(n-1));
+   for(let f=2;f<=12.001;f+=0.25){let re=0,im=0;for(let i=0;i<n;i++){const w=0.5-0.5*Math.cos(2*Math.PI*i/(n-1)),ph=2*Math.PI*f*i/fsr;re+=y[i]*w*Math.cos(ph);im-=y[i]*w*Math.sin(ph)}const A=2*Math.hypot(re,im)/sw;amps.push(A);if(A>best){best=A;bf=f}}
+   res.tremor={f:bf,amp:best,clear:best>2.5*median(amps)};
+  }
+ }
+ return res;
+}
+function renderSpiral(){
+ const m=S.spiral,rows=[];
+ if(!m){put('#out-spiral','spiral','Spirala Arhimede',[]);return}
+ if(m.error){put('#out-spiral','spiral','Spirala Arhimede',[['Rezultat',m.error,'','warn']]);return}
+ rows.push(['Durată (s) / trasee',`${fmt(m.total,1)} / ${m.n}`,'','info']);
+ rows.push(['Lungime traseu / lungime șablon',fmt(m.ratio,2),'~1,0 = traseu apropiat de ideal; valori mari = ocolișuri/oscilații.','info']);
+ rows.push(['Deviație medie față de șablon (px / % din rază)',`${fmt(m.dev,1)} / ${fmt(100*m.dev/m.R,1)}`,'','info']);
+ rows.push(['Deviație maximă tipică (percentila 95, px)',fmt(m.dev95,1),'','info']);
+ if(m.tremor&&m.tremor.f){rows.push(['Frecvență dominantă a oscilațiilor (Hz)',m.tremor.clear?fmt(m.tremor.f,2):'fără vârf clar',`Amplitudine ≈ ${fmt(m.tremor.amp,2)} px. Orientativ: tremor fiziologic ~8–12 Hz; parkinsonian de repaus ~4–6 Hz; esențial ~4–12 Hz. Interpretarea aparține medicului.`,'info'])}
+ else if(m.tremor&&m.tremor.low)rows.push(['Analiză de tremor','indisponibilă','Rata de eșantionare a ecranului este prea mică.','info']);
+ else rows.push(['Analiză de tremor','indisponibilă','Desenează spirala dintr-o singură mișcare continuă (≥ 3 s).','info']);
+ put('#out-spiral','spiral','Spirala Arhimede',rows);
+}
+$('#spiral-go').onclick=()=>{S.spiral=analyzeSpiral(padSpiral);save();renderSpiral()};
+$('#spiral-clr').onclick=()=>{padSpiral.clear();S.spiral=null;save();renderSpiral()};
+
+// ---------- ceas / persoană ----------
+function drawRows(m){const r=[];r.push(['Durată (s) / trasee',`${fmt(m.total,1)} / ${m.n}`,'','info']);r.push(['Lungime traseu (px)',fmt(m.len,0),'','info']);r.push(['Spațiu ocupat din pagină (lățime × înălțime, %)',`${fmt(100*m.pw,0)} × ${fmt(100*m.ph,0)}`,'Descriptiv.','info']);return r}
+function analyzeDraw(P){const g=genMetrics(P.strokes);if(!g)return{error:'Desenează mai întâi.'};g.pw=g.w/P.W;g.ph=g.h/P.H;return g}
+function renderClock(){
+ const m=S.clock,rows=[];
+ if(m&&m.error)rows.push(['Rezultat',m.error,'','warn']);else if(m)rows.push(...drawRows(m));
+ const sh=parseInt(S.shulman);
+ if(sh)rows.push(['Scor Shulman',sh+' / 6',sh<=2?'1–2: de regulă în limite normale':'≥ 3: sugerează o evaluare cognitivă formală (screening, nu diagnostic)',sh<=2?'ok':'warn']);
+ put('#out-clock','clock','Testul ceasului',rows);
+}
+$('#clock-go').onclick=()=>{S.clock=analyzeDraw(padClock);save();renderClock()};
+$('#clock-clr').onclick=()=>{padClock.clear();S.clock=null;save();renderClock()};
+$('#shulman').onchange=e=>{S.shulman=e.target.value;save();renderClock()};
+const PCHK=['Cap','Ochi','Nas','Gură','Păr','Urechi','Sprâncene','Gât','Trunchi','Brațe','Mâini','Degete (număr corect)','Picioare','Tălpi / încălțăminte','Haine','Proporții rezonabile'];
+$('#chk-person').innerHTML=PCHK.map((t,i)=>`<label><input type="checkbox" data-c="${i}">${t}</label>`).join('');
+$('#chk-person').addEventListener('change',e=>{const i=e.target.dataset.c;if(i!=null){S.chk[i]=e.target.checked;save();renderPerson()}});
+function renderPerson(){
+ const m=S.person,rows=[];
+ if(m&&m.error)rows.push(['Rezultat',m.error,'','warn']);else if(m)rows.push(...drawRows(m));
+ const n=PCHK.filter((_,i)=>S.chk[i]).length;
+ if(n)rows.push(['Detalii prezente',`${n} / ${PCHK.length}`,'Indicator informal de maturizare grafică la copii; nu este IQ și nu înlocuiește scara standardizată Goodenough–Harris sau DAP, aplicată de psiholog. Nu se interpretează personalitatea din desen.','info']);
+ put('#out-person','person','Desenul figurii umane',rows);
+}
+$('#person-go').onclick=()=>{S.person=analyzeDraw(padPerson);save();renderPerson()};
+$('#person-clr').onclick=()=>{padPerson.clear();S.person=null;save();renderPerson()};
+
+// ---------- imagini ----------
+async function loadGray(file){
+ let bmp;try{bmp=await createImageBitmap(file)}catch(e){bmp=await new Promise((ok,no)=>{const im=new Image();im.onload=()=>ok(im);im.onerror=no;im.src=URL.createObjectURL(file)})}
+ const bw=bmp.width,bh=bmp.height,sc=Math.min(1,900/bw),w=Math.round(bw*sc),h=Math.round(bh*sc),c=document.createElement('canvas');c.width=w;c.height=h;
+ const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(bmp,0,0,w,h);const d=x.getImageData(0,0,w,h).data,g=new Uint8Array(w*h);
+ for(let i=0;i<w*h;i++)g[i]=0.299*d[4*i]+0.587*d[4*i+1]+0.114*d[4*i+2];return{g,w,h};
+}
+function inkPixels(g,w,h){
+ const I=new Float64Array((w+1)*(h+1));for(let y=0;y<h;y++){let r=0;for(let x=0;x<w;x++){r+=g[y*w+x];I[(y+1)*(w+1)+x+1]=I[y*(w+1)+x+1]+r}}
+ const R=15,xs=[],ys=[];
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){const x0=Math.max(0,x-R),x1=Math.min(w,x+R+1),y0=Math.max(0,y-R),y1=Math.min(h,y+R+1),s=I[y1*(w+1)+x1]-I[y0*(w+1)+x1]-I[y1*(w+1)+x0]+I[y0*(w+1)+x0],mn=s/((x1-x0)*(y1-y0)),v=g[y*w+x];if(v<mn*0.85&&v<mn-18){xs.push(x);ys.push(y)}}
+ return{xs,ys};
+}
+function slantAngle(xs,ys,w,h){const step=Math.max(1,Math.floor(xs.length/120000)),yc=h/2,bins=new Float64Array(w+2*h+8);let best=-1,ba=0;for(let a=-45;a<=45;a++){const k=Math.tan(a*Math.PI/180);bins.fill(0);for(let i=0;i<xs.length;i+=step){const xx=Math.round(xs[i]+k*(ys[i]-yc))+h;if(xx>=0&&xx<bins.length)bins[xx]++}let s=0;for(let b=0;b<bins.length;b++)s+=bins[b]*bins[b];if(s>best){best=s;ba=a}}return ba}
+function skewAngle(xs,ys,w,h){const step=Math.max(1,Math.floor(xs.length/120000)),xc=w/2,bins=new Float64Array(h+2*w+8);let best=-1,ba=0;for(let a=-10;a<=10.01;a+=0.25){const m=Math.tan(a*Math.PI/180);bins.fill(0);for(let i=0;i<xs.length;i+=step){const yy=Math.round(ys[i]+m*(xs[i]-xc))+w;if(yy>=0&&yy<bins.length)bins[yy]++}let s=0;for(let b=0;b<bins.length;b++)s+=bins[b]*bins[b];if(s>best){best=s;ba=a}}return ba}
+async function imgAnalyze(file,kind){
+ const out=kind==='hand'?'#out-imghand':'#out-imgdraw',key=kind==='hand'?'imghand':'imgdraw',title=kind==='hand'?'Scris scanat — analiză de imagine':'Desen scanat — descriptori';
+ $(out).innerHTML='<p class="mute">Se analizează…</p>';
+ try{
+  const {g,w,h}=await loadGray(file),{xs,ys}=inkPixels(g,w,h);
+  if(xs.length<100){put(out,key,title,[['Rezultat','Nu s-a detectat cerneală suficientă.','Folosește hârtie albă și lumină uniformă.','warn']]);return}
+  const rows=[],cov=100*xs.length/(w*h),sx=[...xs].sort((a,b)=>a-b),sy=[...ys].sort((a,b)=>a-b),q=(a,p)=>a[Math.floor((a.length-1)*p)];
+  const bx0=q(sx,0.01),bx1=q(sx,0.99),by0=q(sy,0.01),by1=q(sy,0.99);
+  rows.push(['Densitate de cerneală (% din imagine)',fmt(cov,2),'','info']);
+  rows.push(['Spațiu ocupat (lățime × înălțime, %)',`${fmt(100*(bx1-bx0)/w,0)} × ${fmt(100*(by1-by0)/h,0)}`,'','info']);
+  if(kind==='hand'){rows.push(['Înclinare estimată (° față de verticală, + = spre dreapta)',fmt(slantAngle(xs,ys,w,h),0),'Metoda varianței proiecției verticale (shear); precizie ~±3–5°.','info']);rows.push(['Înclinarea liniilor (°, + = urcă spre dreapta)',fmt(skewAngle(xs,ys,w,h),2),'Include și înclinarea hârtiei în fotografie.','info'])}
+  else{const mx=mean(xs)/w,my=mean(ys)/h;let L=0;for(const x of xs)if(x<w/2)L++;rows.push(['Centrul de greutate al cernelii (% din lățime, înălțime)',`${fmt(100*mx,0)} , ${fmt(100*my,0)}`,'Descriptiv; fără valoare psihologică demonstrată.','info']);rows.push(['Echilibru stânga/dreapta (% cerneală în jumătatea stângă)',fmt(100*L/xs.length,0),'','info'])}
+  put(out,key,title,rows);renderReport();
+ }catch(e){$(out).innerHTML='<p class="mute">Imaginea nu a putut fi citită.</p>'}
+}
+$('#up-img-hand').onchange=e=>e.target.files[0]&&imgAnalyze(e.target.files[0],'hand');
+$('#up-img-draw').onchange=e=>e.target.files[0]&&imgAnalyze(e.target.files[0],'draw');
+
+// ---------- TIPI ----------
+const TIPI=[['Extravertit(ă), entuziast(ă)','E',0],['Critic(ă), certăreț(ață)','A',1],['Demn(ă) de încredere, autodisciplinat(ă)','C',0],['Anxios(oasă), ușor de supărat','S',1],['Deschis(ă) la experiențe noi, complex(ă)','O',0],['Rezervat(ă), tăcut(ă)','E',1],['Compasiv(ă), călduros/caldă','A',0],['Dezorganizat(ă), neglijent(ă)','C',1],['Calm(ă), stabil(ă) emoțional','S',0],['Convențional(ă), necreativ(ă)','O',1]];
+$('#tipi').innerHTML=TIPI.map((t,i)=>`<div>${i+1}. ${t[0]}</div><select data-ti="${i}"><option value="">—</option>${[1,2,3,4,5,6,7].map(n=>`<option>${n}</option>`).join('')}</select>`).join('');
+$('#tipi').addEventListener('change',e=>{const i=e.target.dataset.ti;if(i!=null){S.tipi[i]=e.target.value;save();renderTipi()}});
+function renderTipi(){
+ const names={E:'Extraversiune',A:'Agreabilitate',C:'Conștiinciozitate',S:'Stabilitate emoțională',O:'Deschidere la experiență'},ref={E:4.44,A:5.23,C:5.40,S:4.83,O:5.38},sc={};
+ TIPI.forEach((t,i)=>{const v=parseInt(S.tipi[i]);if(v){const x=t[2]?8-v:v;(sc[t[1]]=sc[t[1]]||[]).push(x)}});
+ const rows=[];for(const k of ['E','A','C','S','O']){if(sc[k]&&sc[k].length===2){const v=mean(sc[k]),d=v-ref[k];rows.push([names[k],fmt(v,1)+' / 7',`Media eșantionului original ≈ ${fmt(ref[k],1)} (studenți americani; orientativ). ${Math.abs(d)<0.8?'Apropiat de medie.':d>0?'Peste medie.':'Sub medie.'}`,'info'])}}
+ $('#out-tipi').innerHTML=rows.length?table(rows)+'<div class="bars">'+['E','A','C','S','O'].filter(k=>sc[k]&&sc[k].length===2).map(k=>`<div class="b"><span>${names[k]}</span><div class="meter"><i style="width:${(mean(sc[k])-1)/6*100}%"></i></div></div>`).join('')+'</div><p class="mute">Cu doar 2 itemi pe dimensiune, fiabilitatea este modestă; e un instrument de screening rapid, nu o evaluare psihologică.</p>':'';
+ R.tipi={title:'Personalitate (TIPI, Big Five)',rows};
+}
+
+// ---------- reacție & tapping ----------
+const rt={trials:[],early:0,state:'idle',t0:0,tm:null},rtb=$('#rtbox');
+function rtSet(txt,col){rtb.textContent=txt;rtb.style.background=col||'#546274'}
+rtb.addEventListener('pointerdown',e=>{
+ e.preventDefault();
+ if(rt.state==='wait'){clearTimeout(rt.tm);rt.early++;rt.state='idle';rtSet('Prea devreme! Atinge pentru a relua','#b7791f');return}
+ if(rt.state==='go'){const v=performance.now()-rt.t0;rt.trials.push(v);rt.state='idle';
+  if(rt.trials.length>=5){S.rt={n:5,med:median(rt.trials),mean:mean(rt.trials),sd:sd(rt.trials),early:rt.early};save();renderRT();rtSet(`Gata. Mediană ${Math.round(S.rt.med)} ms. Atinge pentru a relua`);rt.trials=[];rt.early=0;return}
+  rtSet(`${Math.round(v)} ms — atinge pentru următoarea (${rt.trials.length}/5)`);return}
+ rt.state='wait';rtSet('Așteaptă verdele…','#c0392b');
+ rt.tm=setTimeout(()=>{rt.state='go';rt.t0=performance.now();rtSet('ACUM!','#1e8a4c')},1500+Math.random()*2500);
+});
+function renderRT(){const m=S.rt,rows=[];if(m){rows.push(['Timp de reacție simplu: mediană (ms)',fmt(m.med,0),`Medie ${fmt(m.mean,0)} ms, SD ${fmt(m.sd,0)} ms; ${m.early} start(uri) prea devreme. Valorile includ latența dispozitivului.`,'info'])}put('#out-rt','rt','Timp de reacție',rows)}
+const tp={n:0,t0:0,ts:[],on:false,iv:null},tpb=$('#tapbox');
+tpb.addEventListener('pointerdown',e=>{
+ e.preventDefault();const now=performance.now();
+ if(!tp.on){tp.on=true;tp.n=0;tp.ts=[];tp.t0=now;tpb.style.background='#1f5fbf';tp.iv=setInterval(()=>{const el=(performance.now()-tp.t0)/1000;if(el>=10){clearInterval(tp.iv);tp.on=false;const d=[];for(let i=1;i<tp.ts.length;i++)d.push(tp.ts[i]-tp.ts[i-1]);S.tap={n:tp.n,cv:sd(d)/mean(d)};save();renderTap();tpb.style.background='#546274';tpb.textContent=`Gata: ${tp.n} atingeri. Atinge pentru a relua`}else tpb.textContent=`${tp.n} atingeri · ${fmt(10-el,1)} s`},100)}
+ tp.n++;tp.ts.push(now);
+});
+function renderTap(){const m=S.tap,rows=[];if(m)rows.push(['Atingeri în 10 s',m.n,`Variabilitatea ritmului (CV) ${fmt(m.cv,2)}. Valori mai mici = ritm mai regulat. Fără praguri universale (depind de dispozitiv).`,'info']);put('#out-tap','tap','Tapping',rows)}
+
+// ---------- raport ----------
+const ORDER=['body','age','pheno','func','vowel','read','hand','spiral','imghand','clock','person','imgdraw','tipi','rt','tap'];
+function renderReport(){
+ const a=age(),sx=S.p.sex==='M'?'masculin':S.p.sex==='F'?'feminin':'—';
+ let h=`<p><b>${S.p.name?esc(S.p.name):'Persoană evaluată'}</b> · sex: ${sx} · vârstă: ${fmt(a,1)} ani · data: ${new Date().toLocaleDateString('ro-RO')}</p>`;
+ let any=false;
+ for(const k of ORDER){const s=R[k];if(s&&s.rows&&s.rows.length){any=true;h+=`<h3>${s.title}</h3>`+table(s.rows)}}
+ if(!any)h+='<p class="mute">Nu există încă rezultate. Completează „Date” și rulează modulele dorite.</p>';
+ h+='<p class="mute">Raport generat local de ANTROPOS. Instrument de screening/educațional; nu constituie diagnostic. Nu se fac inferențe de personalitate din scris, desen sau palmă, deoarece nu au validitate demonstrată.</p>';
+ $('#out-report').innerHTML=h;
+}
+$('#rep-print').onclick=()=>{renderReport();print()};
+$('#rep-export').onclick=()=>{const b=new Blob([JSON.stringify(S,null,1)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='antropos-'+new Date().toISOString().slice(0,10)+'.json';a.click()};
+$('#rep-import').onchange=async e=>{try{const d=JSON.parse(await e.target.files[0].text());Object.keys(S).forEach(k=>delete S[k]);Object.assign(S,d);save();location.reload()}catch(_){FFF.dialog.alert('Fișier invalid.')}};
+$('#rep-reset').onclick=async()=>{if(await FFF.dialog.confirm('Ștergi toate datele salvate local?',{danger:true})){try{localStorage.removeItem('antropos_v1')}catch(e){}location.reload()}};
+
+function renderAll(){renderBody();renderBio();renderVoice('vowel');renderVoice('read');renderHand();renderSpiral();renderClock();renderPerson();renderTipi();renderRT();renderTap();}
+load();fillForm();
+(S.tipi||[]).forEach((v,i)=>{const el=document.querySelector(`[data-ti="${i}"]`);if(el&&v)el.value=v});
+(S.chk||[]).forEach((v,i)=>{const el=document.querySelector(`[data-c="${i}"]`);if(el)el.checked=!!v});
+if(S.shulman)$('#shulman').value=S.shulman;
+renderAll();showTab('date');
+</script>
+<p style="text-align:center;font-size:12px;color:var(--mute);margin:6px 0 18px"><span id="app-version">v1.0.0</span></p>
+</body>
+</html>
