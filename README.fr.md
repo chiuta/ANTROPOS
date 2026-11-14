@@ -12,6 +12,10 @@ _Version: 1.0.0 · Dernière mise à jour: 2026-11-14_
 |---|---|---|
 | ![](docs/telefon-acasa.png) | ![](docs/telefon-voce.png) | ![](docs/telefon-raport.png) |
 
+## Captures d’écran
+
+<img src="docs/screens/ro.png" alt="RO" width="110"> <img src="docs/screens/en.png" alt="EN" width="110"> <img src="docs/screens/fr.png" alt="FR" width="110"> <img src="docs/screens/de.png" alt="DE" width="110"> <img src="docs/screens/es.png" alt="ES" width="110"> <img src="docs/screens/it.png" alt="IT" width="110"> <img src="docs/screens/hu.png" alt="HU" width="110"> <img src="docs/screens/pt.png" alt="PT" width="110">
+
 ## Fonctions
 
 - Âge biologique PhenoAge, avec garde-fou pour des valeurs de laboratoire invraisemblables.
@@ -26,7 +30,7 @@ Ouvrez la page en ligne, ou téléchargez `index.html` et ouvrez-le dans un navi
 
 - Outil éducatif de dépistage, pas un diagnostic ; ne l’utilisez pas pour des décisions médicales, professionnelles ou juridiques.
 - À utiliser sur soi-même ou avec le consentement éclairé de la personne testée.
-- Interface en roumain uniquement pour l’instant.
+- Interface en 8 langues (RO, EN, FR, DE, ES, IT, HU, PT), au choix dans le sélecteur de l’application ; traductions assistées par machine, non relues par des locuteurs natifs.
 
 ## Confidentialité
 

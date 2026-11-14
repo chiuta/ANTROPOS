@@ -12,6 +12,10 @@ _Versión: 1.0.0 · Última actualización: 2026-11-14_
 |---|---|---|
 | ![](docs/telefon-acasa.png) | ![](docs/telefon-voce.png) | ![](docs/telefon-raport.png) |
 
+## Capturas de pantalla
+
+<img src="docs/screens/ro.png" alt="RO" width="110"> <img src="docs/screens/en.png" alt="EN" width="110"> <img src="docs/screens/fr.png" alt="FR" width="110"> <img src="docs/screens/de.png" alt="DE" width="110"> <img src="docs/screens/es.png" alt="ES" width="110"> <img src="docs/screens/it.png" alt="IT" width="110"> <img src="docs/screens/hu.png" alt="HU" width="110"> <img src="docs/screens/pt.png" alt="PT" width="110">
+
 ## Funciones
 
 - Edad biológica PhenoAge, con control de plausibilidad para valores de laboratorio inverosímiles.
@@ -26,7 +30,7 @@ Abre la página en línea, o descarga `index.html` y ábrelo en un navegador rec
 
 - Herramienta educativa de cribado, no un diagnóstico; no la uses para decisiones médicas, laborales o legales.
 - Úsala contigo mismo o con el consentimiento informado de la persona evaluada.
-- Interfaz solo en rumano por ahora.
+- Interfaz en 8 idiomas (RO, EN, FR, DE, ES, IT, HU, PT), elegible en el selector de la aplicación; traducciones asistidas por máquina, no revisadas por hablantes nativos.
 
 ## Privacidad
 

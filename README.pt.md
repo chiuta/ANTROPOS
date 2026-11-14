@@ -12,6 +12,10 @@ _Versão: 1.0.0 · Última atualização: 2026-11-14_
 |---|---|---|
 | ![](docs/telefon-acasa.png) | ![](docs/telefon-voce.png) | ![](docs/telefon-raport.png) |
 
+## Capturas de ecrã
+
+<img src="docs/screens/ro.png" alt="RO" width="110"> <img src="docs/screens/en.png" alt="EN" width="110"> <img src="docs/screens/fr.png" alt="FR" width="110"> <img src="docs/screens/de.png" alt="DE" width="110"> <img src="docs/screens/es.png" alt="ES" width="110"> <img src="docs/screens/it.png" alt="IT" width="110"> <img src="docs/screens/hu.png" alt="HU" width="110"> <img src="docs/screens/pt.png" alt="PT" width="110">
+
 ## Funcionalidades
 
 - Idade biológica PhenoAge, com proteção contra valores laboratoriais implausíveis.
@@ -26,7 +30,7 @@ Abre a página online, ou descarrega `index.html` e abre-o num navegador recente
 
 - Ferramenta educativa de rastreio, não é diagnóstico; não a uses para decisões médicas, profissionais ou jurídicas.
 - Usa em ti próprio ou com o consentimento informado da pessoa avaliada.
-- Interface apenas em romeno por enquanto.
+- Interface em 8 idiomas (RO, EN, FR, DE, ES, IT, HU, PT), à escolha no seletor da aplicação; traduções assistidas por máquina, não revisadas por falantes nativos.
 
 ## Privacidade
 

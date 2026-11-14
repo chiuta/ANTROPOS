@@ -4,7 +4,7 @@ const require = createRequire(process.env.PW_ROOT || import.meta.url); const {ch
 const FILE = "file://" + path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "index.html");
 let ok = 0, bad = 0; const check = (n, c, x) => { if (c) { ok++; console.log("  ok   " + n); } else { bad++; console.log("  FAIL " + n + (x !== undefined ? " -> " + JSON.stringify(x) : "")); } };
 const b = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"]});
-const errs = [], net = []; const ctx = await b.newContext({serviceWorkers: "block"}); await ctx.route(/^https?:/, r => { net.push(r.request().url()); r.abort(); });
+const errs = [], net = []; const ctx = await b.newContext({serviceWorkers: "block"}); await ctx.route(/^https?:/, r => { net.push(r.request().url()); r.abort(); }); await ctx.addInitScript(()=>{try{if(!localStorage.getItem("antropos.lang"))localStorage.setItem("antropos.lang",JSON.stringify("ro"))}catch(e){}});
 const p = await ctx.newPage(); p.on("pageerror", e => errs.push(e.message)); p.on("dialog", d => d.dismiss()); await p.goto(FILE); await p.waitForTimeout(600);
 const tabs = await p.evaluate(() => [...document.querySelectorAll("#nav button")].map(x => x.dataset.t || x.textContent));
 check("există cel puțin 8 file", tabs.length >= 8, tabs);

@@ -9,7 +9,7 @@ const require = createRequire(process.env.PW_ROOT || import.meta.url);
 const {chromium} = require("playwright");
 const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const FILE = "file://" + path.join(DIR, "index.html");
-const SLUG = "antropos", MIN_LANGS = 1;
+const SLUG = "antropos", MIN_LANGS = 8;
 let ok = 0, bad = 0;
 const check = (n, c, x) => { if (c) { ok++; console.log("  ok   " + n); } else { bad++; console.log("  FAIL " + n + (x !== undefined ? "  -> " + JSON.stringify(x) : "")); } };
 const html = fs.readFileSync(path.join(DIR, "index.html"), "utf8");
@@ -21,7 +21,7 @@ check("CSP prezent, fără 'unsafe-eval'", /Content-Security-Policy/.test(html) 
 const b = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"]});
 const net = [], errs = [];
 async function open(w = 1100) {
-  const ctx = await b.newContext({viewport: {width: w, height: 800}, serviceWorkers: "block"});
+  const ctx = await b.newContext({viewport: {width: w, height: 800}, serviceWorkers: "block"}); await ctx.addInitScript(()=>{try{if(!localStorage.getItem("antropos.lang"))localStorage.setItem("antropos.lang",JSON.stringify("ro"))}catch(e){}});
   await ctx.route(/^https?:/, (r) => { net.push(r.request().url()); r.abort(); });
   const p = await ctx.newPage();
   p.on("pageerror", (e) => errs.push(e.message));
@@ -53,7 +53,7 @@ async function open(w = 1100) {
   await ctx.close();
 }
 { // stocare ostilă: JSON invalid / tipuri greșite în toate cheile aplicației
-  const ctx = await b.newContext({serviceWorkers: "block"});
+  const ctx = await b.newContext({serviceWorkers: "block"}); await ctx.addInitScript(()=>{try{if(!localStorage.getItem("antropos.lang"))localStorage.setItem("antropos.lang",JSON.stringify("ro"))}catch(e){}});
   await ctx.route(/^https?:/, (r) => { net.push(r.request().url()); r.abort(); });
   const p = await ctx.newPage(); p.on("pageerror", (e) => errs.push("ostil: " + e.message));
   await p.addInitScript((slug) => { try { for (const k of [slug + ".state", slug + ".v", slug + ".s", slug + ".data", slug + ".proj", slug + ".lang", "lang", slug]) localStorage.setItem(k, "{\"__proto__\":{\"x\":1},\"a\":[1,{\"b\":null}]"); localStorage.setItem(slug + ".x", "\u0000\ud800"); } catch (e) {} }, SLUG);

@@ -12,6 +12,10 @@ _Version: 1.0.0 · Letzte Aktualisierung: 2026-11-14_
 |---|---|---|
 | ![](docs/telefon-acasa.png) | ![](docs/telefon-voce.png) | ![](docs/telefon-raport.png) |
 
+## Screenshots
+
+<img src="docs/screens/ro.png" alt="RO" width="110"> <img src="docs/screens/en.png" alt="EN" width="110"> <img src="docs/screens/fr.png" alt="FR" width="110"> <img src="docs/screens/de.png" alt="DE" width="110"> <img src="docs/screens/es.png" alt="ES" width="110"> <img src="docs/screens/it.png" alt="IT" width="110"> <img src="docs/screens/hu.png" alt="HU" width="110"> <img src="docs/screens/pt.png" alt="PT" width="110">
+
 ## Funktionen
 
 - Biologisches Alter nach PhenoAge, mit Plausibilitätsprüfung für unwahrscheinliche Laborwerte.
@@ -26,7 +30,7 @@ Seite online öffnen oder `index.html` herunterladen und in einem aktuellen Brow
 
 - Bildungs- und Screening-Werkzeug, keine Diagnose; nicht für medizinische, berufliche oder rechtliche Entscheidungen verwenden.
 - Nur an dir selbst oder mit informierter Einwilligung der getesteten Person anwenden.
-- Oberfläche vorerst nur auf Rumänisch.
+- Oberfläche in 8 Sprachen (RO, EN, FR, DE, ES, IT, HU, PT), im Auswahlfeld der App wählbar; Übersetzungen maschinell unterstützt und nicht von Muttersprachlern geprüft.
 
 ## Datenschutz
 
