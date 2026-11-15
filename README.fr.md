@@ -6,7 +6,7 @@ Profil scientifique indicatif d’une personne, calculé localement : âge biolo
 
 **[Ouvrir l’application →](https://antropos.chiuta.ro/)**
 
-_Version: 1.0.0 · Dernière mise à jour: 2026-11-14_
+_Version: 1.2.0 · Dernière mise à jour: 2026-11-15_
 
 | 1 | 2 | 3 |
 |---|---|---|
