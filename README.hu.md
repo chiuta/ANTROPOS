@@ -6,7 +6,7 @@ Egy személy tájékoztató jellegű tudományos profilja, helyben számolva: bi
 
 **[Alkalmazás megnyitása →](https://antropos.chiuta.ro/)**
 
-_Verzió: 1.2.0 · Utolsó frissítés: 2026-11-15_
+_Verzió: 1.2.1 · Utolsó frissítés: 2026-11-15_
 
 | 1 | 2 | 3 |
 |---|---|---|

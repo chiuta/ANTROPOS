@@ -2,7 +2,7 @@
   "schema": 1,
   "slug": "antropos",
   "name": "ANTROPOS — profil științific al persoanei",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "updated": "2026-11-15",
   "description": "ANTROPOS — profil științific orientativ: vârstă biologică PhenoAge, voce, scris, ceas, TIPI, reacție. Local, offline, fără urmărire; nu este diagnostic.",
   "egress": [],
@@ -15,8 +15,8 @@
     "antropos.lang",
     "antropos_v1"
   ],
-  "sizeBytes": 433247,
-  "sha256": "a0b56bd62b49c6b6fbbb5b99f7cb49c09caef78eca065a15a31e34276feb93e3",
+  "sizeBytes": 476745,
+  "sha256": "96df17d0ed51dfce4b3273874b38caf57ec8e1de34e2d7a5e8835f42cdb7c6c3",
   "csp": {
     "present": true,
     "directives": {
@@ -53,18 +53,22 @@
       "core",
       "store",
       "dialog",
+      "view",
       "a11y",
+      "share",
       "ux",
       "label"
     ]
   },
   "kit": {
-    "version": "1.6.0",
+    "version": "1.7.0",
     "modules": [
       "core",
       "store",
       "dialog",
+      "view",
       "a11y",
+      "share",
       "ux",
       "label"
     ]

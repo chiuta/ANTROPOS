@@ -6,7 +6,7 @@ Perfil científico orientativo de una persona, calculado en local: edad biológi
 
 **[Abrir la aplicación →](https://antropos.chiuta.ro/)**
 
-_Versión: 1.2.0 · Última actualización: 2026-11-15_
+_Versión: 1.2.1 · Última actualización: 2026-11-15_
 
 | 1 | 2 | 3 |
 |---|---|---|
