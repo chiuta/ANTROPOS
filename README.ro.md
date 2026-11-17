@@ -6,7 +6,7 @@ Profil științific orientativ al unei persoane, calculat local: vârstă biolog
 
 **[Deschide aplicația →](https://antropos.chiuta.ro/)**
 
-_Versiune: 1.2.1 · Ultima actualizare: 2026-11-15_
+_Versiune: 1.2.2 · Ultima actualizare: 2026-11-17_
 
 | 1 | 2 | 3 |
 |---|---|---|
