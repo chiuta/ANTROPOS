@@ -6,7 +6,7 @@ Orientierendes wissenschaftliches Profil einer Person, lokal berechnet: biologis
 
 **[App öffnen →](https://antropos.chiuta.ro/)**
 
-_Version: 1.2.2 · Letzte Aktualisierung: 2026-11-17_
+_Version: 1.2.3 · Letzte Aktualisierung: 2026-11-20_
 
 | 1 | 2 | 3 |
 |---|---|---|

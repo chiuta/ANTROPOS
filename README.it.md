@@ -6,7 +6,7 @@ Profilo scientifico orientativo di una persona, calcolato in locale: età biolog
 
 **[Apri l’app →](https://antropos.chiuta.ro/)**
 
-_Versione: 1.2.2 · Ultimo aggiornamento: 2026-11-17_
+_Versione: 1.2.3 · Ultimo aggiornamento: 2026-11-20_
 
 | 1 | 2 | 3 |
 |---|---|---|
