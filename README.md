@@ -6,7 +6,7 @@ Orientative scientific profile of a person, computed locally: biological age (Ph
 
 **[Open the app →](https://antropos.chiuta.ro/)**
 
-_Version: 1.2.3 · Last updated: 2026-11-20_
+_Version: 1.2.3 · Last updated: 2026-11-22_
 
 | 1 | 2 | 3 |
 |---|---|---|

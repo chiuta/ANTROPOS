@@ -3,7 +3,7 @@
   "slug": "antropos",
   "name": "ANTROPOS — profil științific al persoanei",
   "version": "1.2.3",
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "description": "ANTROPOS — profil științific orientativ: vârstă biologică PhenoAge, voce, scris, ceas, TIPI, reacție. Local, offline, fără urmărire; nu este diagnostic.",
   "egress": [],
   "permissions": [
@@ -15,8 +15,8 @@
     "antropos.lang",
     "antropos_v1"
   ],
-  "sizeBytes": 541856,
-  "sha256": "1342ea8dc3c4052366c621fe719841d04e5423a9b801b0a5e4f4c216f0dbeac9",
+  "sizeBytes": 541916,
+  "sha256": "b0db2d22ef3f4b6bfe839f81641018e4cfe96a0ae2f3ea8aaa9492a5ebaafcfd",
   "csp": {
     "present": true,
     "directives": {
@@ -27,7 +27,8 @@
       "media-src": "blob: data:",
       "connect-src": "'none'",
       "base-uri": "'none'",
-      "form-action": "'none'"
+      "form-action": "'none'",
+      "upgrade-insecure-requests": "''"
     },
     "scriptInline": "hash",
     "connect": "'none'"
